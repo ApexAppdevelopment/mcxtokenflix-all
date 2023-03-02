@@ -1,4 +1,4 @@
-# McxtTokenApp
+# McxtToken
 
 A new Flutter project.
 

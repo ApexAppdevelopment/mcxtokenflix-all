@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'noteammates_model.dart';
@@ -45,8 +45,8 @@ class _NoteammatesWidgetState extends State<NoteammatesWidget> {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        FaIcon(
-          FontAwesomeIcons.sketch,
+        Icon(
+          Icons.group_add,
           color: FlutterFlowTheme.of(context).secondaryText,
           size: 60.0,
         ),
@@ -59,12 +59,42 @@ class _NoteammatesWidgetState extends State<NoteammatesWidget> {
               Text(
                 'Seems you don’t have any\nteammates yet!  Share your\nRefferral Code now!',
                 textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).title3.override(
-                      fontFamily: FlutterFlowTheme.of(context).title3Family,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).title3Family),
-                    ),
+                style: FlutterFlowTheme.of(context).bodyText1,
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FFButtonWidget(
+                onPressed: () async {
+                  context.pushNamed('RefferralLink');
+                },
+                text: 'Share Link',
+                options: FFButtonOptions(
+                  width: 130.0,
+                  height: 40.0,
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  iconPadding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: FlutterFlowTheme.of(context).primaryColor,
+                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                        fontFamily:
+                            FlutterFlowTheme.of(context).subtitle2Family,
+                        color: Colors.white,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).subtitle2Family),
+                      ),
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1.0,
+                  ),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
               ),
             ],
           ),

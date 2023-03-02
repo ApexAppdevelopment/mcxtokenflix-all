@@ -1,23 +1,23 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:rxdart/rxdart.dart';
 
-class McxtTokenAppFirebaseUser {
-  McxtTokenAppFirebaseUser(this.user);
+class McxtTokenFirebaseUser {
+  McxtTokenFirebaseUser(this.user);
   User? user;
   bool get loggedIn => user != null;
 }
 
-McxtTokenAppFirebaseUser? currentUser;
+McxtTokenFirebaseUser? currentUser;
 bool get loggedIn => currentUser?.loggedIn ?? false;
-Stream<McxtTokenAppFirebaseUser> mcxtTokenAppFirebaseUserStream() =>
+Stream<McxtTokenFirebaseUser> mcxtTokenFirebaseUserStream() =>
     FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
-        .map<McxtTokenAppFirebaseUser>(
+        .map<McxtTokenFirebaseUser>(
       (user) {
-        currentUser = McxtTokenAppFirebaseUser(user);
+        currentUser = McxtTokenFirebaseUser(user);
         return currentUser!;
       },
     );

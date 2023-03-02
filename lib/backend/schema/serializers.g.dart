@@ -7,7 +7,7 @@ part of 'serializers.dart';
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
-      ..add(McxtpackagesRecord.serializer)
+      ..add(GoodmoviesRecord.serializer)
       ..add(MovieBaseRecord.serializer)
       ..add(PackagesRecord.serializer)
       ..add(TransactionsRecord.serializer)

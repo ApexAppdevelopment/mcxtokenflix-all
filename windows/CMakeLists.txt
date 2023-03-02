@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
-project(mcxt_token_app LANGUAGES CXX)
+project(mcxt_token LANGUAGES CXX)
 
-set(BINARY_NAME "mcxt_token_app")
+set(BINARY_NAME "mcxt_token")
 
 cmake_policy(SET CMP0063 NEW)
 

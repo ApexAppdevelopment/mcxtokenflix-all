@@ -1,4 +1,4 @@
-import '/backend/supabase/supabase.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -8,23 +8,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'details_model.dart';
-export 'details_model.dart';
+import 'detailsmoviebase_model.dart';
+export 'detailsmoviebase_model.dart';
 
-class DetailsWidget extends StatefulWidget {
-  const DetailsWidget({
+class DetailsmoviebaseWidget extends StatefulWidget {
+  const DetailsmoviebaseWidget({
     Key? key,
-    this.moviepopular,
+    this.base,
   }) : super(key: key);
 
-  final PopularRow? moviepopular;
+  final MovieBaseRecord? base;
 
   @override
-  _DetailsWidgetState createState() => _DetailsWidgetState();
+  _DetailsmoviebaseWidgetState createState() => _DetailsmoviebaseWidgetState();
 }
 
-class _DetailsWidgetState extends State<DetailsWidget> {
-  late DetailsModel _model;
+class _DetailsmoviebaseWidgetState extends State<DetailsmoviebaseWidget> {
+  late DetailsmoviebaseModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -35,7 +35,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DetailsModel());
+    _model = createModel(context, () => DetailsmoviebaseModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -95,17 +95,14 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: CachedNetworkImageProvider(
-                              valueOrDefault<String>(
-                                'https://www.themoviedb.org/t/p/original${widget.moviepopular?.resultsBackdropPath}',
-                                'https://www.themoviedb.org/t/p/original/fTLMsF3IVLMcpNqIqJRweGvVwtX.jpg',
-                              ),
+                              'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/d9nBoowhjiiYc4FBNtQkPY7c11H.jpg',
                             ),
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Column(
                               mainAxisSize: MainAxisSize.max,
@@ -113,79 +110,51 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 100.0),
+                                      8.0, 0.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 8.0, 0.0, 0.0),
-                                        child: AutoSizeText(
-                                          valueOrDefault<String>(
-                                            widget.moviepopular?.title,
-                                            'huibu',
-                                          ).maybeHandleOverflow(maxChars: 20),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1Family,
-                                                fontSize: 22.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
+                                            0.0, 0.0, 0.0, 8.0),
+                                        child: Container(
+                                          width: 335.4,
+                                          height: 50.9,
+                                          decoration: BoxDecoration(
+                                            color: Color(0x9703131B),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 8.0, 8.0, 8.0),
+                                            child: AutoSizeText(
+                                              widget.base!.title!
+                                                  .maybeHandleOverflow(
+                                                      maxChars: 800),
+                                              maxLines: 3,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyText1
+                                                  .override(
+                                                    fontFamily:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .bodyText1Family),
-                                              ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.0, 0.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Container(
-                                        width: 335.4,
-                                        height: 82.0,
-                                        decoration: BoxDecoration(
-                                          color: Color(0x9703131B),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 8.0, 8.0, 8.0),
-                                          child: AutoSizeText(
-                                            valueOrDefault<String>(
-                                              widget.moviepopular?.description,
-                                              'ugubu',
-                                            ).maybeHandleOverflow(
-                                                maxChars: 800),
-                                            maxLines: 3,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyText1Family,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1Family),
-                                                ),
+                                                            .bodyText1Family,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    fontSize: 16.0,
+                                                    fontWeight: FontWeight.w500,
+                                                    useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                        .containsKey(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyText1Family),
+                                                  ),
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -202,7 +171,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 25.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -250,10 +219,26 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 18.0, 0.0),
-                      child: Icon(
-                        Icons.play_circle_fill,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 50.0,
+                      child: InkWell(
+                        onTap: () async {
+                          context.pushNamed(
+                            'Trailer',
+                            queryParams: {
+                              'baseTrailer': serializeParam(
+                                widget.base,
+                                ParamType.Document,
+                              ),
+                            }.withoutNulls,
+                            extra: <String, dynamic>{
+                              'baseTrailer': widget.base,
+                            },
+                          );
+                        },
+                        child: Icon(
+                          Icons.play_circle_fill,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          size: 50.0,
+                        ),
                       ),
                     ),
                   ],

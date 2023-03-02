@@ -37,6 +37,12 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
   String? get city;
 
+  String? get qrcode;
+
+  String? get reflink;
+
+  DocumentReference? get allrefferrals;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -51,7 +57,9 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..sponsorID = ''
     ..walletBalance = 0
     ..mcxtaddress = ''
-    ..city = '';
+    ..city = ''
+    ..qrcode = ''
+    ..reflink = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Users');
@@ -86,6 +94,9 @@ Map<String, dynamic> createUsersRecordData({
   int? walletBalance,
   String? mcxtaddress,
   String? city,
+  String? qrcode,
+  String? reflink,
+  DocumentReference? allrefferrals,
 }) {
   final firestoreData = serializers.toFirestore(
     UsersRecord.serializer,
@@ -101,7 +112,10 @@ Map<String, dynamic> createUsersRecordData({
         ..sponsorID = sponsorID
         ..walletBalance = walletBalance
         ..mcxtaddress = mcxtaddress
-        ..city = city,
+        ..city = city
+        ..qrcode = qrcode
+        ..reflink = reflink
+        ..allrefferrals = allrefferrals,
     ),
   );
 

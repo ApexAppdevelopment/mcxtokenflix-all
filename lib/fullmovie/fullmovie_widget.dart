@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -10,7 +11,14 @@ import 'fullmovie_model.dart';
 export 'fullmovie_model.dart';
 
 class FullmovieWidget extends StatefulWidget {
-  const FullmovieWidget({Key? key}) : super(key: key);
+  const FullmovieWidget({
+    Key? key,
+    this.watchmovie,
+    this.watchgood,
+  }) : super(key: key);
+
+  final MovieBaseRecord? watchmovie;
+  final GoodmoviesRecord? watchgood;
 
   @override
   _FullmovieWidgetState createState() => _FullmovieWidgetState();
@@ -61,13 +69,14 @@ class _FullmovieWidgetState extends State<FullmovieWidget> {
           },
         ),
         title: Text(
-          'Page Title',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: FlutterFlowTheme.of(context).title2Family,
-                color: Colors.white,
-                fontSize: 22.0,
+          widget.watchmovie!.title!,
+          textAlign: TextAlign.start,
+          maxLines: 1,
+          style: FlutterFlowTheme.of(context).subtitle1.override(
+                fontFamily: FlutterFlowTheme.of(context).subtitle1Family,
+                fontSize: 18.0,
                 useGoogleFonts: GoogleFonts.asMap()
-                    .containsKey(FlutterFlowTheme.of(context).title2Family),
+                    .containsKey(FlutterFlowTheme.of(context).subtitle1Family),
               ),
         ),
         actions: [],
@@ -81,8 +90,7 @@ class _FullmovieWidgetState extends State<FullmovieWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               FlutterFlowVideoPlayer(
-                path:
-                    'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
+                path: widget.watchmovie!.fullmovie!,
                 videoType: VideoType.network,
                 autoPlay: true,
                 looping: true,

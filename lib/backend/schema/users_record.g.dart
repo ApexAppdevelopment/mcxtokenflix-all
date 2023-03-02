@@ -95,6 +95,28 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.qrcode;
+    if (value != null) {
+      result
+        ..add('qrcode')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.reflink;
+    if (value != null) {
+      result
+        ..add('reflink')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.allrefferrals;
+    if (value != null) {
+      result
+        ..add('allrefferrals')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                DocumentReference, const [const FullType.nullable(Object)])));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -161,6 +183,20 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.city = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'qrcode':
+          result.qrcode = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'reflink':
+          result.reflink = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'allrefferrals':
+          result.allrefferrals = serializers.deserialize(value,
+              specifiedType: const FullType(DocumentReference, const [
+                const FullType.nullable(Object)
+              ])) as DocumentReference<Object?>?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -198,6 +234,12 @@ class _$UsersRecord extends UsersRecord {
   @override
   final String? city;
   @override
+  final String? qrcode;
+  @override
+  final String? reflink;
+  @override
+  final DocumentReference<Object?>? allrefferrals;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -215,6 +257,9 @@ class _$UsersRecord extends UsersRecord {
       this.walletBalance,
       this.mcxtaddress,
       this.city,
+      this.qrcode,
+      this.reflink,
+      this.allrefferrals,
       this.ffRef})
       : super._();
 
@@ -240,6 +285,9 @@ class _$UsersRecord extends UsersRecord {
         walletBalance == other.walletBalance &&
         mcxtaddress == other.mcxtaddress &&
         city == other.city &&
+        qrcode == other.qrcode &&
+        reflink == other.reflink &&
+        allrefferrals == other.allrefferrals &&
         ffRef == other.ffRef;
   }
 
@@ -255,17 +303,26 @@ class _$UsersRecord extends UsersRecord {
                                 $jc(
                                     $jc(
                                         $jc(
-                                            $jc($jc(0, email.hashCode),
-                                                displayName.hashCode),
-                                            photoUrl.hashCode),
-                                        uid.hashCode),
-                                    createdTime.hashCode),
-                                phoneNumber.hashCode),
-                            refferralID.hashCode),
-                        sponsorID.hashCode),
-                    walletBalance.hashCode),
-                mcxtaddress.hashCode),
-            city.hashCode),
+                                            $jc(
+                                                $jc(
+                                                    $jc(
+                                                        $jc(
+                                                            $jc(0,
+                                                                email.hashCode),
+                                                            displayName
+                                                                .hashCode),
+                                                        photoUrl.hashCode),
+                                                    uid.hashCode),
+                                                createdTime.hashCode),
+                                            phoneNumber.hashCode),
+                                        refferralID.hashCode),
+                                    sponsorID.hashCode),
+                                walletBalance.hashCode),
+                            mcxtaddress.hashCode),
+                        city.hashCode),
+                    qrcode.hashCode),
+                reflink.hashCode),
+            allrefferrals.hashCode),
         ffRef.hashCode));
   }
 
@@ -283,6 +340,9 @@ class _$UsersRecord extends UsersRecord {
           ..add('walletBalance', walletBalance)
           ..add('mcxtaddress', mcxtaddress)
           ..add('city', city)
+          ..add('qrcode', qrcode)
+          ..add('reflink', reflink)
+          ..add('allrefferrals', allrefferrals)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -336,6 +396,19 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   String? get city => _$this._city;
   set city(String? city) => _$this._city = city;
 
+  String? _qrcode;
+  String? get qrcode => _$this._qrcode;
+  set qrcode(String? qrcode) => _$this._qrcode = qrcode;
+
+  String? _reflink;
+  String? get reflink => _$this._reflink;
+  set reflink(String? reflink) => _$this._reflink = reflink;
+
+  DocumentReference<Object?>? _allrefferrals;
+  DocumentReference<Object?>? get allrefferrals => _$this._allrefferrals;
+  set allrefferrals(DocumentReference<Object?>? allrefferrals) =>
+      _$this._allrefferrals = allrefferrals;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -358,6 +431,9 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _walletBalance = $v.walletBalance;
       _mcxtaddress = $v.mcxtaddress;
       _city = $v.city;
+      _qrcode = $v.qrcode;
+      _reflink = $v.reflink;
+      _allrefferrals = $v.allrefferrals;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -392,6 +468,9 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
             walletBalance: walletBalance,
             mcxtaddress: mcxtaddress,
             city: city,
+            qrcode: qrcode,
+            reflink: reflink,
+            allrefferrals: allrefferrals,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

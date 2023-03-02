@@ -49,7 +49,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="mcxttokenapp" android:host="mcxttokenapp.com" />
+                <data android:scheme="mcxttoken" android:host="mcxttoken.com" />
             </intent-filter>
 
         </activity>

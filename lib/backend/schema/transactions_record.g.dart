@@ -77,6 +77,13 @@ class _$TransactionsRecordSerializer
             specifiedType: const FullType(
                 DocumentReference, const [const FullType.nullable(Object)])));
     }
+    value = object.iconimage;
+    if (value != null) {
+      result
+        ..add('iconimage')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -134,6 +141,10 @@ class _$TransactionsRecordSerializer
                 const FullType.nullable(Object)
               ])) as DocumentReference<Object?>?;
           break;
+        case 'iconimage':
+          result.iconimage = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -165,6 +176,8 @@ class _$TransactionsRecord extends TransactionsRecord {
   @override
   final DocumentReference<Object?>? userId;
   @override
+  final String? iconimage;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$TransactionsRecord(
@@ -180,6 +193,7 @@ class _$TransactionsRecord extends TransactionsRecord {
       this.recieved,
       this.walletAddress,
       this.userId,
+      this.iconimage,
       this.ffRef})
       : super._();
 
@@ -204,6 +218,7 @@ class _$TransactionsRecord extends TransactionsRecord {
         recieved == other.recieved &&
         walletAddress == other.walletAddress &&
         userId == other.userId &&
+        iconimage == other.iconimage &&
         ffRef == other.ffRef;
   }
 
@@ -215,13 +230,15 @@ class _$TransactionsRecord extends TransactionsRecord {
                 $jc(
                     $jc(
                         $jc(
-                            $jc($jc($jc(0, name.hashCode), amount.hashCode),
-                                dateSpent.hashCode),
-                            status.hashCode),
-                        send.hashCode),
-                    recieved.hashCode),
-                walletAddress.hashCode),
-            userId.hashCode),
+                            $jc(
+                                $jc($jc($jc(0, name.hashCode), amount.hashCode),
+                                    dateSpent.hashCode),
+                                status.hashCode),
+                            send.hashCode),
+                        recieved.hashCode),
+                    walletAddress.hashCode),
+                userId.hashCode),
+            iconimage.hashCode),
         ffRef.hashCode));
   }
 
@@ -236,6 +253,7 @@ class _$TransactionsRecord extends TransactionsRecord {
           ..add('recieved', recieved)
           ..add('walletAddress', walletAddress)
           ..add('userId', userId)
+          ..add('iconimage', iconimage)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -278,6 +296,10 @@ class TransactionsRecordBuilder
   DocumentReference<Object?>? get userId => _$this._userId;
   set userId(DocumentReference<Object?>? userId) => _$this._userId = userId;
 
+  String? _iconimage;
+  String? get iconimage => _$this._iconimage;
+  set iconimage(String? iconimage) => _$this._iconimage = iconimage;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -297,6 +319,7 @@ class TransactionsRecordBuilder
       _recieved = $v.recieved;
       _walletAddress = $v.walletAddress;
       _userId = $v.userId;
+      _iconimage = $v.iconimage;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -328,6 +351,7 @@ class TransactionsRecordBuilder
             recieved: recieved,
             walletAddress: walletAddress,
             userId: userId,
+            iconimage: iconimage,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

@@ -83,14 +83,14 @@ class _BuyPackageWidgetState extends State<BuyPackageWidget>
                 color: FlutterFlowTheme.of(context).secondaryText,
                 size: 24.0,
               ),
-              onPressed: () {
-                print('IconButton pressed ...');
+              onPressed: () async {
+                context.pop();
               },
             ),
           ),
         ],
         centerTitle: false,
-        elevation: 0.0,
+        elevation: 2.0,
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
@@ -99,7 +99,7 @@ class _BuyPackageWidgetState extends State<BuyPackageWidget>
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -121,27 +121,35 @@ class _BuyPackageWidgetState extends State<BuyPackageWidget>
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 8.0),
-                      child: StreamBuilder<List<McxtpackagesRecord>>(
-                        stream: queryMcxtpackagesRecord(),
+                      child: StreamBuilder<List<PackagesRecord>>(
+                        stream: queryPackagesRecord(
+                          singleRecord: true,
+                        ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
                             return Center(
-                              child: Center(
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(100.0),
-                                  child: Image.asset(
-                                    'assets/images/binanceloading.gif',
-                                    width: 80.0,
-                                    height: 80.0,
-                                    fit: BoxFit.cover,
-                                  ),
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: SpinKitWanderingCubes(
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                  size: 50.0,
                                 ),
                               ),
                             );
                           }
-                          List<McxtpackagesRecord>
-                              menuItemMcxtpackagesRecordList = snapshot.data!;
+                          List<PackagesRecord> menuItemPackagesRecordList =
+                              snapshot.data!;
+                          // Return an empty Container when the item does not exist.
+                          if (snapshot.data!.isEmpty) {
+                            return Container();
+                          }
+                          final menuItemPackagesRecord =
+                              menuItemPackagesRecordList.isNotEmpty
+                                  ? menuItemPackagesRecordList.first
+                                  : null;
                           return Material(
                             color: Colors.transparent,
                             elevation: 4.0,
@@ -200,7 +208,7 @@ class _BuyPackageWidgetState extends State<BuyPackageWidget>
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                'Title',
+                                                menuItemPackagesRecord!.name!,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .title3,
@@ -210,7 +218,12 @@ class _BuyPackageWidgetState extends State<BuyPackageWidget>
                                                     .fromSTEB(
                                                         0.0, 4.0, 8.0, 0.0),
                                                 child: AutoSizeText(
-                                                  'Subtext',
+                                                  menuItemPackagesRecord!.price!
+                                                      .toString()
+                                                      .maybeHandleOverflow(
+                                                        maxChars: 70,
+                                                        replacement: '…',
+                                                      ),
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -243,7 +256,7 @@ class _BuyPackageWidgetState extends State<BuyPackageWidget>
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 4.0, 8.0),
                                             child: Text(
-                                              '\$11.00',
+                                              'MCXT = ${menuItemPackagesRecord!.quantity?.toString()}',
                                               textAlign: TextAlign.end,
                                               style:
                                                   FlutterFlowTheme.of(context)

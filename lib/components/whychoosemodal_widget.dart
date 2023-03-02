@@ -52,118 +52,119 @@ class _WhychoosemodalWidgetState extends State<WhychoosemodalWidget> {
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-        child: Container(
-          width: double.infinity,
-          constraints: BoxConstraints(
-            maxWidth: 570.0,
+        child: Material(
+          color: Colors.transparent,
+          elevation: 4.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
           ),
-          decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
-            borderRadius: BorderRadius.circular(12.0),
-            border: Border.all(
-              color: FlutterFlowTheme.of(context).lineColor,
+          child: Container(
+            width: double.infinity,
+            height: 500.0,
+            constraints: BoxConstraints(
+              maxWidth: double.infinity,
             ),
-          ),
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
-                        child: Text(
-                          widget.whychoose!.title!,
-                          style: FlutterFlowTheme.of(context).title2,
-                        ),
-                      ),
-                    ),
-                    FlutterFlowIconButton(
-                      borderColor:
-                          FlutterFlowTheme.of(context).primaryBackground,
-                      borderRadius: 30.0,
-                      borderWidth: 2.0,
-                      buttonSize: 44.0,
-                      icon: Icon(
-                        Icons.close_rounded,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 24.0,
-                      ),
-                      onPressed: () async {
-                        context.pushNamed(
-                          'HomePageStart',
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.topToBottom,
-                            ),
-                          },
-                        );
-                      },
-                    ),
-                  ],
-                ),
-                Divider(
-                  height: 24.0,
-                  thickness: 2.0,
-                  color: FlutterFlowTheme.of(context).primaryBackground,
-                ),
-                Text(
-                  widget.whychoose!.description!,
-                  style: FlutterFlowTheme.of(context).bodyText2,
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                  child: Row(
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).secondaryBackground,
+              borderRadius: BorderRadius.circular(8.0),
+              border: Border.all(
+                color: FlutterFlowTheme.of(context).lineColor,
+              ),
+            ),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: 'Avail Package',
-                        options: FFButtonOptions(
-                          width: 130.0,
-                          height: 40.0,
+                      Expanded(
+                        child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .subtitle2
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .subtitle2Family,
-                                color: Colors.white,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .subtitle2Family),
-                              ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                              0.0, 0.0, 12.0, 0.0),
+                          child: Text(
+                            widget.whychoose!.title!,
+                            style: FlutterFlowTheme.of(context).title2,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
-                          hoverColor: Color(0xFF2B16ED),
-                          hoverBorderSide: BorderSide(
-                            width: 1.0,
-                          ),
-                          hoverTextColor:
-                              FlutterFlowTheme.of(context).primaryBtnText,
                         ),
+                      ),
+                      FlutterFlowIconButton(
+                        borderColor:
+                            FlutterFlowTheme.of(context).primaryBackground,
+                        borderRadius: 30.0,
+                        borderWidth: 2.0,
+                        buttonSize: 44.0,
+                        icon: Icon(
+                          Icons.close_rounded,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 24.0,
+                        ),
+                        onPressed: () async {
+                          context.pop();
+                        },
                       ),
                     ],
                   ),
-                ),
-              ],
+                  Divider(
+                    height: 24.0,
+                    thickness: 2.0,
+                    color: FlutterFlowTheme.of(context).primaryBackground,
+                  ),
+                  Text(
+                    widget.whychoose!.description!,
+                    style: FlutterFlowTheme.of(context).bodyText2,
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        FFButtonWidget(
+                          onPressed: () {
+                            print('Button pressed ...');
+                          },
+                          text: 'Avail Package',
+                          options: FFButtonOptions(
+                            width: 130.0,
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .subtitle2
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .subtitle2Family,
+                                  color: Colors.white,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .subtitle2Family),
+                                ),
+                            elevation: 3.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                            hoverColor: Color(0xFF2B16ED),
+                            hoverBorderSide: BorderSide(
+                              width: 1.0,
+                            ),
+                            hoverTextColor:
+                                FlutterFlowTheme.of(context).primaryBtnText,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

@@ -29,6 +29,8 @@ abstract class TransactionsRecord
   @BuiltValueField(wireName: 'user_id')
   DocumentReference? get userId;
 
+  String? get iconimage;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -39,7 +41,8 @@ abstract class TransactionsRecord
     ..status = ''
     ..send = 0
     ..recieved = 0
-    ..walletAddress = '';
+    ..walletAddress = ''
+    ..iconimage = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('transactions');
@@ -72,6 +75,7 @@ Map<String, dynamic> createTransactionsRecordData({
   int? recieved,
   String? walletAddress,
   DocumentReference? userId,
+  String? iconimage,
 }) {
   final firestoreData = serializers.toFirestore(
     TransactionsRecord.serializer,
@@ -84,7 +88,8 @@ Map<String, dynamic> createTransactionsRecordData({
         ..send = send
         ..recieved = recieved
         ..walletAddress = walletAddress
-        ..userId = userId,
+        ..userId = userId
+        ..iconimage = iconimage,
     ),
   );
 

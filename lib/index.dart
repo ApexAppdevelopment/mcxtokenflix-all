@@ -1,5 +1,4 @@
 // Export pages
-export '/pages/projects/projects_widget.dart' show ProjectsWidget;
 export '/pages/team_members/team_members_widget.dart' show TeamMembersWidget;
 export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
 export '/pages/billing/billing_widget.dart' show BillingWidget;
@@ -17,3 +16,7 @@ export '/trailer/trailer_widget.dart' show TrailerWidget;
 export '/fullmovie/fullmovie_widget.dart' show FullmovieWidget;
 export '/apps_all/apps_all_widget.dart' show AppsAllWidget;
 export '/buy_package/buy_package_widget.dart' show BuyPackageWidget;
+export '/refferral_link/refferral_link_widget.dart' show RefferralLinkWidget;
+export '/homey/homey_widget.dart' show HomeyWidget;
+export '/projects/projects_widget.dart' show ProjectsWidget;
+export '/paynow/paynow_widget.dart' show PaynowWidget;

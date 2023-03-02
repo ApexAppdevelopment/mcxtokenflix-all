@@ -14,9 +14,11 @@ class TrailerWidget extends StatefulWidget {
   const TrailerWidget({
     Key? key,
     this.trailer,
+    this.baseTrailer,
   }) : super(key: key);
 
-  final MovieBaseRecord? trailer;
+  final GoodmoviesRecord? trailer;
+  final MovieBaseRecord? baseTrailer;
 
   @override
   _TrailerWidgetState createState() => _TrailerWidgetState();
@@ -87,14 +89,24 @@ class _TrailerWidgetState extends State<TrailerWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                FlutterFlowYoutubePlayer(
-                  url: 'https://www.youtube.com/watch?v=C30hQ0ZSFoM',
-                  autoPlay: false,
-                  looping: true,
-                  mute: false,
-                  showControls: true,
-                  showFullScreen: true,
-                ),
+                if (widget.baseTrailer != null)
+                  FlutterFlowYoutubePlayer(
+                    url: widget.trailer!.movietrailer!,
+                    autoPlay: false,
+                    looping: true,
+                    mute: false,
+                    showControls: true,
+                    showFullScreen: true,
+                  ),
+                if (widget.trailer != null)
+                  FlutterFlowYoutubePlayer(
+                    url: widget.baseTrailer!.trailer!,
+                    autoPlay: false,
+                    looping: true,
+                    mute: false,
+                    showControls: true,
+                    showFullScreen: true,
+                  ),
               ],
             ),
           ),

@@ -7,11 +7,11 @@ import '../flutter_flow/flutter_flow_util.dart';
 
 import 'schema/users_record.dart';
 import 'schema/transactions_record.dart';
-import 'schema/mcxtpackages_record.dart';
 import 'schema/movie_base_record.dart';
 import 'schema/watchlist_record.dart';
 import 'schema/whychoose_record.dart';
 import 'schema/packages_record.dart';
+import 'schema/goodmovies_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -21,11 +21,11 @@ export 'schema/serializers.dart';
 
 export 'schema/users_record.dart';
 export 'schema/transactions_record.dart';
-export 'schema/mcxtpackages_record.dart';
 export 'schema/movie_base_record.dart';
 export 'schema/watchlist_record.dart';
 export 'schema/whychoose_record.dart';
 export 'schema/packages_record.dart';
+export 'schema/goodmovies_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -125,58 +125,6 @@ Future<FFFirestorePage<TransactionsRecord>> queryTransactionsRecordPage({
     queryCollectionPage(
       TransactionsRecord.collection,
       TransactionsRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
-    );
-
-/// Functions to query McxtpackagesRecords (as a Stream and as a Future).
-Future<int> queryMcxtpackagesRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      McxtpackagesRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<McxtpackagesRecord>> queryMcxtpackagesRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      McxtpackagesRecord.collection,
-      McxtpackagesRecord.serializer,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<McxtpackagesRecord>> queryMcxtpackagesRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      McxtpackagesRecord.collection,
-      McxtpackagesRecord.serializer,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<McxtpackagesRecord>> queryMcxtpackagesRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      McxtpackagesRecord.collection,
-      McxtpackagesRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -385,6 +333,58 @@ Future<FFFirestorePage<PackagesRecord>> queryPackagesRecordPage({
     queryCollectionPage(
       PackagesRecord.collection,
       PackagesRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query GoodmoviesRecords (as a Stream and as a Future).
+Future<int> queryGoodmoviesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      GoodmoviesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<GoodmoviesRecord>> queryGoodmoviesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      GoodmoviesRecord.collection,
+      GoodmoviesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<GoodmoviesRecord>> queryGoodmoviesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      GoodmoviesRecord.collection,
+      GoodmoviesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<GoodmoviesRecord>> queryGoodmoviesRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      GoodmoviesRecord.collection,
+      GoodmoviesRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

@@ -13,25 +13,11 @@ abstract class PackagesRecord
 
   String? get name;
 
-  String? get description;
-
-  String? get specifications;
-
   double? get price;
 
-  @BuiltValueField(wireName: 'created_at')
-  DateTime? get createdAt;
-
-  @BuiltValueField(wireName: 'modified_at')
-  DateTime? get modifiedAt;
-
-  @BuiltValueField(wireName: 'on_sale')
-  bool? get onSale;
-
-  @BuiltValueField(wireName: 'sale_price')
-  double? get salePrice;
-
   int? get quantity;
+
+  DocumentReference? get userwhoavail;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
@@ -39,11 +25,7 @@ abstract class PackagesRecord
 
   static void _initializeBuilder(PackagesRecordBuilder builder) => builder
     ..name = ''
-    ..description = ''
-    ..specifications = ''
     ..price = 0.0
-    ..onSale = false
-    ..salePrice = 0.0
     ..quantity = 0;
 
   static CollectionReference get collection =>
@@ -69,28 +51,18 @@ abstract class PackagesRecord
 
 Map<String, dynamic> createPackagesRecordData({
   String? name,
-  String? description,
-  String? specifications,
   double? price,
-  DateTime? createdAt,
-  DateTime? modifiedAt,
-  bool? onSale,
-  double? salePrice,
   int? quantity,
+  DocumentReference? userwhoavail,
 }) {
   final firestoreData = serializers.toFirestore(
     PackagesRecord.serializer,
     PackagesRecord(
       (p) => p
         ..name = name
-        ..description = description
-        ..specifications = specifications
         ..price = price
-        ..createdAt = createdAt
-        ..modifiedAt = modifiedAt
-        ..onSale = onSale
-        ..salePrice = salePrice
-        ..quantity = quantity,
+        ..quantity = quantity
+        ..userwhoavail = userwhoavail,
     ),
   );
 

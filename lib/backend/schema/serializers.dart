@@ -3,11 +3,11 @@ import 'package:from_css_color/from_css_color.dart';
 
 import 'users_record.dart';
 import 'transactions_record.dart';
-import 'mcxtpackages_record.dart';
 import 'movie_base_record.dart';
 import 'watchlist_record.dart';
 import 'whychoose_record.dart';
 import 'packages_record.dart';
+import 'goodmovies_record.dart';
 
 import 'index.dart';
 
@@ -20,11 +20,11 @@ const kDocumentReferenceField = 'Document__Reference__Field';
 @SerializersFor(const [
   UsersRecord,
   TransactionsRecord,
-  McxtpackagesRecord,
   MovieBaseRecord,
   WatchlistRecord,
   WhychooseRecord,
   PackagesRecord,
+  GoodmoviesRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

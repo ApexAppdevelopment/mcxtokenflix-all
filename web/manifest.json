@@ -1,6 +1,6 @@
 {
-    "name": "McxtTokenApp",
-    "short_name": "McxtTokenApp",
+    "name": "McxtToken",
+    "short_name": "McxtToken",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

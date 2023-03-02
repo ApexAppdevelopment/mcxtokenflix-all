@@ -21,8 +21,8 @@ export 'serialization_util.dart';
 const kTransitionInfoKey = '__transition_info__';
 
 class AppStateNotifier extends ChangeNotifier {
-  McxtTokenAppFirebaseUser? initialUser;
-  McxtTokenAppFirebaseUser? user;
+  McxtTokenFirebaseUser? initialUser;
+  McxtTokenFirebaseUser? user;
   bool showSplashImage = true;
   String? _redirectLocation;
 
@@ -47,7 +47,7 @@ class AppStateNotifier extends ChangeNotifier {
   /// to perform subsequent actions (such as navigation) afterwards.
   void updateNotifyOnAuthChange(bool notify) => notifyOnAuthChange = notify;
 
-  void update(McxtTokenAppFirebaseUser newUser) {
+  void update(McxtTokenFirebaseUser newUser) {
     initialUser ??= newUser;
     user = newUser;
     // Refresh the app on auth change unless explicitly marked otherwise.
@@ -78,11 +78,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, _) =>
               appStateNotifier.loggedIn ? HomePageWidget() : RegisterWidget(),
           routes: [
-            FFRoute(
-              name: 'projects',
-              path: 'projects',
-              builder: (context, params) => ProjectsWidget(),
-            ),
             FFRoute(
               name: 'teamMembers',
               path: 'teamMembers',
@@ -121,7 +116,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Register',
               path: 'register',
-              builder: (context, params) => RegisterWidget(),
+              builder: (context, params) => RegisterWidget(
+                refferralCode: params.getParam('refferralCode',
+                    ParamType.DocumentReference, false, ['Users']),
+              ),
             ),
             FFRoute(
               name: 'Login',
@@ -147,16 +145,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Trailer',
               path: 'trailer',
               asyncParams: {
-                'trailer': getDoc(['movie_base'], MovieBaseRecord.serializer),
+                'trailer': getDoc(['goodmovies'], GoodmoviesRecord.serializer),
+                'baseTrailer':
+                    getDoc(['movie_base'], MovieBaseRecord.serializer),
               },
               builder: (context, params) => TrailerWidget(
                 trailer: params.getParam('trailer', ParamType.Document),
+                baseTrailer: params.getParam('baseTrailer', ParamType.Document),
               ),
             ),
             FFRoute(
               name: 'fullmovie',
               path: 'fullmovie',
-              builder: (context, params) => FullmovieWidget(),
+              asyncParams: {
+                'watchmovie':
+                    getDoc(['movie_base'], MovieBaseRecord.serializer),
+                'watchgood':
+                    getDoc(['goodmovies'], GoodmoviesRecord.serializer),
+              },
+              builder: (context, params) => FullmovieWidget(
+                watchmovie: params.getParam('watchmovie', ParamType.Document),
+                watchgood: params.getParam('watchgood', ParamType.Document),
+              ),
             ),
             FFRoute(
               name: 'AppsAll',
@@ -167,6 +177,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'BuyPackage',
               path: 'buyPackage',
               builder: (context, params) => BuyPackageWidget(),
+            ),
+            FFRoute(
+              name: 'RefferralLink',
+              path: 'refferralLink',
+              builder: (context, params) => RefferralLinkWidget(),
+            ),
+            FFRoute(
+              name: 'Homey',
+              path: 'homey',
+              builder: (context, params) => HomeyWidget(),
+            ),
+            FFRoute(
+              name: 'projects',
+              path: 'projects',
+              builder: (context, params) => ProjectsWidget(),
+            ),
+            FFRoute(
+              name: 'Paynow',
+              path: 'paynow',
+              builder: (context, params) => PaynowWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
