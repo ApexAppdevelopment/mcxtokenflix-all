@@ -1144,35 +1144,30 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                               ),
                                                                               Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 16.0),
-                                                                                child: InkWell(
-                                                                                  onTap: () async {
-                                                                                    await launchURL('https://bscscan.com/token/0xad61b226e25aabfbe7aa716a79f95b2cf12c1d36');
-                                                                                  },
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.start,
-                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                    children: [
-                                                                                      Icon(
-                                                                                        Icons.import_contacts,
-                                                                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                        size: 18.0,
+                                                                                child: Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                  children: [
+                                                                                    Icon(
+                                                                                      Icons.import_contacts,
+                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                      size: 18.0,
+                                                                                    ),
+                                                                                    Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                                                                      child: Text(
+                                                                                        'Buy MCXT Token',
+                                                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                              fontFamily: 'Roboto Mono',
+                                                                                              color: Colors.white,
+                                                                                              fontSize: 14.0,
+                                                                                              fontWeight: FontWeight.normal,
+                                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                                            ),
                                                                                       ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
-                                                                                        child: Text(
-                                                                                          'Check Contract Address',
-                                                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                                fontFamily: 'Roboto Mono',
-                                                                                                color: Colors.white,
-                                                                                                fontSize: 14.0,
-                                                                                                fontWeight: FontWeight.normal,
-                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
+                                                                                    ),
+                                                                                  ],
                                                                                 ),
                                                                               ),
                                                                             ],
