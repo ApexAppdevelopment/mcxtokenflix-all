@@ -1,18 +1,16 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/main_web_nav/main_web_nav_widget.dart';
-import '/components/message_bottom_sheet/message_bottom_sheet_widget.dart';
-import '/components/mobile_nav/mobile_nav_widget.dart';
+import '/components/main_web_nav_widget.dart';
+import '/components/message_bottom_sheet_widget.dart';
+import '/components/mobile_nav_widget.dart';
 import '/components/notransaction_widget.dart';
 import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
@@ -287,24 +285,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           borderRadius:
                                               BorderRadius.circular(16.0),
                                         ),
-                                        child: AuthUserStreamWidget(
-                                          builder: (context) => InkWell(
-                                            onTap: () async {
-                                              context
-                                                  .pushNamed('Profilesettings');
-                                            },
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                              child: Image.network(
-                                                valueOrDefault<String>(
-                                                  currentUserPhoto,
-                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/te7wzgwv8p43/Male-user-add-icon.png',
-                                                ),
-                                                width: 100.0,
-                                                height: 100.0,
-                                                fit: BoxFit.cover,
-                                              ),
+                                        child: InkWell(
+                                          onTap: () async {
+                                            context
+                                                .pushNamed('Profilesettings');
+                                          },
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(16.0),
+                                            child: Image.network(
+                                              '',
+                                              width: 100.0,
+                                              height: 100.0,
+                                              fit: BoxFit.cover,
                                             ),
                                           ),
                                         ),
@@ -573,7 +566,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                       width: 156.7,
                                                                                       height: 34.5,
                                                                                       decoration: BoxDecoration(
-                                                                                        color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                        color: FlutterFlowTheme.of(context).primaryText,
                                                                                         borderRadius: BorderRadius.circular(12.0),
                                                                                       ),
                                                                                       child: Padding(
@@ -583,7 +576,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                           textAlign: TextAlign.center,
                                                                                           style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                 fontFamily: 'Roboto Mono',
-                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                color: FlutterFlowTheme.of(context).primaryColor,
                                                                                                 fontSize: 14.0,
                                                                                                 fontWeight: FontWeight.normal,
                                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
@@ -1067,89 +1060,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 0.0, 20.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
-                                  },
-                                  text: 'Send',
-                                  icon: FaIcon(
-                                    FontAwesomeIcons.signOutAlt,
-                                  ),
-                                  options: FFButtonOptions(
-                                    width: 150.0,
-                                    height: 40.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .subtitle2
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .subtitle2Family,
-                                          color: Colors.white,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .subtitle2Family),
-                                        ),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                ),
-                                FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
-                                  },
-                                  text: 'Recieved',
-                                  icon: FaIcon(
-                                    FontAwesomeIcons.monero,
-                                  ),
-                                  options: FFButtonOptions(
-                                    width: 150.0,
-                                    height: 40.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .subtitle2
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .subtitle2Family,
-                                          color: Colors.white,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .subtitle2Family),
-                                        ),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 12.0, 20.0, 0.0),
+                                20.0, 15.0, 20.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1220,14 +1131,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Material(
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              InkWell(
+                                                onTap: () async {
+                                                  context.pushNamed('billing');
+                                                },
+                                                child: Material(
                                                   color: Colors.transparent,
                                                   elevation: 4.0,
                                                   shape: RoundedRectangleBorder(
@@ -1236,7 +1149,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                             8.0),
                                                   ),
                                                   child: Container(
-                                                    width: 356.7,
+                                                    width: 386.6,
                                                     height: 65.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
@@ -1253,14 +1166,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
                                                       children: [
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      8.0,
                                                                       0.0,
                                                                       0.0,
+                                                                      10.0,
                                                                       0.0),
                                                           child: Image.asset(
                                                             'assets/images/986400000068-removebg-preview.png',
@@ -1306,7 +1222,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                             .spaceBetween,
                                                                     children: [
                                                                       Text(
-                                                                        'Hello World',
+                                                                        listViewTransactionsRecord
+                                                                            .name!,
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyText1
                                                                             .override(
@@ -1316,7 +1233,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                             ),
                                                                       ),
                                                                       Text(
-                                                                        'Hello World',
+                                                                        listViewTransactionsRecord
+                                                                            .amount!
+                                                                            .toString(),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyText1,
                                                                       ),
@@ -1332,13 +1251,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                           .spaceBetween,
                                                                   children: [
                                                                     Text(
-                                                                      'Hello World',
+                                                                      listViewTransactionsRecord
+                                                                          .status!,
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyText1,
                                                                     ),
                                                                     Text(
-                                                                      'Hello World',
+                                                                      listViewTransactionsRecord
+                                                                          .dateSpent!
+                                                                          .toString(),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyText1,
@@ -1353,8 +1275,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),

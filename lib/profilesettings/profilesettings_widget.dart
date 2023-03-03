@@ -1,6 +1,6 @@
 import '/auth/auth_util.dart';
-import '/components/alt_nav_2/alt_nav2_widget.dart';
-import '/components/mobile_nav/mobile_nav_widget.dart';
+import '/components/alt_nav2_widget.dart';
+import '/components/mobile_nav_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';

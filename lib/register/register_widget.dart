@@ -95,7 +95,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  hintText: 'Name',
+                                  labelText: 'Name',
+                                  hintText: 'Enter Name',
                                   hintStyle:
                                       FlutterFlowTheme.of(context).bodyText2,
                                   enabledBorder: OutlineInputBorder(
@@ -155,7 +156,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  hintText: 'Email',
+                                  labelText: 'Email',
+                                  hintText: 'Enter Email',
                                   hintStyle:
                                       FlutterFlowTheme.of(context).bodyText2,
                                   enabledBorder: OutlineInputBorder(
@@ -230,7 +232,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 autofocus: true,
                                 obscureText: !_model.signUpPassVisibility,
                                 decoration: InputDecoration(
-                                  hintText: 'Password',
+                                  labelText: 'Password',
+                                  hintText: 'Create Password',
                                   hintStyle:
                                       FlutterFlowTheme.of(context).bodyText2,
                                   enabledBorder: OutlineInputBorder(
@@ -320,7 +323,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 obscureText:
                                     !_model.signUpConfirmPassVisibility,
                                 decoration: InputDecoration(
-                                  hintText: 'Confirm password',
+                                  labelText: 'Confirm Password',
+                                  hintText: 'Re-enter password',
                                   hintStyle:
                                       FlutterFlowTheme.of(context).bodyText2,
                                   enabledBorder: OutlineInputBorder(
@@ -397,7 +401,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 children: [
                                   Expanded(
                                     child: Text(
-                                      'By sing up, you accept MCXTFlix Privacy Policy & Terms of Service',
+                                      'By sing up, you accept MCXT Token Privacy Policy & Terms of Service',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
@@ -492,39 +496,45 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Already have an account?',
-                              style: FlutterFlowTheme.of(context).bodyText1,
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  4.0, 0.0, 0.0, 0.0),
-                              child: InkWell(
-                                onTap: () async {
-                                  context.pushNamed('Register');
-                                },
-                                child: Text(
-                                  'Sign in',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyText1Family,
-                                        color: Color(0xFF81812D),
-                                        fontWeight: FontWeight.normal,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyText1Family),
-                                      ),
+                        child: InkWell(
+                          onTap: () async {
+                            context.pushNamed('Login');
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Already have an account?',
+                                style: FlutterFlowTheme.of(context).bodyText1,
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    4.0, 0.0, 0.0, 0.0),
+                                child: InkWell(
+                                  onTap: () async {
+                                    context.pushNamed('Login');
+                                  },
+                                  child: Text(
+                                    'Sign in',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyText1Family,
+                                          color: Color(0xFF81812D),
+                                          fontWeight: FontWeight.normal,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1Family),
+                                        ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],

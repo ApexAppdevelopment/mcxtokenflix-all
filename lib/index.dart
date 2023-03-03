@@ -1,10 +1,10 @@
 // Export pages
-export '/pages/team_members/team_members_widget.dart' show TeamMembersWidget;
-export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
-export '/pages/billing/billing_widget.dart' show BillingWidget;
-export '/pages/profilesettings/profilesettings_widget.dart'
+export '/team_members/team_members_widget.dart' show TeamMembersWidget;
+export '/home_page/home_page_widget.dart' show HomePageWidget;
+export '/billing/billing_widget.dart' show BillingWidget;
+export '/profilesettings/profilesettings_widget.dart'
     show ProfilesettingsWidget;
-export '/pages/projects_alt/projects_alt_widget.dart' show ProjectsAltWidget;
+export '/projects_alt/projects_alt_widget.dart' show ProjectsAltWidget;
 export '/home_page_start/home_page_start_widget.dart' show HomePageStartWidget;
 export '/mcxt_flix/mcxt_flix_widget.dart' show McxtFlixWidget;
 export '/register/register_widget.dart' show RegisterWidget;
@@ -20,3 +20,4 @@ export '/refferral_link/refferral_link_widget.dart' show RefferralLinkWidget;
 export '/homey/homey_widget.dart' show HomeyWidget;
 export '/projects/projects_widget.dart' show ProjectsWidget;
 export '/paynow/paynow_widget.dart' show PaynowWidget;
+export '/whychooseus/whychooseus_widget.dart' show WhychooseusWidget;

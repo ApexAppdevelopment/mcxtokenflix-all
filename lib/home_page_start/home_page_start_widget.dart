@@ -1,7 +1,6 @@
 import '/backend/backend.dart';
-import '/components/main_web_nav/main_web_nav_widget.dart';
-import '/components/message_bottom_sheet/message_bottom_sheet_widget.dart';
-import '/components/whychoosemodal_widget.dart';
+import '/components/main_web_nav_widget.dart';
+import '/components/message_bottom_sheet_widget.dart';
 import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -1286,7 +1285,7 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                               ClipRRect(
                                                                                 borderRadius: BorderRadius.circular(100.0),
                                                                                 child: Image.asset(
-                                                                                  'assets/images/tether-coin-isolated-white-background-tether-usdt-cryptocurrency-tether-coin-isolated-white-background-tether-usdt-185890464_(1).jpg',
+                                                                                  'assets/images/USDT_icon.png',
                                                                                   width: 30.0,
                                                                                   height: 30.0,
                                                                                   fit: BoxFit.cover,
@@ -1331,7 +1330,7 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                                 MainAxisSize.max,
                                                                             children: [
                                                                               Text(
-                                                                                '1 BNB = MCXT',
+                                                                                '1USDT = MCXT',
                                                                                 style: FlutterFlowTheme.of(context).title3.override(
                                                                                       fontFamily: FlutterFlowTheme.of(context).title3Family,
                                                                                       fontSize: 24.0,
@@ -1861,7 +1860,7 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await launchURL(
-                                                        'https://mcxttoken.myshopify.com/products/platinum-package');
+                                                        'https://mcxttoken.myshopify.com/checkouts/bin/c1317aba6ef9ff52b025c2e111dc29ff/information?skip_shop_pay=true');
                                                   },
                                                   child: Material(
                                                     color: Colors.transparent,
@@ -2157,29 +2156,19 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                         0.0, 0.0, 0.0, 8.0),
                                                 child: InkWell(
                                                   onTap: () async {
-                                                    await showModalBottomSheet(
-                                                      isScrollControlled: true,
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      barrierColor:
-                                                          Color(0x3E000000),
-                                                      enableDrag: false,
-                                                      context: context,
-                                                      builder: (context) {
-                                                        return Padding(
-                                                          padding:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .viewInsets,
-                                                          child:
-                                                              WhychoosemodalWidget(
-                                                            whychoose:
-                                                                listViewWhychooseRecord,
-                                                          ),
-                                                        );
+                                                    context.pushNamed(
+                                                      'whychooseus',
+                                                      queryParams: {
+                                                        'why': serializeParam(
+                                                          listViewWhychooseRecord,
+                                                          ParamType.Document,
+                                                        ),
+                                                      }.withoutNulls,
+                                                      extra: <String, dynamic>{
+                                                        'why':
+                                                            listViewWhychooseRecord,
                                                       },
-                                                    ).then((value) =>
-                                                        setState(() {}));
+                                                    );
                                                   },
                                                   child: Container(
                                                     width: double.infinity,

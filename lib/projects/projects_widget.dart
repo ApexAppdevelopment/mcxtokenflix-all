@@ -1,7 +1,7 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/message_bottom_sheet/message_bottom_sheet_widget.dart';
-import '/components/mobile_nav/mobile_nav_widget.dart';
+import '/components/message_bottom_sheet_widget.dart';
+import '/components/mobile_nav_widget.dart';
 import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';

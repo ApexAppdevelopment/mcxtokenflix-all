@@ -70,13 +70,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : RegisterWidget(),
+          appStateNotifier.loggedIn ? HomePageWidget() : HomePageStartWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePageWidget() : RegisterWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? HomePageWidget()
+              : HomePageStartWidget(),
           routes: [
             FFRoute(
               name: 'teamMembers',
@@ -197,6 +198,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Paynow',
               path: 'paynow',
               builder: (context, params) => PaynowWidget(),
+            ),
+            FFRoute(
+              name: 'whychooseus',
+              path: 'whychooseus',
+              asyncParams: {
+                'why': getDoc(['whychoose'], WhychooseRecord.serializer),
+              },
+              builder: (context, params) => WhychooseusWidget(
+                why: params.getParam('why', ParamType.Document),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
@@ -356,7 +367,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/register';
+            return '/homePageStart';
           }
           return null;
         },
