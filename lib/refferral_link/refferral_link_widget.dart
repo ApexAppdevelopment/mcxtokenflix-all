@@ -56,11 +56,11 @@ class _RefferralLinkWidgetState extends State<RefferralLinkWidget> {
             child: Icon(
               Icons.chevron_left_rounded,
               color: FlutterFlowTheme.of(context).primaryText,
-              size: 32.0,
+              size: 40.0,
             ),
           ),
           title: Text(
-            'Refferral Link',
+            'Share your QR/Refferral Link',
             style: FlutterFlowTheme.of(context).title2,
           ),
           actions: [],
@@ -78,17 +78,21 @@ class _RefferralLinkWidgetState extends State<RefferralLinkWidget> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  AuthUserStreamWidget(
-                    builder: (context) => ClipRRect(
-                      borderRadius: BorderRadius.circular(0.0),
-                      child: Image.network(
-                        valueOrDefault<String>(
-                          valueOrDefault(currentUserDocument?.qrcode, ''),
-                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/uann1bt4twdk/qr.png',
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
+                    child: AuthUserStreamWidget(
+                      builder: (context) => ClipRRect(
+                        borderRadius: BorderRadius.circular(0.0),
+                        child: Image.network(
+                          valueOrDefault<String>(
+                            valueOrDefault(currentUserDocument?.qrcode, ''),
+                            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/uann1bt4twdk/qr.png',
+                          ),
+                          width: MediaQuery.of(context).size.width * 0.672,
+                          height: 261.0,
+                          fit: BoxFit.contain,
                         ),
-                        width: MediaQuery.of(context).size.width * 0.672,
-                        height: 261.0,
-                        fit: BoxFit.contain,
                       ),
                     ),
                   ),
@@ -96,97 +100,152 @@ class _RefferralLinkWidgetState extends State<RefferralLinkWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 25.0, 20.0, 25.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(40.0, 20.0, 40.0, 0.0),
-                      child: Text(
-                        'Copy to clipboard',
-                        style: FlutterFlowTheme.of(context).title2,
+                  InkWell(
+                    onTap: () async {
+                      await Clipboard.setData(ClipboardData(
+                          text: valueOrDefault(
+                              currentUserDocument?.reflink, '')));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Successfully copied clipboard!',
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
+                          ),
+                          duration: Duration(milliseconds: 4000),
+                          backgroundColor: Color(0x00000000),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: 363.0,
+                      height: 76.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(40.0, 12.0, 40.0, 0.0),
-              child: InkWell(
-                onTap: () async {
-                  await Clipboard.setData(ClipboardData(
-                      text: valueOrDefault(currentUserDocument?.reflink, '')));
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: AuthUserStreamWidget(
-                        builder: (context) => InkWell(
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                        child: InkWell(
                           onTap: () async {
                             await Clipboard.setData(ClipboardData(
-                                text:
-                                    'https://responsive-e25eer.flutterflow.app/'));
+                                text: valueOrDefault(
+                                    currentUserDocument?.reflink, '')));
                           },
-                          child: Text(
-                            valueOrDefault(currentUserDocument?.reflink, ''),
-                            style: FlutterFlowTheme.of(context).bodyText2,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              AuthUserStreamWidget(
+                                builder: (context) => Text(
+                                  valueOrDefault<String>(
+                                    valueOrDefault(
+                                        currentUserDocument?.reflink, ''),
+                                    'No Link Created',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyText1Family,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.w500,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyText1Family),
+                                      ),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: () async {
+                                  await Clipboard.setData(ClipboardData(
+                                      text: valueOrDefault(
+                                          currentUserDocument?.reflink, '')));
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Successfully copied clipboard!',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor: Color(0x00000000),
+                                    ),
+                                  );
+                                },
+                                child: Icon(
+                                  Icons.content_copy_sharp,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 24.0,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ),
-                    InkWell(
-                      onTap: () async {
-                        await Clipboard.setData(ClipboardData(
-                            text: valueOrDefault(
-                                currentUserDocument?.reflink, '')));
-                      },
-                      child: Icon(
-                        Icons.file_copy,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 24.0,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 24.0),
-              child: FFButtonWidget(
-                onPressed: () async {
-                  final usersUpdateData = createUsersRecordData(
-                    reflink: valueOrDefault<String>(
-                      'https://responsive-e25eer.flutterflow.app?${valueOrDefault(currentUserDocument?.refferralID, '')}',
-                      'refCode',
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 24.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      final usersUpdateData = createUsersRecordData(
+                        reflink: valueOrDefault<String>(
+                          'https://responsive-e25eer.flutterflow.app?${valueOrDefault(currentUserDocument?.refferralID, '')}',
+                          'refCode',
+                        ),
+                      );
+                      await currentUserReference!.update(usersUpdateData);
+                    },
+                    text: 'Generate Refferral Link',
+                    icon: Icon(
+                      Icons.insert_link,
+                      size: 15.0,
                     ),
-                  );
-                  await currentUserReference!.update(usersUpdateData);
-                },
-                text: 'Create Refferral Link',
-                options: FFButtonOptions(
-                  width: 300.0,
-                  height: 51.1,
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  iconPadding:
-                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: FlutterFlowTheme.of(context).primaryColor,
-                  textStyle: FlutterFlowTheme.of(context).title3.override(
-                        fontFamily: FlutterFlowTheme.of(context).title3Family,
-                        color: Colors.white,
-                        useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).title3Family),
+                    options: FFButtonOptions(
+                      width: 362.5,
+                      height: 51.1,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primaryColor,
+                      textStyle: FlutterFlowTheme.of(context).title3.override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).title3Family,
+                            color: Colors.white,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).title3Family),
+                          ),
+                      elevation: 3.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
                       ),
-                  elevation: 3.0,
-                  borderSide: BorderSide(
-                    color: Colors.transparent,
-                    width: 1.0,
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           ],
         ),

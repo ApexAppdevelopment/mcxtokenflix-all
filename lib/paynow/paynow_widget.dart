@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,7 +12,12 @@ import 'paynow_model.dart';
 export 'paynow_model.dart';
 
 class PaynowWidget extends StatefulWidget {
-  const PaynowWidget({Key? key}) : super(key: key);
+  const PaynowWidget({
+    Key? key,
+    this.price,
+  }) : super(key: key);
+
+  final PackagesRecord? price;
 
   @override
   _PaynowWidgetState createState() => _PaynowWidgetState();
@@ -61,14 +67,33 @@ class _PaynowWidgetState extends State<PaynowWidget> {
             context.pop();
           },
         ),
-        title: Text(
-          'MCXT Package Subscription',
-          style: FlutterFlowTheme.of(context).bodyText1.override(
-                fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
-                fontWeight: FontWeight.w500,
-                useGoogleFonts: GoogleFonts.asMap()
-                    .containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+        title: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Text(
+              'Package: ${widget.price!.name}',
+              style: FlutterFlowTheme.of(context).bodyText1.override(
+                    fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w500,
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).bodyText1Family),
+                  ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+              child: Text(
+                'USD ${widget.price!.price?.toString()}',
+                style: FlutterFlowTheme.of(context).bodyText1.override(
+                      fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w500,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).bodyText1Family),
+                    ),
               ),
+            ),
+          ],
         ),
         actions: [],
         centerTitle: true,
@@ -133,43 +158,6 @@ class _PaynowWidgetState extends State<PaynowWidget> {
                                   size: 24.0,
                                 ),
                               ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Theme(
-                                    data: ThemeData(
-                                      checkboxTheme: CheckboxThemeData(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(25),
-                                        ),
-                                      ),
-                                      unselectedWidgetColor: Color(0xFF95A1AC),
-                                    ),
-                                    child: CheckboxListTile(
-                                      value: _model.checkboxListTileValue1 ??=
-                                          false,
-                                      onChanged: (newValue) async {
-                                        setState(() =>
-                                            _model.checkboxListTileValue1 =
-                                                newValue!);
-                                      },
-                                      title: Text(
-                                        'Paypal',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
-                                      ),
-                                      tileColor: Color(0xFFF5F5F5),
-                                      activeColor: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      dense: true,
-                                      controlAffinity:
-                                          ListTileControlAffinity.trailing,
-                                    ),
-                                  ),
-                                ),
-                              ),
                             ],
                           ),
                         ),
@@ -214,43 +202,6 @@ class _PaynowWidgetState extends State<PaynowWidget> {
                                   size: 24.0,
                                 ),
                               ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Theme(
-                                    data: ThemeData(
-                                      checkboxTheme: CheckboxThemeData(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(25),
-                                        ),
-                                      ),
-                                      unselectedWidgetColor: Color(0xFF95A1AC),
-                                    ),
-                                    child: CheckboxListTile(
-                                      value: _model.checkboxListTileValue2 ??=
-                                          false,
-                                      onChanged: (newValue) async {
-                                        setState(() =>
-                                            _model.checkboxListTileValue2 =
-                                                newValue!);
-                                      },
-                                      title: Text(
-                                        'Gcash',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
-                                      ),
-                                      tileColor: Color(0xFFF5F5F5),
-                                      activeColor: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      dense: true,
-                                      controlAffinity:
-                                          ListTileControlAffinity.trailing,
-                                    ),
-                                  ),
-                                ),
-                              ),
                             ],
                           ),
                         ),
@@ -290,43 +241,6 @@ class _PaynowWidgetState extends State<PaynowWidget> {
                                 width: 30.0,
                                 height: 30.0,
                                 fit: BoxFit.contain,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Theme(
-                                    data: ThemeData(
-                                      checkboxTheme: CheckboxThemeData(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(25),
-                                        ),
-                                      ),
-                                      unselectedWidgetColor: Color(0xFF95A1AC),
-                                    ),
-                                    child: CheckboxListTile(
-                                      value: _model.checkboxListTileValue3 ??=
-                                          false,
-                                      onChanged: (newValue) async {
-                                        setState(() =>
-                                            _model.checkboxListTileValue3 =
-                                                newValue!);
-                                      },
-                                      title: Text(
-                                        'Paymaya',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
-                                      ),
-                                      tileColor: Color(0xFFF5F5F5),
-                                      activeColor: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      dense: true,
-                                      controlAffinity:
-                                          ListTileControlAffinity.trailing,
-                                    ),
-                                  ),
-                                ),
                               ),
                             ],
                           ),
@@ -368,43 +282,6 @@ class _PaynowWidgetState extends State<PaynowWidget> {
                                 height: 30.0,
                                 fit: BoxFit.cover,
                               ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Theme(
-                                    data: ThemeData(
-                                      checkboxTheme: CheckboxThemeData(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(25),
-                                        ),
-                                      ),
-                                      unselectedWidgetColor: Color(0xFF95A1AC),
-                                    ),
-                                    child: CheckboxListTile(
-                                      value: _model.checkboxListTileValue4 ??=
-                                          false,
-                                      onChanged: (newValue) async {
-                                        setState(() =>
-                                            _model.checkboxListTileValue4 =
-                                                newValue!);
-                                      },
-                                      title: Text(
-                                        'Bitcoin',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
-                                      ),
-                                      tileColor: Color(0xFFF5F5F5),
-                                      activeColor: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      dense: true,
-                                      controlAffinity:
-                                          ListTileControlAffinity.trailing,
-                                    ),
-                                  ),
-                                ),
-                              ),
                             ],
                           ),
                         ),
@@ -444,43 +321,6 @@ class _PaynowWidgetState extends State<PaynowWidget> {
                                 width: 30.0,
                                 height: 30.0,
                                 fit: BoxFit.cover,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Theme(
-                                    data: ThemeData(
-                                      checkboxTheme: CheckboxThemeData(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(25),
-                                        ),
-                                      ),
-                                      unselectedWidgetColor: Color(0xFF95A1AC),
-                                    ),
-                                    child: CheckboxListTile(
-                                      value: _model.checkboxListTileValue5 ??=
-                                          false,
-                                      onChanged: (newValue) async {
-                                        setState(() =>
-                                            _model.checkboxListTileValue5 =
-                                                newValue!);
-                                      },
-                                      title: Text(
-                                        'USDT',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
-                                      ),
-                                      tileColor: Color(0xFFF5F5F5),
-                                      activeColor: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      dense: true,
-                                      controlAffinity:
-                                          ListTileControlAffinity.trailing,
-                                    ),
-                                  ),
-                                ),
                               ),
                             ],
                           ),

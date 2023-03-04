@@ -14,11 +14,9 @@ export 'detailsgoodmovies_model.dart';
 class DetailsgoodmoviesWidget extends StatefulWidget {
   const DetailsgoodmoviesWidget({
     Key? key,
-    this.watchmovie,
     this.watchgood,
   }) : super(key: key);
 
-  final MovieBaseRecord? watchmovie;
   final GoodmoviesRecord? watchgood;
 
   @override
@@ -236,26 +234,10 @@ class _DetailsgoodmoviesWidgetState extends State<DetailsgoodmoviesWidget> {
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 18.0, 0.0),
-                      child: InkWell(
-                        onTap: () async {
-                          context.pushNamed(
-                            'Trailer',
-                            queryParams: {
-                              'trailer': serializeParam(
-                                widget.watchgood,
-                                ParamType.Document,
-                              ),
-                            }.withoutNulls,
-                            extra: <String, dynamic>{
-                              'trailer': widget.watchgood,
-                            },
-                          );
-                        },
-                        child: Icon(
-                          Icons.play_circle_fill,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 50.0,
-                        ),
+                      child: Icon(
+                        Icons.play_circle_fill,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 50.0,
                       ),
                     ),
                   ],

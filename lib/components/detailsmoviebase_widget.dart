@@ -219,26 +219,10 @@ class _DetailsmoviebaseWidgetState extends State<DetailsmoviebaseWidget> {
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 18.0, 0.0),
-                      child: InkWell(
-                        onTap: () async {
-                          context.pushNamed(
-                            'Trailer',
-                            queryParams: {
-                              'baseTrailer': serializeParam(
-                                widget.base,
-                                ParamType.Document,
-                              ),
-                            }.withoutNulls,
-                            extra: <String, dynamic>{
-                              'baseTrailer': widget.base,
-                            },
-                          );
-                        },
-                        child: Icon(
-                          Icons.play_circle_fill,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 50.0,
-                        ),
+                      child: Icon(
+                        Icons.play_circle_fill,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 50.0,
                       ),
                     ),
                   ],

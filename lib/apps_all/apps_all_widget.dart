@@ -53,7 +53,7 @@ class _AppsAllWidgetState extends State<AppsAllWidget> {
           buttonSize: 60.0,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: Colors.white,
+            color: FlutterFlowTheme.of(context).primaryText,
             size: 30.0,
           ),
           onPressed: () async {
@@ -64,7 +64,7 @@ class _AppsAllWidgetState extends State<AppsAllWidget> {
           'Apps Showcase',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: FlutterFlowTheme.of(context).title2Family,
-                color: Colors.white,
+                color: FlutterFlowTheme.of(context).primaryText,
                 fontSize: 22.0,
                 useGoogleFonts: GoogleFonts.asMap()
                     .containsKey(FlutterFlowTheme.of(context).title2Family),

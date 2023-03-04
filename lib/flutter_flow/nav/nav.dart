@@ -143,19 +143,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => ChangePasswordWidget(),
             ),
             FFRoute(
-              name: 'Trailer',
-              path: 'trailer',
-              asyncParams: {
-                'trailer': getDoc(['goodmovies'], GoodmoviesRecord.serializer),
-                'baseTrailer':
-                    getDoc(['movie_base'], MovieBaseRecord.serializer),
-              },
-              builder: (context, params) => TrailerWidget(
-                trailer: params.getParam('trailer', ParamType.Document),
-                baseTrailer: params.getParam('baseTrailer', ParamType.Document),
-              ),
-            ),
-            FFRoute(
               name: 'fullmovie',
               path: 'fullmovie',
               asyncParams: {
@@ -197,7 +184,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Paynow',
               path: 'paynow',
-              builder: (context, params) => PaynowWidget(),
+              asyncParams: {
+                'price': getDoc(['packages'], PackagesRecord.serializer),
+              },
+              builder: (context, params) => PaynowWidget(
+                price: params.getParam('price', ParamType.Document),
+              ),
             ),
             FFRoute(
               name: 'whychooseus',
@@ -208,6 +200,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => WhychooseusWidget(
                 why: params.getParam('why', ParamType.Document),
               ),
+            ),
+            FFRoute(
+              name: 'MovieHome',
+              path: 'movieHome',
+              builder: (context, params) => MovieHomeWidget(),
+            ),
+            FFRoute(
+              name: 'TrailerCopy',
+              path: 'trailerCopy',
+              asyncParams: {
+                'trailer1': getDoc(['movie_base'], MovieBaseRecord.serializer),
+              },
+              builder: (context, params) => TrailerCopyWidget(
+                trailer1: params.getParam('trailer1', ParamType.Document),
+              ),
+            ),
+            FFRoute(
+              name: 'Metamask',
+              path: 'metamask',
+              builder: (context, params) => MetamaskWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

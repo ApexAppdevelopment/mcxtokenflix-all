@@ -2,30 +2,27 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'fullmovie_model.dart';
-export 'fullmovie_model.dart';
+import 'trailer_copy_model.dart';
+export 'trailer_copy_model.dart';
 
-class FullmovieWidget extends StatefulWidget {
-  const FullmovieWidget({
+class TrailerCopyWidget extends StatefulWidget {
+  const TrailerCopyWidget({
     Key? key,
-    this.watchmovie,
-    this.watchgood,
+    this.trailer1,
   }) : super(key: key);
 
-  final MovieBaseRecord? watchmovie;
-  final GoodmoviesRecord? watchgood;
+  final MovieBaseRecord? trailer1;
 
   @override
-  _FullmovieWidgetState createState() => _FullmovieWidgetState();
+  _TrailerCopyWidgetState createState() => _TrailerCopyWidgetState();
 }
 
-class _FullmovieWidgetState extends State<FullmovieWidget> {
-  late FullmovieModel _model;
+class _TrailerCopyWidgetState extends State<TrailerCopyWidget> {
+  late TrailerCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
@@ -33,7 +30,7 @@ class _FullmovieWidgetState extends State<FullmovieWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => FullmovieModel());
+    _model = createModel(context, () => TrailerCopyModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -50,7 +47,7 @@ class _FullmovieWidgetState extends State<FullmovieWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
@@ -69,14 +66,13 @@ class _FullmovieWidgetState extends State<FullmovieWidget> {
           },
         ),
         title: Text(
-          widget.watchmovie!.title!,
-          textAlign: TextAlign.start,
-          maxLines: 1,
-          style: FlutterFlowTheme.of(context).subtitle1.override(
-                fontFamily: FlutterFlowTheme.of(context).subtitle1Family,
-                fontSize: 18.0,
+          'Trailer',
+          style: FlutterFlowTheme.of(context).title2.override(
+                fontFamily: FlutterFlowTheme.of(context).title2Family,
+                color: FlutterFlowTheme.of(context).primaryText,
+                fontSize: 22.0,
                 useGoogleFonts: GoogleFonts.asMap()
-                    .containsKey(FlutterFlowTheme.of(context).subtitle1Family),
+                    .containsKey(FlutterFlowTheme.of(context).title2Family),
               ),
         ),
         actions: [],
@@ -88,17 +84,7 @@ class _FullmovieWidgetState extends State<FullmovieWidget> {
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [
-              FlutterFlowVideoPlayer(
-                path: widget.watchmovie!.fullmovie!,
-                videoType: VideoType.network,
-                autoPlay: true,
-                looping: true,
-                showControls: true,
-                allowFullScreen: true,
-                allowPlaybackSpeedMenu: false,
-              ),
-            ],
+            children: [],
           ),
         ),
       ),

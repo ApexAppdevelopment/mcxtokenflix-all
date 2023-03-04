@@ -32,13 +32,12 @@ class _WhychooseusWidgetState extends State<WhychooseusWidget>
 
   final animationsMap = {
     'imageOnPageLoadAnimation1': AnimationInfo(
-      loop: true,
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
-          curve: Curves.easeInOut,
+          curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 970.ms,
+          duration: 2000.ms,
           begin: 0.0,
           end: 1.0,
         ),
@@ -126,19 +125,12 @@ class _WhychooseusWidgetState extends State<WhychooseusWidget>
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 12.0, 0.0, 4.0),
-                            child: Text(
+                            child: AutoSizeText(
                               widget.why!.description!,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyText1Family,
-                                    fontSize: 18.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodyText1Family),
-                                  ),
+                              maxLines: 4,
+                              style: TextStyle(
+                                fontSize: 14.0,
+                              ),
                             ),
                           ),
                         ],
@@ -186,8 +178,18 @@ class _WhychooseusWidgetState extends State<WhychooseusWidget>
                                     0.0, 0.0, 0.0, 10.0),
                                 child: InkWell(
                                   onTap: () async {
-                                    await launchURL(
-                                        'https://mcxttoken.myshopify.com/checkouts/bin/c1317aba6ef9ff52b025c2e111dc29ff/information?skip_shop_pay=true');
+                                    context.pushNamed(
+                                      'Paynow',
+                                      queryParams: {
+                                        'price': serializeParam(
+                                          listViewPackagesRecord,
+                                          ParamType.Document,
+                                        ),
+                                      }.withoutNulls,
+                                      extra: <String, dynamic>{
+                                        'price': listViewPackagesRecord,
+                                      },
+                                    );
                                   },
                                   child: Material(
                                     color: Colors.transparent,
@@ -312,7 +314,12 @@ class _WhychooseusWidgetState extends State<WhychooseusWidget>
                                                             .fromSTEB(0.0, 12.0,
                                                                 4.0, 8.0),
                                                     child: Text(
-                                                      'MCXT = ${listViewPackagesRecord.quantity?.toString()}',
+                                                      'MCXT = ${formatNumber(
+                                                        listViewPackagesRecord
+                                                            .quantity,
+                                                        formatType:
+                                                            FormatType.decimal,
+                                                      )}',
                                                       textAlign: TextAlign.end,
                                                       style:
                                                           FlutterFlowTheme.of(

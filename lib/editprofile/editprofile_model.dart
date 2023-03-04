@@ -21,9 +21,15 @@ class EditprofileModel extends FlutterFlowModel {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl = '';
 
+  // State field(s) for Fullname widget.
+  TextEditingController? fullnameController;
+  String? Function(BuildContext, String?)? fullnameControllerValidator;
   // State field(s) for Phone widget.
   TextEditingController? phoneController;
   String? Function(BuildContext, String?)? phoneControllerValidator;
+  // State field(s) for email widget.
+  TextEditingController? emailController;
+  String? Function(BuildContext, String?)? emailControllerValidator;
   // State field(s) for city widget.
   TextEditingController? cityController;
   String? Function(BuildContext, String?)? cityControllerValidator;
@@ -33,7 +39,9 @@ class EditprofileModel extends FlutterFlowModel {
   void initState(BuildContext context) {}
 
   void dispose() {
+    fullnameController?.dispose();
     phoneController?.dispose();
+    emailController?.dispose();
     cityController?.dispose();
   }
 
