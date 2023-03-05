@@ -539,19 +539,6 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      if (responsiveVisibility(
-                                        context: context,
-                                        tabletLandscape: false,
-                                        desktop: false,
-                                      ))
-                                        Container(
-                                          width: double.infinity,
-                                          height: 32.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                          ),
-                                        ),
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -562,302 +549,182 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                             child: Align(
                                               alignment: AlignmentDirectional(
                                                   0.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Expanded(
-                                                    flex: 87,
-                                                    child: Align(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 16.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Expanded(
+                                                      flex: 87,
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                -1.0, 1.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      0.0),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Text(
+                                                                'Welcome to MCXT Token',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .subtitle1,
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  'Register Now to enjoy our Free App',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyText1
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyText1Family,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              -1.0, 1.0),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    16.0,
-                                                                    0.0),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Text(
-                                                              'Welcome to MCXT',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .title1,
-                                                            ),
+                                                              1.0, -1.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .end,
+                                                        children: [
+                                                          if (responsiveVisibility(
+                                                            context: context,
+                                                            phone: false,
+                                                          ))
                                                             Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
-                                                                          4.0,
                                                                           0.0,
+                                                                          12.0,
                                                                           0.0),
-                                                              child: Text(
-                                                                'Register Now to enjoy our Free App',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText2,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            1.0, -1.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      children: [
-                                                        if (responsiveVisibility(
-                                                          context: context,
-                                                          phone: false,
-                                                        ))
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        12.0,
-                                                                        0.0),
-                                                            child: Container(
-                                                              height: 48.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .alternate,
-                                                                boxShadow: [
-                                                                  BoxShadow(
-                                                                    blurRadius:
-                                                                        0.0,
-                                                                    color: Color(
-                                                                        0xFFC94851),
-                                                                    offset:
-                                                                        Offset(
-                                                                            0.0,
-                                                                            2.0),
-                                                                    spreadRadius:
-                                                                        1.0,
-                                                                  )
-                                                                ],
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            16.0),
-                                                              ),
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Padding(
-                                                                padding: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        16.0,
-                                                                        0.0,
-                                                                        16.0,
-                                                                        0.0),
-                                                                child: Text(
-                                                                  'Create',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyText1Family,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryBtnText,
-                                                                        useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        if (responsiveVisibility(
-                                                          context: context,
-                                                          phone: false,
-                                                        ))
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        12.0,
-                                                                        0.0),
-                                                            child: Container(
-                                                              width: 50.0,
-                                                              height: 50.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                boxShadow: [
-                                                                  BoxShadow(
-                                                                    blurRadius:
-                                                                        4.0,
-                                                                    color: Color(
-                                                                        0x33000000),
-                                                                    offset:
-                                                                        Offset(
-                                                                            0.0,
-                                                                            2.0),
-                                                                  )
-                                                                ],
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            16.0),
-                                                              ),
-                                                              child:
-                                                                  FlutterFlowIconButton(
-                                                                borderColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .lineColor,
-                                                                borderRadius:
-                                                                    12.0,
-                                                                borderWidth:
-                                                                    1.0,
-                                                                buttonSize:
-                                                                    50.0,
-                                                                fillColor: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                icon: Icon(
-                                                                  Icons
-                                                                      .mark_chat_unread,
+                                                              child: Container(
+                                                                height: 48.0,
+                                                                decoration:
+                                                                    BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondaryText,
-                                                                  size: 24.0,
+                                                                      .alternate,
+                                                                  boxShadow: [
+                                                                    BoxShadow(
+                                                                      blurRadius:
+                                                                          0.0,
+                                                                      color: Color(
+                                                                          0xFFC94851),
+                                                                      offset: Offset(
+                                                                          0.0,
+                                                                          2.0),
+                                                                      spreadRadius:
+                                                                          1.0,
+                                                                    )
+                                                                  ],
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              16.0),
                                                                 ),
-                                                                onPressed:
-                                                                    () async {
-                                                                  await showModalBottomSheet(
-                                                                    isScrollControlled:
-                                                                        true,
-                                                                    backgroundColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    barrierColor:
-                                                                        Color(
-                                                                            0x17000000),
-                                                                    context:
-                                                                        context,
-                                                                    builder:
-                                                                        (context) {
-                                                                      return Padding(
-                                                                        padding:
-                                                                            MediaQuery.of(context).viewInsets,
-                                                                        child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
-                                                                          child:
-                                                                              MessageBottomSheetWidget(),
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0),
+                                                                child: Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    'Create',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).bodyText1Family,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryBtnText,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                         ),
-                                                                      );
-                                                                    },
-                                                                  ).then((value) =>
-                                                                      setState(
-                                                                          () {}));
-                                                                },
+                                                                  ),
+                                                                ),
                                                               ),
                                                             ),
-                                                          ),
-                                                        if (responsiveVisibility(
-                                                          context: context,
-                                                          phone: false,
-                                                        ))
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        12.0,
-                                                                        0.0),
-                                                            child: Container(
-                                                              width: 50.0,
-                                                              height: 50.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                boxShadow: [
-                                                                  BoxShadow(
-                                                                    blurRadius:
-                                                                        4.0,
-                                                                    color: Color(
-                                                                        0x33000000),
-                                                                    offset:
-                                                                        Offset(
-                                                                            0.0,
-                                                                            2.0),
-                                                                  )
-                                                                ],
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            16.0),
-                                                              ),
-                                                              child:
-                                                                  badges.Badge(
-                                                                badgeContent:
-                                                                    Text(
-                                                                  '1',
-                                                                  style: FlutterFlowTheme.of(
+                                                          if (responsiveVisibility(
+                                                            context: context,
+                                                            phone: false,
+                                                          ))
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          12.0,
+                                                                          0.0),
+                                                              child: Container(
+                                                                width: 50.0,
+                                                                height: 50.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyText1Family,
-                                                                        color: Colors
-                                                                            .white,
-                                                                        useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
-                                                                      ),
+                                                                      .secondaryBackground,
+                                                                  boxShadow: [
+                                                                    BoxShadow(
+                                                                      blurRadius:
+                                                                          4.0,
+                                                                      color: Color(
+                                                                          0x33000000),
+                                                                      offset: Offset(
+                                                                          0.0,
+                                                                          2.0),
+                                                                    )
+                                                                  ],
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              16.0),
                                                                 ),
-                                                                showBadge: true,
-                                                                shape: badges
-                                                                    .BadgeShape
-                                                                    .circle,
-                                                                badgeColor: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryColor,
-                                                                elevation: 4.0,
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0),
-                                                                position: badges
-                                                                        .BadgePosition
-                                                                    .topEnd(),
-                                                                animationType:
-                                                                    badges
-                                                                        .BadgeAnimationType
-                                                                        .scale,
-                                                                toAnimate: true,
                                                                 child:
                                                                     FlutterFlowIconButton(
                                                                   borderColor:
@@ -875,7 +742,7 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                       .secondaryBackground,
                                                                   icon: Icon(
                                                                     Icons
-                                                                        .notifications_none,
+                                                                        .mark_chat_unread,
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
@@ -883,70 +750,209 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                   ),
                                                                   onPressed:
                                                                       () async {
-                                                                    scaffoldKey
-                                                                        .currentState!
-                                                                        .openEndDrawer();
+                                                                    await showModalBottomSheet(
+                                                                      isScrollControlled:
+                                                                          true,
+                                                                      backgroundColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      barrierColor:
+                                                                          Color(
+                                                                              0x17000000),
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (context) {
+                                                                        return Padding(
+                                                                          padding:
+                                                                              MediaQuery.of(context).viewInsets,
+                                                                          child:
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                MessageBottomSheetWidget(),
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    ).then((value) =>
+                                                                        setState(
+                                                                            () {}));
                                                                   },
                                                                 ),
                                                               ),
                                                             ),
-                                                          ),
-                                                        Container(
-                                                          width: 60.0,
-                                                          height: 60.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                            boxShadow: [
-                                                              BoxShadow(
-                                                                blurRadius: 4.0,
-                                                                color: Color(
-                                                                    0x33000000),
-                                                                offset: Offset(
-                                                                    0.0, 2.0),
-                                                              )
-                                                            ],
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        16.0),
-                                                          ),
-                                                          child: InkWell(
-                                                            onTap: () async {
-                                                              if (valueOrDefault<
-                                                                      bool>(
-                                                                  currentUserDocument
-                                                                      ?.isauthenticated,
-                                                                  false)) {
-                                                                context.pushNamed(
-                                                                    'Metamask');
-                                                              } else {
-                                                                context.pushNamed(
-                                                                    'Register');
-                                                              }
-                                                            },
-                                                            child: ClipRRect(
+                                                          if (responsiveVisibility(
+                                                            context: context,
+                                                            phone: false,
+                                                          ))
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          12.0,
+                                                                          0.0),
+                                                              child: Container(
+                                                                width: 50.0,
+                                                                height: 50.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  boxShadow: [
+                                                                    BoxShadow(
+                                                                      blurRadius:
+                                                                          4.0,
+                                                                      color: Color(
+                                                                          0x33000000),
+                                                                      offset: Offset(
+                                                                          0.0,
+                                                                          2.0),
+                                                                    )
+                                                                  ],
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              16.0),
+                                                                ),
+                                                                child: badges
+                                                                    .Badge(
+                                                                  badgeContent:
+                                                                      Text(
+                                                                    '1',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).bodyText1Family,
+                                                                          color:
+                                                                              Colors.white,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
+                                                                        ),
+                                                                  ),
+                                                                  showBadge:
+                                                                      true,
+                                                                  shape: badges
+                                                                      .BadgeShape
+                                                                      .circle,
+                                                                  badgeColor: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryColor,
+                                                                  elevation:
+                                                                      4.0,
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          8.0,
+                                                                          8.0,
+                                                                          8.0,
+                                                                          8.0),
+                                                                  position: badges
+                                                                          .BadgePosition
+                                                                      .topEnd(),
+                                                                  animationType:
+                                                                      badges
+                                                                          .BadgeAnimationType
+                                                                          .scale,
+                                                                  toAnimate:
+                                                                      true,
+                                                                  child:
+                                                                      FlutterFlowIconButton(
+                                                                    borderColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .lineColor,
+                                                                    borderRadius:
+                                                                        12.0,
+                                                                    borderWidth:
+                                                                        1.0,
+                                                                    buttonSize:
+                                                                        50.0,
+                                                                    fillColor: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                    icon: Icon(
+                                                                      Icons
+                                                                          .notifications_none,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
+                                                                    onPressed:
+                                                                        () async {
+                                                                      scaffoldKey
+                                                                          .currentState!
+                                                                          .openEndDrawer();
+                                                                    },
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          Container(
+                                                            width: 45.0,
+                                                            height: 45.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                              boxShadow: [
+                                                                BoxShadow(
+                                                                  blurRadius:
+                                                                      4.0,
+                                                                  color: Color(
+                                                                      0x33000000),
+                                                                  offset:
+                                                                      Offset(
+                                                                          0.0,
+                                                                          2.0),
+                                                                )
+                                                              ],
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          12.0),
-                                                              child:
-                                                                  Image.asset(
-                                                                'assets/images/metamask.gif',
-                                                                width: 60.0,
-                                                                height: 60.0,
-                                                                fit: BoxFit
-                                                                    .cover,
+                                                                          16.0),
+                                                            ),
+                                                            child: InkWell(
+                                                              onTap: () async {
+                                                                if (valueOrDefault<
+                                                                        bool>(
+                                                                    currentUserDocument
+                                                                        ?.isauthenticated,
+                                                                    false)) {
+                                                                  context.pushNamed(
+                                                                      'Metamask');
+                                                                } else {
+                                                                  context.pushNamed(
+                                                                      'Register');
+                                                                }
+                                                              },
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            12.0),
+                                                                child:
+                                                                    Image.asset(
+                                                                  'assets/images/metamask.gif',
+                                                                  width: 45.0,
+                                                                  height: 45.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -1152,7 +1158,7 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                                   style: FlutterFlowTheme.of(context).title1.override(
                                                                                         fontFamily: 'Outfit',
                                                                                         color: Colors.white,
-                                                                                        fontSize: 24.0,
+                                                                                        fontSize: 18.0,
                                                                                         fontWeight: FontWeight.w600,
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).title1Family),
                                                                                       ),
@@ -1327,7 +1333,7 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                                   '1USDT = MCXT',
                                                                                   style: FlutterFlowTheme.of(context).title3.override(
                                                                                         fontFamily: FlutterFlowTheme.of(context).title3Family,
-                                                                                        fontSize: 24.0,
+                                                                                        fontSize: 18.0,
                                                                                         fontWeight: FontWeight.w500,
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).title3Family),
                                                                                       ),
@@ -1497,7 +1503,7 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                                   '1BTC = MCXT',
                                                                                   style: FlutterFlowTheme.of(context).subtitle1.override(
                                                                                         fontFamily: FlutterFlowTheme.of(context).subtitle1Family,
-                                                                                        fontSize: 24.0,
+                                                                                        fontSize: 18.0,
                                                                                         fontWeight: FontWeight.w500,
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).subtitle1Family),
                                                                                       ),
@@ -1742,7 +1748,22 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                     'MCXT Token Packages',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .title2,
+                                                        .title2
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .title2Family,
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .title2Family),
+                                                        ),
                                                   ),
                                                   Padding(
                                                     padding:
@@ -2037,7 +2058,20 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                     'Why Choose MCXT Token',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .title3,
+                                                        .title3
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .title3Family,
+                                                          fontSize: 16.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .title3Family),
+                                                        ),
                                                   ),
                                                 ],
                                               ),
@@ -2215,7 +2249,18 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                         .center,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .title2,
+                                                                    .title2
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .title2Family,
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).title2Family),
+                                                                    ),
                                                               ),
                                                             ),
                                                             Expanded(
@@ -2468,8 +2513,8 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                               .override(
                                                                                 fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 24.0,
-                                                                                fontWeight: FontWeight.normal,
+                                                                                fontSize: 16.0,
+                                                                                fontWeight: FontWeight.w500,
                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                               ),
                                                                         ),
@@ -2692,8 +2737,8 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                               .override(
                                                                                 fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 24.0,
-                                                                                fontWeight: FontWeight.normal,
+                                                                                fontSize: 16.0,
+                                                                                fontWeight: FontWeight.w500,
                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                               ),
                                                                         ),
@@ -2911,8 +2956,8 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                               .override(
                                                                                 fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 24.0,
-                                                                                fontWeight: FontWeight.normal,
+                                                                                fontSize: 16.0,
+                                                                                fontWeight: FontWeight.w500,
                                                                                 useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
                                                                               ),
                                                                         ),

@@ -81,8 +81,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                         EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
                     child: AuthUserStreamWidget(
                       builder: (context) => AutoSizeText(
-                        'Hello, ${currentUserDisplayName}!'
-                            .maybeHandleOverflow(maxChars: 12),
+                        'Hello, ${currentUserDisplayName}!',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily:
                                   FlutterFlowTheme.of(context).bodyText1Family,
@@ -105,23 +104,23 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Text(
-                        'Edit Profile',
-                        style: FlutterFlowTheme.of(context).bodyText1,
-                      ),
-                      FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        borderRadius: 20.0,
-                        borderWidth: 1.0,
-                        buttonSize: 40.0,
-                        icon: FaIcon(
-                          FontAwesomeIcons.solidEdit,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 20.0,
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                        child: FlutterFlowIconButton(
+                          borderColor: Colors.transparent,
+                          borderRadius: 20.0,
+                          borderWidth: 1.0,
+                          buttonSize: 40.0,
+                          icon: FaIcon(
+                            FontAwesomeIcons.solidEdit,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            size: 20.0,
+                          ),
+                          onPressed: () async {
+                            context.pushNamed('Editprofile');
+                          },
                         ),
-                        onPressed: () async {
-                          context.pushNamed('Editprofile');
-                        },
                       ),
                     ],
                   ),
@@ -544,7 +543,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 24.0, 0.0, 16.0),
+                                            0.0, 5.0, 0.0, 15.0),
                                         child: Text(
                                           'Theme',
                                           style: FlutterFlowTheme.of(context)
@@ -683,7 +682,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 24.0, 0.0, 16.0),
+                                            0.0, 5.0, 0.0, 15.0),
                                         child: Text(
                                           'Account',
                                           style: FlutterFlowTheme.of(context)
