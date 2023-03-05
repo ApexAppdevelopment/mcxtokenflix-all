@@ -47,7 +47,7 @@ class _MLMdashboardWidgetState extends State<MLMdashboardWidget> {
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
@@ -75,6 +75,7 @@ class _MLMdashboardWidgetState extends State<MLMdashboardWidget> {
                               ),
                               child: Image.asset(
                                 'assets/images/Add-User-Profile-New-More-Plus-Contact-256.webp',
+                                fit: BoxFit.cover,
                               ),
                             ),
                           ),
@@ -266,7 +267,7 @@ class _MLMdashboardWidgetState extends State<MLMdashboardWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 0.0),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 1.0,
                   decoration: BoxDecoration(
@@ -285,43 +286,101 @@ class _MLMdashboardWidgetState extends State<MLMdashboardWidget> {
                       topRight: Radius.circular(16.0),
                     ),
                   ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 16.0, 20.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'Quick Service',
-                              style: FlutterFlowTheme.of(context).bodyText1,
-                            ),
-                          ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 16.0, 20.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'Quick Service',
+                                style: FlutterFlowTheme.of(context).bodyText1,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 12.0, 16.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            InkWell(
-                              onTap: () async {
-                                context.pushNamed('teamMembers');
-                              },
-                              child: Container(
-                                width: 90.0,
-                                height: 80.0,
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 12.0, 16.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              InkWell(
+                                onTap: () async {
+                                  context.pushNamed('teamMembers');
+                                },
+                                child: Container(
+                                  width: 70.0,
+                                  height: 70.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 5.0,
+                                        color: Color(0x3B000000),
+                                        offset: Offset(0.0, 2.0),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        4.0, 4.0, 4.0, 4.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.group,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          size: 40.0,
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Members',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyText1Family,
+                                                  fontSize: 12.0,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1Family),
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: 70.0,
+                                height: 70.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   boxShadow: [
                                     BoxShadow(
                                       blurRadius: 5.0,
-                                      color: Color(0x3B000000),
+                                      color: Color(0x3A000000),
                                       offset: Offset(0.0, 2.0),
                                     )
                                   ],
@@ -335,7 +394,7 @@ class _MLMdashboardWidgetState extends State<MLMdashboardWidget> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
-                                        Icons.group,
+                                        Icons.stacked_line_chart_rounded,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         size: 40.0,
@@ -344,7 +403,7 @@ class _MLMdashboardWidgetState extends State<MLMdashboardWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 8.0, 0.0, 0.0),
                                         child: Text(
-                                          'Members',
+                                          'Unilevel',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1,
                                         ),
@@ -353,297 +412,260 @@ class _MLMdashboardWidgetState extends State<MLMdashboardWidget> {
                                   ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              width: 90.0,
-                              height: 90.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 5.0,
-                                    color: Color(0x3A000000),
-                                    offset: Offset(0.0, 2.0),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    4.0, 4.0, 4.0, 4.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.stacked_line_chart_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      size: 40.0,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Unilevel',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
-                                      ),
-                                    ),
+                              Container(
+                                width: 70.0,
+                                height: 70.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 5.0,
+                                      color: Color(0x39000000),
+                                      offset: Offset(0.0, 2.0),
+                                    )
                                   ],
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              width: 90.0,
-                              height: 80.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 5.0,
-                                    color: Color(0x39000000),
-                                    offset: Offset(0.0, 2.0),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    4.0, 4.0, 4.0, 4.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.account_balance_outlined,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      size: 40.0,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Rewards',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      4.0, 4.0, 4.0, 4.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.account_balance_outlined,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 40.0,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 12.0, 20.0, 12.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              '  ',
-                              style: FlutterFlowTheme.of(context).bodyText1,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
-                        child: StreamBuilder<List<MlmrewardsRecord>>(
-                          stream: queryMlmrewardsRecord(),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  child: SpinKitWanderingCubes(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    size: 50.0,
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 8.0, 0.0, 0.0),
+                                        child: Text(
+                                          'Rewards',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              );
-                            }
-                            List<MlmrewardsRecord>
-                                listViewMlmrewardsRecordList = snapshot.data!;
-                            if (listViewMlmrewardsRecordList.isEmpty) {
-                              return Center(
-                                child: Image.asset(
-                                  'assets/images/nothing-found.png',
-                                  width: 100.0,
-                                  height: 100.0,
-                                  fit: BoxFit.contain,
-                                ),
-                              );
-                            }
-                            return ListView.builder(
-                              padding: EdgeInsets.zero,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              itemCount: listViewMlmrewardsRecordList.length,
-                              itemBuilder: (context, listViewIndex) {
-                                final listViewMlmrewardsRecord =
-                                    listViewMlmrewardsRecordList[listViewIndex];
-                                return Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 10.0),
-                                  child: Container(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.92,
-                                    height: 70.0,
-                                    decoration: BoxDecoration(
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 12.0, 20.0, 12.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                '  ',
+                                style: FlutterFlowTheme.of(context).bodyText1,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          child: StreamBuilder<List<MlmrewardsRecord>>(
+                            stream: queryMlmrewardsRecord(),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: SpinKitWanderingCubes(
                                       color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      borderRadius: BorderRadius.circular(8.0),
+                                          .primaryColor,
+                                      size: 50.0,
                                     ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 0.0, 0.0),
-                                          child: Card(
-                                            clipBehavior:
-                                                Clip.antiAliasWithSaveLayer,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(40.0),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(8.0, 8.0, 8.0, 8.0),
-                                              child: Icon(
-                                                Icons.monetization_on_rounded,
-                                                color: Colors.white,
-                                                size: 24.0,
+                                  ),
+                                );
+                              }
+                              List<MlmrewardsRecord>
+                                  listViewMlmrewardsRecordList = snapshot.data!;
+                              if (listViewMlmrewardsRecordList.isEmpty) {
+                                return Center(
+                                  child: Image.asset(
+                                    'assets/images/nothing-found.png',
+                                    width: 100.0,
+                                    height: 100.0,
+                                    fit: BoxFit.contain,
+                                  ),
+                                );
+                              }
+                              return ListView.builder(
+                                padding: EdgeInsets.zero,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount: listViewMlmrewardsRecordList.length,
+                                itemBuilder: (context, listViewIndex) {
+                                  final listViewMlmrewardsRecord =
+                                      listViewMlmrewardsRecordList[
+                                          listViewIndex];
+                                  return Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 10.0),
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.92,
+                                      height: 70.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 0.0, 0.0, 0.0),
+                                            child: Card(
+                                              clipBehavior:
+                                                  Clip.antiAliasWithSaveLayer,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(40.0),
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 8.0, 8.0, 8.0),
+                                                child: Icon(
+                                                  Icons.monetization_on_rounded,
+                                                  color: Colors.white,
+                                                  size: 24.0,
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                        Expanded(
-                                          child: Padding(
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 0.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    listViewMlmrewardsRecord
+                                                        .name!,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .subtitle1,
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 4.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      'Level',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText2,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 0.0, 0.0),
+                                                    12.0, 0.0, 12.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.end,
                                               children: [
                                                 Text(
-                                                  listViewMlmrewardsRecord
-                                                      .name!,
+                                                  valueOrDefault<String>(
+                                                    listViewMlmrewardsRecord
+                                                        .amount
+                                                        ?.toString(),
+                                                    '0.00',
+                                                  ),
+                                                  textAlign: TextAlign.end,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .subtitle1,
+                                                      .subtitle2
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .subtitle2Family,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryColor,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .subtitle2Family),
+                                                      ),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 4.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'Level',
+                                                    'date',
+                                                    textAlign: TextAlign.end,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText2,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Text(
-                                                valueOrDefault<String>(
-                                                  listViewMlmrewardsRecord
-                                                      .amount
-                                                      ?.toString(),
-                                                  '0.00',
-                                                ),
-                                                textAlign: TextAlign.end,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .subtitle2
+                                                        .bodyText1
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .subtitle2Family,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryColor,
+                                                                  .bodyText1Family,
+                                                          fontSize: 12.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
                                                               .containsKey(
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .subtitle2Family),
+                                                                      .bodyText1Family),
                                                         ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 4.0, 0.0, 0.0),
-                                                child: Text(
-                                                  dateTimeFormat(
-                                                      'relative',
-                                                      listViewMlmrewardsRecord
-                                                          .createdAt!),
-                                                  textAlign: TextAlign.end,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1Family,
-                                                        fontSize: 12.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1Family),
-                                                      ),
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                );
-                              },
-                            );
-                          },
+                                  );
+                                },
+                              );
+                            },
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
