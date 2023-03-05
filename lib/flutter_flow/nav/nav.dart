@@ -70,13 +70,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : RegisterWidget(),
+          appStateNotifier.loggedIn ? HomePageWidget() : HomePageStartWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePageWidget() : RegisterWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? HomePageWidget()
+              : HomePageStartWidget(),
           routes: [
             FFRoute(
               name: 'teamMembers',
@@ -165,20 +166,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'HomePage',
               path: 'HomePage',
               builder: (context, params) => HomePageWidget(),
-            ),
-            FFRoute(
-              name: 'fullmovieCopy',
-              path: 'fullmovieCopy',
-              asyncParams: {
-                'watchmovie':
-                    getDoc(['movie_base'], MovieBaseRecord.serializer),
-                'watchgood':
-                    getDoc(['goodmovies'], GoodmoviesRecord.serializer),
-              },
-              builder: (context, params) => FullmovieCopyWidget(
-                watchmovie: params.getParam('watchmovie', ParamType.Document),
-                watchgood: params.getParam('watchgood', ParamType.Document),
-              ),
             ),
             FFRoute(
               name: 'Notifications',
@@ -358,7 +345,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/register';
+            return '/homePageStart';
           }
           return null;
         },

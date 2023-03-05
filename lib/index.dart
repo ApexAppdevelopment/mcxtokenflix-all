@@ -16,7 +16,6 @@ export '/projects/projects_widget.dart' show ProjectsWidget;
 export '/whychooseus/whychooseus_widget.dart' show WhychooseusWidget;
 export '/metamask/metamask_widget.dart' show MetamaskWidget;
 export '/home_page/home_page_widget.dart' show HomePageWidget;
-export '/fullmovie_copy/fullmovie_copy_widget.dart' show FullmovieCopyWidget;
 export '/notifications/notifications_widget.dart' show NotificationsWidget;
 export '/home_movies/home_movies_widget.dart' show HomeMoviesWidget;
 export '/m_l_mdashboard/m_l_mdashboard_widget.dart' show MLMdashboardWidget;

@@ -72,7 +72,7 @@ class _NoteammatesWidgetState extends State<NoteammatesWidget> {
             children: [
               FFButtonWidget(
                 onPressed: () async {
-                  context.pushNamed('RefferralLink');
+                  context.pushNamed('DevelopmentMode');
                 },
                 text: 'Share Link',
                 options: FFButtonOptions(

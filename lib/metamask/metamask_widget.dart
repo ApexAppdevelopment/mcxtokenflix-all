@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'metamask_model.dart';
 export 'metamask_model.dart';
@@ -71,13 +71,14 @@ class _MetamaskWidgetState extends State<MetamaskWidget> {
                               decoration: BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  FlutterFlowWebView(
-                                    url: 'https://portfolio.metamask.io/',
-                                    bypass: true,
-                                    height: 750.0,
-                                    verticalScroll: true,
-                                    horizontalScroll: true,
+                                  Lottie.network(
+                                    'https://assets3.lottiefiles.com/packages/lf20_p1qiuawe.json',
+                                    width: 250.0,
+                                    height: 250.0,
+                                    fit: BoxFit.cover,
+                                    animate: true,
                                   ),
                                 ],
                               ),
