@@ -2,27 +2,30 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'trailer_copy_model.dart';
-export 'trailer_copy_model.dart';
+import 'fullmovie_copy_model.dart';
+export 'fullmovie_copy_model.dart';
 
-class TrailerCopyWidget extends StatefulWidget {
-  const TrailerCopyWidget({
+class FullmovieCopyWidget extends StatefulWidget {
+  const FullmovieCopyWidget({
     Key? key,
-    this.trailer1,
+    this.watchmovie,
+    this.watchgood,
   }) : super(key: key);
 
-  final MovieBaseRecord? trailer1;
+  final MovieBaseRecord? watchmovie;
+  final GoodmoviesRecord? watchgood;
 
   @override
-  _TrailerCopyWidgetState createState() => _TrailerCopyWidgetState();
+  _FullmovieCopyWidgetState createState() => _FullmovieCopyWidgetState();
 }
 
-class _TrailerCopyWidgetState extends State<TrailerCopyWidget> {
-  late TrailerCopyModel _model;
+class _FullmovieCopyWidgetState extends State<FullmovieCopyWidget> {
+  late FullmovieCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
@@ -30,7 +33,7 @@ class _TrailerCopyWidgetState extends State<TrailerCopyWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TrailerCopyModel());
+    _model = createModel(context, () => FullmovieCopyModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -47,7 +50,7 @@ class _TrailerCopyWidgetState extends State<TrailerCopyWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
@@ -66,13 +69,14 @@ class _TrailerCopyWidgetState extends State<TrailerCopyWidget> {
           },
         ),
         title: Text(
-          'Trailer',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: FlutterFlowTheme.of(context).title2Family,
-                color: FlutterFlowTheme.of(context).primaryText,
-                fontSize: 22.0,
+          widget.watchmovie!.title!,
+          textAlign: TextAlign.start,
+          maxLines: 1,
+          style: FlutterFlowTheme.of(context).subtitle1.override(
+                fontFamily: FlutterFlowTheme.of(context).subtitle1Family,
+                fontSize: 18.0,
                 useGoogleFonts: GoogleFonts.asMap()
-                    .containsKey(FlutterFlowTheme.of(context).title2Family),
+                    .containsKey(FlutterFlowTheme.of(context).subtitle1Family),
               ),
         ),
         actions: [],
@@ -84,7 +88,18 @@ class _TrailerCopyWidgetState extends State<TrailerCopyWidget> {
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [],
+            children: [
+              FlutterFlowVideoPlayer(
+                path:
+                    'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
+                videoType: VideoType.network,
+                autoPlay: true,
+                looping: true,
+                showControls: true,
+                allowFullScreen: true,
+                allowPlaybackSpeedMenu: false,
+              ),
+            ],
           ),
         ),
       ),

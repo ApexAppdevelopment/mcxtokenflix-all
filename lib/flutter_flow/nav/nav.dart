@@ -70,24 +70,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : HomePageStartWidget(),
+          appStateNotifier.loggedIn ? HomePageWidget() : RegisterWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? HomePageWidget()
-              : HomePageStartWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? HomePageWidget() : RegisterWidget(),
           routes: [
             FFRoute(
               name: 'teamMembers',
               path: 'teamMembers',
               builder: (context, params) => TeamMembersWidget(),
-            ),
-            FFRoute(
-              name: 'HomePage',
-              path: 'homePage',
-              builder: (context, params) => HomePageWidget(),
             ),
             FFRoute(
               name: 'billing',
@@ -100,19 +94,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => ProfilesettingsWidget(),
             ),
             FFRoute(
-              name: 'projects_alt',
-              path: 'projectsAlt',
-              builder: (context, params) => ProjectsAltWidget(),
-            ),
-            FFRoute(
               name: 'HomePageStart',
               path: 'homePageStart',
               builder: (context, params) => HomePageStartWidget(),
-            ),
-            FFRoute(
-              name: 'McxtFlix',
-              path: 'mcxtFlix',
-              builder: (context, params) => McxtFlixWidget(),
             ),
             FFRoute(
               name: 'Register',
@@ -128,33 +112,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => LoginWidget(),
             ),
             FFRoute(
-              name: 'UpdateProfile',
-              path: 'updateProfile',
-              builder: (context, params) => UpdateProfileWidget(),
-            ),
-            FFRoute(
               name: 'Editprofile',
               path: 'editprofile',
               builder: (context, params) => EditprofileWidget(),
             ),
             FFRoute(
+              name: 'UpdateProfile',
+              path: 'updateProfile',
+              builder: (context, params) => UpdateProfileWidget(),
+            ),
+            FFRoute(
               name: 'ChangePassword',
               path: 'changePassword',
               builder: (context, params) => ChangePasswordWidget(),
-            ),
-            FFRoute(
-              name: 'fullmovie',
-              path: 'fullmovie',
-              asyncParams: {
-                'watchmovie':
-                    getDoc(['movie_base'], MovieBaseRecord.serializer),
-                'watchgood':
-                    getDoc(['goodmovies'], GoodmoviesRecord.serializer),
-              },
-              builder: (context, params) => FullmovieWidget(
-                watchmovie: params.getParam('watchmovie', ParamType.Document),
-                watchgood: params.getParam('watchgood', ParamType.Document),
-              ),
             ),
             FFRoute(
               name: 'AppsAll',
@@ -172,24 +142,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => RefferralLinkWidget(),
             ),
             FFRoute(
-              name: 'Homey',
-              path: 'homey',
-              builder: (context, params) => HomeyWidget(),
-            ),
-            FFRoute(
               name: 'projects',
               path: 'projects',
               builder: (context, params) => ProjectsWidget(),
-            ),
-            FFRoute(
-              name: 'Paynow',
-              path: 'paynow',
-              asyncParams: {
-                'price': getDoc(['packages'], PackagesRecord.serializer),
-              },
-              builder: (context, params) => PaynowWidget(
-                price: params.getParam('price', ParamType.Document),
-              ),
             ),
             FFRoute(
               name: 'whychooseus',
@@ -202,24 +157,48 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'MovieHome',
-              path: 'movieHome',
-              builder: (context, params) => MovieHomeWidget(),
-            ),
-            FFRoute(
-              name: 'TrailerCopy',
-              path: 'trailerCopy',
-              asyncParams: {
-                'trailer1': getDoc(['movie_base'], MovieBaseRecord.serializer),
-              },
-              builder: (context, params) => TrailerCopyWidget(
-                trailer1: params.getParam('trailer1', ParamType.Document),
-              ),
-            ),
-            FFRoute(
               name: 'Metamask',
               path: 'metamask',
               builder: (context, params) => MetamaskWidget(),
+            ),
+            FFRoute(
+              name: 'HomePage',
+              path: 'HomePage',
+              builder: (context, params) => HomePageWidget(),
+            ),
+            FFRoute(
+              name: 'fullmovieCopy',
+              path: 'fullmovieCopy',
+              asyncParams: {
+                'watchmovie':
+                    getDoc(['movie_base'], MovieBaseRecord.serializer),
+                'watchgood':
+                    getDoc(['goodmovies'], GoodmoviesRecord.serializer),
+              },
+              builder: (context, params) => FullmovieCopyWidget(
+                watchmovie: params.getParam('watchmovie', ParamType.Document),
+                watchgood: params.getParam('watchgood', ParamType.Document),
+              ),
+            ),
+            FFRoute(
+              name: 'Notifications',
+              path: 'notifications',
+              builder: (context, params) => NotificationsWidget(),
+            ),
+            FFRoute(
+              name: 'HomeMovies',
+              path: 'HomeMovies',
+              builder: (context, params) => HomeMoviesWidget(),
+            ),
+            FFRoute(
+              name: 'MLMdashboard',
+              path: 'mLMdashboard',
+              builder: (context, params) => MLMdashboardWidget(),
+            ),
+            FFRoute(
+              name: 'DevelopmentMode',
+              path: 'developmentMode',
+              builder: (context, params) => DevelopmentModeWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
@@ -379,7 +358,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/homePageStart';
+            return '/register';
           }
           return null;
         },

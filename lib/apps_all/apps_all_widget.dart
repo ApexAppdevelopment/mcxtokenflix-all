@@ -61,7 +61,7 @@ class _AppsAllWidgetState extends State<AppsAllWidget> {
           },
         ),
         title: Text(
-          'Apps Showcase',
+          'Install using your  Code',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: FlutterFlowTheme.of(context).title2Family,
                 color: FlutterFlowTheme.of(context).primaryText,
@@ -72,6 +72,7 @@ class _AppsAllWidgetState extends State<AppsAllWidget> {
         ),
         actions: [],
         centerTitle: false,
+        toolbarHeight: 75.0,
         elevation: 2.0,
       ),
       body: GestureDetector(
@@ -180,10 +181,10 @@ class _AppsAllWidgetState extends State<AppsAllWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             FFButtonWidget(
-                                              onPressed: () async {
-                                                context.pushNamed('Register');
+                                              onPressed: () {
+                                                print('Button pressed ...');
                                               },
-                                              text: 'Try it for FREE',
+                                              text: 'Download',
                                               options: FFButtonOptions(
                                                 width: 130.0,
                                                 height: 40.0,
@@ -355,10 +356,10 @@ class _AppsAllWidgetState extends State<AppsAllWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             FFButtonWidget(
-                                              onPressed: () async {
-                                                context.pushNamed('Register');
+                                              onPressed: () {
+                                                print('Button pressed ...');
                                               },
-                                              text: 'Try it for FREE',
+                                              text: 'Download',
                                               options: FFButtonOptions(
                                                 width: 130.0,
                                                 height: 40.0,
@@ -530,10 +531,10 @@ class _AppsAllWidgetState extends State<AppsAllWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             FFButtonWidget(
-                                              onPressed: () async {
-                                                context.pushNamed('Register');
+                                              onPressed: () {
+                                                print('Button pressed ...');
                                               },
-                                              text: 'Try it for FREE',
+                                              text: 'Download',
                                               options: FFButtonOptions(
                                                 width: 130.0,
                                                 height: 40.0,

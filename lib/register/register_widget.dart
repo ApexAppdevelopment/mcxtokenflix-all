@@ -453,6 +453,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                       .randomInteger(100000, 999999)
                                       .toString(),
                                   displayName: _model.signUpNameController.text,
+                                  isauthenticated: true,
                                 );
                                 await UsersRecord.collection
                                     .doc(user.uid)

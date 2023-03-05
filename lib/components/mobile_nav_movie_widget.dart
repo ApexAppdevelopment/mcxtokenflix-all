@@ -9,32 +9,19 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'mobile_nav_model.dart';
-export 'mobile_nav_model.dart';
+import 'mobile_nav_movie_model.dart';
+export 'mobile_nav_movie_model.dart';
 
-class MobileNavWidget extends StatefulWidget {
-  const MobileNavWidget({
-    Key? key,
-    this.navOneIcon,
-    this.navTwoIcon,
-    this.navThreeIcon,
-    this.navFourIcon,
-    this.navFiveIcon,
-  }) : super(key: key);
-
-  final Widget? navOneIcon;
-  final Widget? navTwoIcon;
-  final Widget? navThreeIcon;
-  final Widget? navFourIcon;
-  final Widget? navFiveIcon;
+class MobileNavMovieWidget extends StatefulWidget {
+  const MobileNavMovieWidget({Key? key}) : super(key: key);
 
   @override
-  _MobileNavWidgetState createState() => _MobileNavWidgetState();
+  _MobileNavMovieWidgetState createState() => _MobileNavMovieWidgetState();
 }
 
-class _MobileNavWidgetState extends State<MobileNavWidget>
+class _MobileNavMovieWidgetState extends State<MobileNavMovieWidget>
     with TickerProviderStateMixin {
-  late MobileNavModel _model;
+  late MobileNavMovieModel _model;
 
   final animationsMap = {
     'imageOnPageLoadAnimation': AnimationInfo(
@@ -68,7 +55,7 @@ class _MobileNavWidgetState extends State<MobileNavWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => MobileNavModel());
+    _model = createModel(context, () => MobileNavMovieModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -113,7 +100,7 @@ class _MobileNavWidgetState extends State<MobileNavWidget>
                       width: double.infinity,
                       height: 82.5,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        color: FlutterFlowTheme.of(context).primaryColor,
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 10.0,
@@ -150,8 +137,6 @@ class _MobileNavWidgetState extends State<MobileNavWidget>
                     ),
                     onPressed: () async {
                       HapticFeedback.mediumImpact();
-
-                      context.pushNamed('billing');
                     },
                   ),
                   FlutterFlowIconButton(
@@ -166,8 +151,6 @@ class _MobileNavWidgetState extends State<MobileNavWidget>
                     ),
                     onPressed: () async {
                       HapticFeedback.mediumImpact();
-
-                      context.pushNamed('AppsAll');
                     },
                   ),
                   Column(
@@ -187,20 +170,13 @@ class _MobileNavWidgetState extends State<MobileNavWidget>
                             borderRadius: BorderRadius.circular(12.0),
                             shape: BoxShape.rectangle,
                           ),
-                          child: InkWell(
-                            onTap: () async {
-                              HapticFeedback.mediumImpact();
-
-                              context.pushNamed('HomePage');
-                            },
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20.0),
-                              child: Image.asset(
-                                'assets/images/binance-coin-cryptocurrency-icon-512x508-8hp6z4cg.png',
-                                width: 50.0,
-                                height: 50.0,
-                                fit: BoxFit.contain,
-                              ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(25.0),
+                            child: Image.asset(
+                              'assets/images/y7x6q_s.png',
+                              width: 50.0,
+                              height: 50.0,
+                              fit: BoxFit.contain,
                             ),
                           ).animateOnPageLoad(
                               animationsMap['imageOnPageLoadAnimation']!),
@@ -220,8 +196,6 @@ class _MobileNavWidgetState extends State<MobileNavWidget>
                     ),
                     onPressed: () async {
                       HapticFeedback.mediumImpact();
-
-                      context.pushNamed('teamMembers');
                     },
                   ),
                   FlutterFlowIconButton(
@@ -236,8 +210,6 @@ class _MobileNavWidgetState extends State<MobileNavWidget>
                     ),
                     onPressed: () async {
                       HapticFeedback.mediumImpact();
-
-                      context.pushNamed('Profilesettings');
                     },
                   ),
                 ],

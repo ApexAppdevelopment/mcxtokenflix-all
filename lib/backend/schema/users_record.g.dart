@@ -117,6 +117,13 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
             specifiedType: const FullType(
                 DocumentReference, const [const FullType.nullable(Object)])));
     }
+    value = object.isauthenticated;
+    if (value != null) {
+      result
+        ..add('isauthenticated')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -197,6 +204,10 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
                 const FullType.nullable(Object)
               ])) as DocumentReference<Object?>?;
           break;
+        case 'isauthenticated':
+          result.isauthenticated = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -240,6 +251,8 @@ class _$UsersRecord extends UsersRecord {
   @override
   final DocumentReference<Object?>? allrefferrals;
   @override
+  final bool? isauthenticated;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -260,6 +273,7 @@ class _$UsersRecord extends UsersRecord {
       this.qrcode,
       this.reflink,
       this.allrefferrals,
+      this.isauthenticated,
       this.ffRef})
       : super._();
 
@@ -288,6 +302,7 @@ class _$UsersRecord extends UsersRecord {
         qrcode == other.qrcode &&
         reflink == other.reflink &&
         allrefferrals == other.allrefferrals &&
+        isauthenticated == other.isauthenticated &&
         ffRef == other.ffRef;
   }
 
@@ -307,22 +322,26 @@ class _$UsersRecord extends UsersRecord {
                                                 $jc(
                                                     $jc(
                                                         $jc(
-                                                            $jc(0,
-                                                                email.hashCode),
-                                                            displayName
-                                                                .hashCode),
-                                                        photoUrl.hashCode),
-                                                    uid.hashCode),
-                                                createdTime.hashCode),
-                                            phoneNumber.hashCode),
-                                        refferralID.hashCode),
-                                    sponsorID.hashCode),
-                                walletBalance.hashCode),
-                            mcxtaddress.hashCode),
-                        city.hashCode),
-                    qrcode.hashCode),
-                reflink.hashCode),
-            allrefferrals.hashCode),
+                                                            $jc(
+                                                                $jc(
+                                                                    0,
+                                                                    email
+                                                                        .hashCode),
+                                                                displayName
+                                                                    .hashCode),
+                                                            photoUrl.hashCode),
+                                                        uid.hashCode),
+                                                    createdTime.hashCode),
+                                                phoneNumber.hashCode),
+                                            refferralID.hashCode),
+                                        sponsorID.hashCode),
+                                    walletBalance.hashCode),
+                                mcxtaddress.hashCode),
+                            city.hashCode),
+                        qrcode.hashCode),
+                    reflink.hashCode),
+                allrefferrals.hashCode),
+            isauthenticated.hashCode),
         ffRef.hashCode));
   }
 
@@ -343,6 +362,7 @@ class _$UsersRecord extends UsersRecord {
           ..add('qrcode', qrcode)
           ..add('reflink', reflink)
           ..add('allrefferrals', allrefferrals)
+          ..add('isauthenticated', isauthenticated)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -409,6 +429,11 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   set allrefferrals(DocumentReference<Object?>? allrefferrals) =>
       _$this._allrefferrals = allrefferrals;
 
+  bool? _isauthenticated;
+  bool? get isauthenticated => _$this._isauthenticated;
+  set isauthenticated(bool? isauthenticated) =>
+      _$this._isauthenticated = isauthenticated;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -434,6 +459,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _qrcode = $v.qrcode;
       _reflink = $v.reflink;
       _allrefferrals = $v.allrefferrals;
+      _isauthenticated = $v.isauthenticated;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -471,6 +497,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
             qrcode: qrcode,
             reflink: reflink,
             allrefferrals: allrefferrals,
+            isauthenticated: isauthenticated,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

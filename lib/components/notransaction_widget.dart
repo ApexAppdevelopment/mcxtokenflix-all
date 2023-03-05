@@ -45,28 +45,34 @@ class _NotransactionWidgetState extends State<NotransactionWidget> {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        FaIcon(
-          FontAwesomeIcons.sketch,
-          color: FlutterFlowTheme.of(context).secondaryText,
-          size: 60.0,
-        ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Seems you don’t have any\ntransactions yet!',
-                textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).title3.override(
-                      fontFamily: FlutterFlowTheme.of(context).title3Family,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).title3Family),
-                    ),
-              ),
-            ],
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 15.0),
+          child: InkWell(
+            onTap: () async {
+              context.pushNamed('BuyPackage');
+            },
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  'Seems you don’t have any transactions yet!\nCheck our packages now!',
+                  textAlign: TextAlign.start,
+                  style: FlutterFlowTheme.of(context).title3.override(
+                        fontFamily: FlutterFlowTheme.of(context).title3Family,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        fontSize: 14.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).title3Family),
+                      ),
+                ),
+                FaIcon(
+                  FontAwesomeIcons.handHoldingUsd,
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  size: 24.0,
+                ),
+              ],
+            ),
           ),
         ),
       ],

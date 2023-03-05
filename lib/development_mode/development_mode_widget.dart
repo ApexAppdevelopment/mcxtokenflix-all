@@ -1,31 +1,23 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
-import 'fullmovie_model.dart';
-export 'fullmovie_model.dart';
+import 'development_mode_model.dart';
+export 'development_mode_model.dart';
 
-class FullmovieWidget extends StatefulWidget {
-  const FullmovieWidget({
-    Key? key,
-    this.watchmovie,
-    this.watchgood,
-  }) : super(key: key);
-
-  final MovieBaseRecord? watchmovie;
-  final GoodmoviesRecord? watchgood;
+class DevelopmentModeWidget extends StatefulWidget {
+  const DevelopmentModeWidget({Key? key}) : super(key: key);
 
   @override
-  _FullmovieWidgetState createState() => _FullmovieWidgetState();
+  _DevelopmentModeWidgetState createState() => _DevelopmentModeWidgetState();
 }
 
-class _FullmovieWidgetState extends State<FullmovieWidget> {
-  late FullmovieModel _model;
+class _DevelopmentModeWidgetState extends State<DevelopmentModeWidget> {
+  late DevelopmentModeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
@@ -33,7 +25,7 @@ class _FullmovieWidgetState extends State<FullmovieWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => FullmovieModel());
+    _model = createModel(context, () => DevelopmentModeModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -50,7 +42,7 @@ class _FullmovieWidgetState extends State<FullmovieWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
@@ -69,18 +61,18 @@ class _FullmovieWidgetState extends State<FullmovieWidget> {
           },
         ),
         title: Text(
-          widget.watchmovie!.title!,
-          textAlign: TextAlign.start,
-          maxLines: 1,
-          style: FlutterFlowTheme.of(context).subtitle1.override(
-                fontFamily: FlutterFlowTheme.of(context).subtitle1Family,
-                fontSize: 18.0,
+          'Development Mode',
+          style: FlutterFlowTheme.of(context).title2.override(
+                fontFamily: FlutterFlowTheme.of(context).title2Family,
+                color: FlutterFlowTheme.of(context).primaryText,
+                fontSize: 22.0,
                 useGoogleFonts: GoogleFonts.asMap()
-                    .containsKey(FlutterFlowTheme.of(context).subtitle1Family),
+                    .containsKey(FlutterFlowTheme.of(context).title2Family),
               ),
         ),
         actions: [],
         centerTitle: true,
+        toolbarHeight: 75.0,
         elevation: 2.0,
       ),
       body: SafeArea(
@@ -89,14 +81,24 @@ class _FullmovieWidgetState extends State<FullmovieWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              FlutterFlowVideoPlayer(
-                path: widget.watchmovie!.fullmovie!,
-                videoType: VideoType.network,
-                autoPlay: true,
-                looping: true,
-                showControls: true,
-                allowFullScreen: true,
-                allowPlaybackSpeedMenu: false,
+              SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                      child: Lottie.network(
+                        'https://assets3.lottiefiles.com/packages/lf20_p1qiuawe.json',
+                        width: MediaQuery.of(context).size.width * 3.2,
+                        height: 300.0,
+                        fit: BoxFit.contain,
+                        animate: true,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

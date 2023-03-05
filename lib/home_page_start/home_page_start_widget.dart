@@ -1,3 +1,4 @@
+import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/main_web_nav_widget.dart';
 import '/components/message_bottom_sheet_widget.dart';
@@ -919,8 +920,17 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                         ),
                                                         child: InkWell(
                                                           onTap: () async {
-                                                            context.pushNamed(
-                                                                'Metamask');
+                                                            if (valueOrDefault<
+                                                                    bool>(
+                                                                currentUserDocument
+                                                                    ?.isauthenticated,
+                                                                false)) {
+                                                              context.pushNamed(
+                                                                  'Login');
+                                                            } else {
+                                                              context.pushNamed(
+                                                                  'Register');
+                                                            }
                                                           },
                                                           child: ClipRRect(
                                                             borderRadius:
@@ -1995,7 +2005,7 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                               style: FlutterFlowTheme.of(context).bodyText1,
                                                                             ),
                                                                             Text(
-                                                                              'MCXT = ${listViewPackagesRecord.quantity?.toString()}',
+                                                                              'Package',
                                                                               style: FlutterFlowTheme.of(context).bodyText1,
                                                                             ),
                                                                           ],
@@ -2503,8 +2513,13 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                       FFButtonWidget(
                                                                         onPressed:
                                                                             () async {
-                                                                          context
-                                                                              .pushNamed('Register');
+                                                                          if (valueOrDefault<bool>(
+                                                                              currentUserDocument?.isauthenticated,
+                                                                              false)) {
+                                                                            context.pushNamed('Login');
+                                                                          } else {
+                                                                            context.pushNamed('Register');
+                                                                          }
                                                                         },
                                                                         text:
                                                                             'Try it for FREE',

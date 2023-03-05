@@ -185,19 +185,8 @@ class _DetailsgoodmoviesWidgetState extends State<DetailsgoodmoviesWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(10.0, 28.0, 0.0, 0.0),
                       child: FFButtonWidget(
-                        onPressed: () async {
-                          context.pushNamed(
-                            'fullmovie',
-                            queryParams: {
-                              'watchgood': serializeParam(
-                                widget.watchgood,
-                                ParamType.Document,
-                              ),
-                            }.withoutNulls,
-                            extra: <String, dynamic>{
-                              'watchgood': widget.watchgood,
-                            },
-                          );
+                        onPressed: () {
+                          print('Button pressed ...');
                         },
                         text: 'Play Movie Now',
                         icon: Icon(

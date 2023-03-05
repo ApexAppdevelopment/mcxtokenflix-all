@@ -142,127 +142,121 @@ class _BuyPackageWidgetState extends State<BuyPackageWidget>
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 15.0),
-                          child: InkWell(
-                            onTap: () async {
-                              await launchURL(
-                                  'https://mcxttoken.myshopify.com/checkouts/bin/c1317aba6ef9ff52b025c2e111dc29ff/information?skip_shop_pay=true');
-                            },
-                            child: Material(
-                              color: Colors.transparent,
-                              elevation: 4.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: AnimatedContainer(
-                                  duration: Duration(milliseconds: 500),
-                                  curve: Curves.elasticOut,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 3.0,
-                                        color: Color(0x411D2429),
-                                        offset: Offset(0.0, 1.0),
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 8.0, 8.0, 8.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
+                          child: Material(
+                            color: Colors.transparent,
+                            elevation: 4.0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: AnimatedContainer(
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.elasticOut,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 3.0,
+                                      color: Color(0x411D2429),
+                                      offset: Offset(0.0, 1.0),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 8.0, 8.0, 8.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 1.0, 1.0, 1.0),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(6.0),
+                                          child: Image.asset(
+                                            'assets/images/986400000068-removebg-preview.png',
+                                            width: 80.0,
+                                            height: 80.0,
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'imageOnPageLoadAnimation']!),
+                                      ),
+                                      Expanded(
+                                        child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 1.0, 1.0, 1.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(6.0),
-                                            child: Image.asset(
-                                              'assets/images/986400000068-removebg-preview.png',
-                                              width: 80.0,
-                                              height: 80.0,
-                                              fit: BoxFit.contain,
-                                            ),
-                                          ).animateOnPageLoad(animationsMap[
-                                              'imageOnPageLoadAnimation']!),
-                                        ),
-                                        Expanded(
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 4.0, 0.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  listViewPackagesRecord.name!,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .title3,
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 4.0, 8.0, 0.0),
-                                                  child: AutoSizeText(
-                                                    'USD ${listViewPackagesRecord.price?.toString()}'
-                                                        .maybeHandleOverflow(
-                                                      maxChars: 70,
-                                                      replacement: '…',
-                                                    ),
-                                                    textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText2,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.end,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 4.0, 0.0, 0.0),
-                                              child: Icon(
-                                                Icons.chevron_right_rounded,
-                                                color: Color(0xFF57636C),
-                                                size: 24.0,
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 12.0, 4.0, 8.0),
-                                              child: Text(
-                                                'MCXT = ${listViewPackagesRecord.quantity?.toString()}',
-                                                textAlign: TextAlign.end,
+                                                  8.0, 8.0, 4.0, 0.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                listViewPackagesRecord.name!,
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1,
+                                                        .title3,
                                               ),
-                                            ),
-                                          ],
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 4.0, 8.0, 0.0),
+                                                child: AutoSizeText(
+                                                  'USD ${listViewPackagesRecord.price?.toString()}'
+                                                      .maybeHandleOverflow(
+                                                    maxChars: 70,
+                                                    replacement: '…',
+                                                  ),
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyText2,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 4.0, 0.0, 0.0),
+                                            child: Icon(
+                                              Icons.chevron_right_rounded,
+                                              color: Color(0xFF57636C),
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 12.0, 4.0, 8.0),
+                                            child: Text(
+                                              'Proceed to Payment',
+                                              textAlign: TextAlign.end,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
