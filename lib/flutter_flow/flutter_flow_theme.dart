@@ -166,7 +166,7 @@ class MobileTypography extends Typography {
   TextStyle get title1 => GoogleFonts.getFont(
         'Roboto',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.bold,
         fontSize: 24.0,
         fontStyle: FontStyle.normal,
       );
@@ -174,7 +174,7 @@ class MobileTypography extends Typography {
   TextStyle get title2 => GoogleFonts.getFont(
         'Roboto',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w600,
         fontSize: 20.0,
       );
   String get title3Family => 'Roboto';
@@ -195,21 +195,21 @@ class MobileTypography extends Typography {
   TextStyle get subtitle2 => GoogleFonts.getFont(
         'Roboto',
         color: theme.secondaryText,
-        fontWeight: FontWeight.w300,
+        fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
   String get bodyText1Family => 'Roboto';
   TextStyle get bodyText1 => GoogleFonts.getFont(
         'Roboto',
         color: theme.primaryText,
-        fontWeight: FontWeight.w300,
+        fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
   String get bodyText2Family => 'Roboto';
   TextStyle get bodyText2 => GoogleFonts.getFont(
         'Roboto',
         color: theme.secondaryText,
-        fontWeight: FontWeight.w300,
+        fontWeight: FontWeight.w600,
         fontSize: 14.0,
         fontStyle: FontStyle.normal,
       );

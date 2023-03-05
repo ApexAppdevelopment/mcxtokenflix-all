@@ -1992,10 +1992,6 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                               'Package: ${listViewPackagesRecord.name}',
                                                                               style: FlutterFlowTheme.of(context).bodyText1,
                                                                             ),
-                                                                            Text(
-                                                                              'Avail',
-                                                                              style: FlutterFlowTheme.of(context).bodyText1,
-                                                                            ),
                                                                           ],
                                                                         ),
                                                                         Padding(
@@ -2013,10 +2009,6 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                             children: [
                                                                               Text(
                                                                                 '\$${listViewPackagesRecord.price?.toString()}',
-                                                                                style: FlutterFlowTheme.of(context).bodyText1,
-                                                                              ),
-                                                                              Text(
-                                                                                'Package',
                                                                                 style: FlutterFlowTheme.of(context).bodyText1,
                                                                               ),
                                                                             ],

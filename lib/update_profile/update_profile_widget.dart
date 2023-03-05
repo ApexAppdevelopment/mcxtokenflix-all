@@ -72,6 +72,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
         ),
         actions: [],
         centerTitle: true,
+        toolbarHeight: 75.0,
         elevation: 2.0,
       ),
       body: SafeArea(
@@ -169,8 +170,11 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                         shape: BoxShape.circle,
                                       ),
                                       child: CachedNetworkImage(
-                                        imageUrl: _model.uploadedFileUrl,
-                                        fit: BoxFit.fitWidth,
+                                        imageUrl: valueOrDefault<String>(
+                                          _model.uploadedFileUrl,
+                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/eq3c76vf9hik/Add-User-Profile-New-More-Plus-Contact-256.webp',
+                                        ),
+                                        fit: BoxFit.contain,
                                       ),
                                     ),
                                   ),

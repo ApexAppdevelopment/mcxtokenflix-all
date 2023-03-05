@@ -7,6 +7,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'mobile_nav_movie_model.dart';
@@ -131,7 +132,7 @@ class _MobileNavMovieWidgetState extends State<MobileNavMovieWidget>
                     borderWidth: 1.0,
                     buttonSize: 50.0,
                     icon: Icon(
-                      Icons.app_registration,
+                      Icons.local_fire_department_sharp,
                       color: FlutterFlowTheme.of(context).primaryText,
                       size: 24.0,
                     ),
@@ -145,7 +146,7 @@ class _MobileNavMovieWidgetState extends State<MobileNavMovieWidget>
                     borderWidth: 1.0,
                     buttonSize: 50.0,
                     icon: Icon(
-                      Icons.android,
+                      Icons.view_list,
                       color: FlutterFlowTheme.of(context).primaryText,
                       size: 24.0,
                     ),
@@ -170,13 +171,20 @@ class _MobileNavMovieWidgetState extends State<MobileNavMovieWidget>
                             borderRadius: BorderRadius.circular(12.0),
                             shape: BoxShape.rectangle,
                           ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(25.0),
-                            child: Image.asset(
-                              'assets/images/y7x6q_s.png',
-                              width: 50.0,
-                              height: 50.0,
-                              fit: BoxFit.contain,
+                          child: InkWell(
+                            onTap: () async {
+                              HapticFeedback.mediumImpact();
+
+                              context.pushNamed('HomeMovies');
+                            },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100.0),
+                              child: Image.asset(
+                                'assets/images/Movie-icon.png',
+                                width: 50.0,
+                                height: 50.0,
+                                fit: BoxFit.contain,
+                              ),
                             ),
                           ).animateOnPageLoad(
                               animationsMap['imageOnPageLoadAnimation']!),
@@ -189,8 +197,8 @@ class _MobileNavMovieWidgetState extends State<MobileNavMovieWidget>
                     borderRadius: 30.0,
                     borderWidth: 1.0,
                     buttonSize: 50.0,
-                    icon: Icon(
-                      Icons.group,
+                    icon: FaIcon(
+                      FontAwesomeIcons.bookmark,
                       color: FlutterFlowTheme.of(context).primaryText,
                       size: 24.0,
                     ),
@@ -204,7 +212,7 @@ class _MobileNavMovieWidgetState extends State<MobileNavMovieWidget>
                     borderWidth: 1.0,
                     buttonSize: 50.0,
                     icon: Icon(
-                      Icons.settings,
+                      Icons.person,
                       color: FlutterFlowTheme.of(context).primaryText,
                       size: 24.0,
                     ),

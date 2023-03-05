@@ -4,6 +4,8 @@ import '/components/mobile_nav_widget.dart';
 import '/components/notransaction_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:badges/badges.dart' as badges;
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -53,22 +55,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            AuthUserStreamWidget(
-              builder: (context) => Text(
-                'Welcome! ${valueOrDefault<String>(
-                  currentUserDisplayName,
-                  'Guest!',
-                )}!',
-                style: FlutterFlowTheme.of(context).title2.override(
-                      fontFamily: FlutterFlowTheme.of(context).title2Family,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.w600,
-                      useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).title2Family),
-                    ),
-              ),
-            ),
             Row(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -87,6 +73,64 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       child: CachedNetworkImage(
                         imageUrl: currentUserPhoto,
                         fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => Text(
+                      'Welcome! ${valueOrDefault<String>(
+                        currentUserDisplayName,
+                        'Guest!',
+                      )}!',
+                      style: FlutterFlowTheme.of(context).title3.override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).title3Family,
+                            fontSize: 16.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).title3Family),
+                          ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                InkWell(
+                  onTap: () async {
+                    context.pushNamed('Notifications');
+                  },
+                  child: badges.Badge(
+                    badgeContent: Text(
+                      '1',
+                      textAlign: TextAlign.start,
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyText1Family,
+                            color: Colors.white,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodyText1Family),
+                          ),
+                    ),
+                    showBadge: true,
+                    shape: badges.BadgeShape.circle,
+                    badgeColor: FlutterFlowTheme.of(context).primaryColor,
+                    elevation: 4.0,
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    position: badges.BadgePosition.topStart(),
+                    animationType: badges.BadgeAnimationType.scale,
+                    toAnimate: true,
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                      child: Icon(
+                        Icons.notifications_sharp,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 32.0,
                       ),
                     ),
                   ),
@@ -748,7 +792,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               8.0),
                                                     ),
                                                     child: Container(
-                                                      width: 386.6,
+                                                      width: 352.9,
                                                       height: 65.0,
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
@@ -784,8 +828,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                               child:
                                                                   Image.asset(
                                                                 'assets/images/986400000068-removebg-preview.png',
-                                                                width: 62.2,
-                                                                height: 75.6,
+                                                                width: 50.0,
+                                                                height: 50.0,
                                                                 fit: BoxFit
                                                                     .contain,
                                                               ),
@@ -801,7 +845,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                         .fromSTEB(
                                                                             6.0,
                                                                             0.0,
-                                                                            0.0,
+                                                                            6.0,
                                                                             0.0),
                                                                 child: Column(
                                                                   mainAxisSize:
@@ -822,7 +866,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
                                                                         mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceBetween,
+                                                                            MainAxisAlignment.spaceAround,
                                                                         children: [
                                                                           Text(
                                                                             listViewTransactionsRecord.name!,
@@ -846,7 +890,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                               .max,
                                                                       mainAxisAlignment:
                                                                           MainAxisAlignment
-                                                                              .spaceBetween,
+                                                                              .spaceAround,
                                                                       children: [
                                                                         Text(
                                                                           listViewTransactionsRecord
@@ -854,7 +898,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                           style:
                                                                               FlutterFlowTheme.of(context).bodyText1,
                                                                         ),
-                                                                        Text(
+                                                                        AutoSizeText(
                                                                           dateTimeFormat(
                                                                               'relative',
                                                                               listViewTransactionsRecord.dateSpent!),

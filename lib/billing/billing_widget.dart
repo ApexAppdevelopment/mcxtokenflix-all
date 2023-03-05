@@ -1,11 +1,11 @@
 import '/backend/backend.dart';
 import '/components/mobile_nav_widget.dart';
+import '/components/notransaction_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'billing_model.dart';
@@ -48,37 +48,45 @@ class _BillingWidgetState extends State<BillingWidget> {
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
-        leading: FlutterFlowIconButton(
-          borderColor: Colors.transparent,
-          borderRadius: 30.0,
-          borderWidth: 1.0,
-          buttonSize: 60.0,
-          icon: FaIcon(
-            FontAwesomeIcons.database,
-            color: FlutterFlowTheme.of(context).primaryText,
-            size: 30.0,
+        title: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                child: Text(
+                  'Account History',
+                  style: FlutterFlowTheme.of(context).title2.override(
+                        fontFamily: FlutterFlowTheme.of(context).title2Family,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        fontSize: 22.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).title2Family),
+                      ),
+                ),
+              ),
+              FlutterFlowIconButton(
+                borderColor: Colors.transparent,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 60.0,
+                icon: Icon(
+                  Icons.clear_outlined,
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  size: 30.0,
+                ),
+                onPressed: () async {
+                  context.pop();
+                },
+              ),
+            ],
           ),
-          onPressed: () {
-            print('IconButton pressed ...');
-          },
-        ),
-        title: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Text(
-              'Account History',
-              style: FlutterFlowTheme.of(context).title2.override(
-                    fontFamily: FlutterFlowTheme.of(context).title2Family,
-                    color: FlutterFlowTheme.of(context).primaryText,
-                    fontSize: 22.0,
-                    useGoogleFonts: GoogleFonts.asMap()
-                        .containsKey(FlutterFlowTheme.of(context).title2Family),
-                  ),
-            ),
-          ],
         ),
         actions: [],
         centerTitle: true,
+        toolbarHeight: 75.0,
         elevation: 2.0,
       ),
       body: SafeArea(
@@ -233,7 +241,7 @@ class _BillingWidgetState extends State<BillingWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        'The amount you paid this month.',
+                                                        'Total burned Utility',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -285,27 +293,11 @@ class _BillingWidgetState extends State<BillingWidget> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                      'MCXT Current Balance in USD',
+                                                      'MCXT  to  USD',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .subtitle1,
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        'The amount of money received this month.',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText2,
-                                                      ),
                                                     ),
                                                     Padding(
                                                       padding:
@@ -380,6 +372,10 @@ class _BillingWidgetState extends State<BillingWidget> {
                                         List<TokentransactionRecord>
                                             listViewTokentransactionRecordList =
                                             snapshot.data!;
+                                        if (listViewTokentransactionRecordList
+                                            .isEmpty) {
+                                          return NotransactionWidget();
+                                        }
                                         return ListView.builder(
                                           padding: EdgeInsets.zero,
                                           primary: false,
@@ -417,7 +413,7 @@ class _BillingWidgetState extends State<BillingWidget> {
                                                                 .start,
                                                         children: [
                                                           Text(
-                                                            'Snet to Wallet',
+                                                            'Sent to wallet address',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyText1,

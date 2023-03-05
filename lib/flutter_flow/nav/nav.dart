@@ -80,14 +80,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : HomePageStartWidget(),
           routes: [
             FFRoute(
-              name: 'teamMembers',
-              path: 'teamMembers',
-              builder: (context, params) => TeamMembersWidget(),
-            ),
-            FFRoute(
               name: 'billing',
               path: 'billing',
               builder: (context, params) => BillingWidget(),
+            ),
+            FFRoute(
+              name: 'teamMembers',
+              path: 'teamMembers',
+              builder: (context, params) => TeamMembersWidget(),
             ),
             FFRoute(
               name: 'Profilesettings',
