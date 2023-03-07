@@ -15,6 +15,7 @@ import 'schema/goodmovies_record.dart';
 import 'schema/tokentransaction_record.dart';
 import 'schema/notifications_record.dart';
 import 'schema/mlmrewards_record.dart';
+import 'schema/cryptolist_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -32,6 +33,7 @@ export 'schema/goodmovies_record.dart';
 export 'schema/tokentransaction_record.dart';
 export 'schema/notifications_record.dart';
 export 'schema/mlmrewards_record.dart';
+export 'schema/cryptolist_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -548,6 +550,58 @@ Future<FFFirestorePage<MlmrewardsRecord>> queryMlmrewardsRecordPage({
     queryCollectionPage(
       MlmrewardsRecord.collection,
       MlmrewardsRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query CryptolistRecords (as a Stream and as a Future).
+Future<int> queryCryptolistRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CryptolistRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<CryptolistRecord>> queryCryptolistRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      CryptolistRecord.collection,
+      CryptolistRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<CryptolistRecord>> queryCryptolistRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      CryptolistRecord.collection,
+      CryptolistRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<CryptolistRecord>> queryCryptolistRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      CryptolistRecord.collection,
+      CryptolistRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

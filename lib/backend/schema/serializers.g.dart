@@ -7,6 +7,7 @@ part of 'serializers.dart';
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
+      ..add(CryptolistRecord.serializer)
       ..add(GoodmoviesRecord.serializer)
       ..add(MlmrewardsRecord.serializer)
       ..add(MovieBaseRecord.serializer)

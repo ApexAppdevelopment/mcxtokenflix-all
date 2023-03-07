@@ -1,5 +1,5 @@
 import '/auth/auth_util.dart';
-import '/backend/backend.dart';
+import '/backend/supabase/supabase.dart';
 import '/components/mobile_nav_widget.dart';
 import '/components/notransaction_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -372,8 +372,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                             width: 156.7,
                                                                                             height: 34.5,
                                                                                             decoration: BoxDecoration(
-                                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                                              color: FlutterFlowTheme.of(context).primaryColor,
                                                                                               borderRadius: BorderRadius.circular(12.0),
+                                                                                              border: Border.all(
+                                                                                                color: FlutterFlowTheme.of(context).secondaryColor,
+                                                                                              ),
                                                                                             ),
                                                                                             child: Padding(
                                                                                               padding: EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
@@ -382,7 +385,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                                 textAlign: TextAlign.center,
                                                                                                 style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                                       fontFamily: 'Roboto Mono',
-                                                                                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
                                                                                                       fontSize: 14.0,
                                                                                                       fontWeight: FontWeight.normal,
                                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyText1Family),
@@ -702,7 +705,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      'All Transactions',
+                                      'Cryptocurrency',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
@@ -729,8 +732,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 0.0),
-                                child: StreamBuilder<List<TransactionsRecord>>(
-                                  stream: queryTransactionsRecord(),
+                                child: FutureBuilder<List<CryptoRow>>(
+                                  future: CryptoTable().queryRows(
+                                    queryFn: (q) => q,
+                                  ),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
                                     if (!snapshot.hasData) {
@@ -746,22 +751,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         ),
                                       );
                                     }
-                                    List<TransactionsRecord>
-                                        listViewTransactionsRecordList =
+                                    List<CryptoRow> listViewCryptoRowList =
                                         snapshot.data!;
-                                    if (listViewTransactionsRecordList
-                                        .isEmpty) {
+                                    if (listViewCryptoRowList.isEmpty) {
                                       return NotransactionWidget();
                                     }
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
                                       shrinkWrap: true,
                                       scrollDirection: Axis.vertical,
-                                      itemCount:
-                                          listViewTransactionsRecordList.length,
+                                      itemCount: listViewCryptoRowList.length,
                                       itemBuilder: (context, listViewIndex) {
-                                        final listViewTransactionsRecord =
-                                            listViewTransactionsRecordList[
+                                        final listViewCryptoRow =
+                                            listViewCryptoRowList[
                                                 listViewIndex];
                                         return Padding(
                                           padding:
@@ -819,20 +821,25 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     .center,
                                                             children: [
                                                               Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0),
+                                                                padding: EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        0.0,
+                                                                        10.0,
+                                                                        0.0),
                                                                 child:
-                                                                    Image.asset(
-                                                                  'assets/images/986400000068-removebg-preview.png',
-                                                                  width: 50.0,
-                                                                  height: 50.0,
+                                                                    CachedNetworkImage(
+                                                                  imageUrl:
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                    listViewCryptoRow
+                                                                        .image,
+                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/xqf950uts413/USDT_icon.png',
+                                                                  ),
+                                                                  width: 30.0,
+                                                                  height: 30.0,
                                                                   fit: BoxFit
-                                                                      .contain,
+                                                                      .cover,
                                                                 ),
                                                               ),
                                                               Container(
@@ -854,6 +861,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     mainAxisAlignment:
                                                                         MainAxisAlignment
                                                                             .center,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
                                                                     children: [
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -866,10 +876,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           mainAxisAlignment:
-                                                                              MainAxisAlignment.spaceAround,
+                                                                              MainAxisAlignment.start,
                                                                           children: [
                                                                             Text(
-                                                                              listViewTransactionsRecord.name!,
+                                                                              listViewCryptoRow.name!,
                                                                               style: FlutterFlowTheme.of(context).bodyText1.override(
                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyText1Family,
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
@@ -877,7 +887,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                   ),
                                                                             ),
                                                                             Text(
-                                                                              listViewTransactionsRecord.amount!.toString(),
+                                                                              '  ',
                                                                               style: FlutterFlowTheme.of(context).bodyText1,
                                                                             ),
                                                                           ],
@@ -887,18 +897,24 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
                                                                         mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceAround,
+                                                                            MainAxisAlignment.spaceBetween,
                                                                         children: [
                                                                           Text(
-                                                                            listViewTransactionsRecord.status!,
+                                                                            listViewCryptoRow.symbol!,
                                                                             style:
                                                                                 FlutterFlowTheme.of(context).bodyText1,
                                                                           ),
-                                                                          AutoSizeText(
-                                                                            dateTimeFormat('relative',
-                                                                                listViewTransactionsRecord.dateSpent!),
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyText1,
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                16.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                AutoSizeText(
+                                                                              listViewCryptoRow.noWrap2!,
+                                                                              style: FlutterFlowTheme.of(context).bodyText1,
+                                                                            ),
                                                                           ),
                                                                         ],
                                                                       ),

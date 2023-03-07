@@ -186,6 +186,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'DevelopmentMode',
               path: 'developmentMode',
               builder: (context, params) => DevelopmentModeWidget(),
+            ),
+            FFRoute(
+              name: 'AddCryptoWallet',
+              path: 'addCryptoWallet',
+              builder: (context, params) => AddCryptoWalletWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

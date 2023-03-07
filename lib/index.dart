@@ -21,3 +21,5 @@ export '/home_movies/home_movies_widget.dart' show HomeMoviesWidget;
 export '/m_l_mdashboard/m_l_mdashboard_widget.dart' show MLMdashboardWidget;
 export '/development_mode/development_mode_widget.dart'
     show DevelopmentModeWidget;
+export '/add_crypto_wallet/add_crypto_wallet_widget.dart'
+    show AddCryptoWalletWidget;

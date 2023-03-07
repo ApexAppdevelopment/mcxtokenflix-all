@@ -1,5 +1,5 @@
 import '/auth/auth_util.dart';
-import '/backend/backend.dart';
+import '/backend/supabase/supabase.dart';
 import '/components/mobile_nav_widget.dart';
 import '/components/notransaction_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';

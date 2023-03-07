@@ -5,7 +5,4 @@ export '../supabase.dart';
 export 'row.dart';
 export 'table.dart';
 
-export 'tables/popular.dart';
-export 'tables/tvshow.dart';
-export 'tables/tmdbmovie.dart';
-export 'tables/all_movies.dart';
+export 'tables/crypto.dart';

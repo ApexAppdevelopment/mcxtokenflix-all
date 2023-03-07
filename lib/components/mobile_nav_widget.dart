@@ -100,12 +100,7 @@ class _MobileNavWidgetState extends State<MobileNavWidget>
                     color: Colors.transparent,
                     elevation: 4.0,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0.0),
-                        bottomRight: Radius.circular(0.0),
-                        topLeft: Radius.circular(20.0),
-                        topRight: Radius.circular(20.0),
-                      ),
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                     child: AnimatedContainer(
                       duration: Duration(milliseconds: 100),
@@ -122,12 +117,7 @@ class _MobileNavWidgetState extends State<MobileNavWidget>
                             spreadRadius: 0.1,
                           )
                         ],
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(0.0),
-                          bottomRight: Radius.circular(0.0),
-                          topLeft: Radius.circular(20.0),
-                          topRight: Radius.circular(20.0),
-                        ),
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
                     ),
                   ),

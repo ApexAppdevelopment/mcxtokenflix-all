@@ -8,7 +8,7 @@
 PRODUCT_NAME = McxtToken
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.McxtMovieFlix
+PRODUCT_BUNDLE_IDENTIFIER = com.McxtMovieFlixio
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2022 McxtToken. All rights reserved.

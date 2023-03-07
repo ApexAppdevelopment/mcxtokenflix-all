@@ -11,6 +11,7 @@ import 'goodmovies_record.dart';
 import 'tokentransaction_record.dart';
 import 'notifications_record.dart';
 import 'mlmrewards_record.dart';
+import 'cryptolist_record.dart';
 
 import 'index.dart';
 
@@ -31,6 +32,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   TokentransactionRecord,
   NotificationsRecord,
   MlmrewardsRecord,
+  CryptolistRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())
