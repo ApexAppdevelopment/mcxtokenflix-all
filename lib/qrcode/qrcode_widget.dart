@@ -4,6 +4,8 @@ import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -72,8 +74,13 @@ class _QrcodeWidgetState extends State<QrcodeWidget>
                 },
               ),
               title: Text(
-                'Shrare refferral link',
-                style: FlutterFlowTheme.of(context).subtitle1,
+                'Share Qr Code or Refferral ID',
+                style: FlutterFlowTheme.of(context).subtitle1.override(
+                      fontFamily: FlutterFlowTheme.of(context).subtitle1Family,
+                      fontSize: 18.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).subtitle1Family),
+                    ),
               ),
               actions: [],
               centerTitle: false,
@@ -115,41 +122,56 @@ class _QrcodeWidgetState extends State<QrcodeWidget>
                             12.0, 12.0, 12.0, 12.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              height: 400.0,
+                              height: 250.0,
                               child: Stack(
                                 children: [
-                                  InkWell(
-                                    onTap: () async {
-                                      await Navigator.push(
-                                        context,
-                                        PageTransition(
-                                          type: PageTransitionType.fade,
-                                          child: FlutterFlowExpandedImageView(
-                                            image: Image.asset(
-                                              'assets/images/Untitled.png',
-                                              fit: BoxFit.contain,
+                                  AuthUserStreamWidget(
+                                    builder: (context) => InkWell(
+                                      onTap: () async {
+                                        await Navigator.push(
+                                          context,
+                                          PageTransition(
+                                            type: PageTransitionType.fade,
+                                            child: FlutterFlowExpandedImageView(
+                                              image: CachedNetworkImage(
+                                                imageUrl:
+                                                    valueOrDefault<String>(
+                                                  'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${valueOrDefault(currentUserDocument?.refferralID, '')}',
+                                                  'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=100100',
+                                                ),
+                                                fit: BoxFit.contain,
+                                              ),
+                                              allowRotation: true,
+                                              tag: valueOrDefault<String>(
+                                                'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${valueOrDefault(currentUserDocument?.refferralID, '')}',
+                                                'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=100100',
+                                              ),
+                                              useHeroAnimation: true,
                                             ),
-                                            allowRotation: true,
-                                            tag: 'imageTag',
-                                            useHeroAnimation: true,
                                           ),
+                                        );
+                                      },
+                                      child: Hero(
+                                        tag: valueOrDefault<String>(
+                                          'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${valueOrDefault(currentUserDocument?.refferralID, '')}',
+                                          'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=100100',
                                         ),
-                                      );
-                                    },
-                                    child: Hero(
-                                      tag: 'imageTag',
-                                      transitionOnUserGestures: true,
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.asset(
-                                          'assets/images/Untitled.png',
-                                          width: double.infinity,
-                                          height: 400.0,
-                                          fit: BoxFit.contain,
+                                        transitionOnUserGestures: true,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(0.0),
+                                          child: CachedNetworkImage(
+                                            imageUrl: valueOrDefault<String>(
+                                              'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${valueOrDefault(currentUserDocument?.refferralID, '')}',
+                                              'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=100100',
+                                            ),
+                                            width: 250.0,
+                                            height: 250.0,
+                                            fit: BoxFit.contain,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -159,12 +181,50 @@ class _QrcodeWidgetState extends State<QrcodeWidget>
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  4.0, 12.0, 0.0, 0.0),
-                              child: AuthUserStreamWidget(
-                                builder: (context) => Text(
-                                  'https://responsive-e25eer.flutterflow.app/register?${valueOrDefault(currentUserDocument?.refferralID, '')}',
-                                  style: FlutterFlowTheme.of(context).title3,
-                                ),
+                                  0.0, 16.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        4.0, 12.0, 10.0, 0.0),
+                                    child: AuthUserStreamWidget(
+                                      builder: (context) => Text(
+                                        'REF ID: ${valueOrDefault(currentUserDocument?.refferralID, '')}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .title3
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .title3Family,
+                                              fontSize: 24.0,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .title3Family),
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                  FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 20.0,
+                                    borderWidth: 1.0,
+                                    buttonSize: 40.0,
+                                    icon: Icon(
+                                      Icons.file_copy,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      size: 20.0,
+                                    ),
+                                    onPressed: () {
+                                      print('IconButton pressed ...');
+                                    },
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -195,14 +255,40 @@ class _QrcodeWidgetState extends State<QrcodeWidget>
                 ),
               ),
               alignment: AlignmentDirectional(0.0, -0.44999999999999996),
-              child: Text(
-                'Share Now',
-                style: FlutterFlowTheme.of(context).title3.override(
-                      fontFamily: FlutterFlowTheme.of(context).title3Family,
-                      color: FlutterFlowTheme.of(context).primaryBtnText,
-                      useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).title3Family),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FFButtonWidget(
+                    onPressed: () {
+                      print('Button pressed ...');
+                    },
+                    text: 'Share Now',
+                    options: FFButtonOptions(
+                      width: 285.9,
+                      height: 51.8,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primaryColor,
+                      textStyle: FlutterFlowTheme.of(context)
+                          .subtitle2
+                          .override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).subtitle2Family,
+                            color: Colors.white,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).subtitle2Family),
+                          ),
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
+                  ),
+                ],
               ),
             ),
           ],

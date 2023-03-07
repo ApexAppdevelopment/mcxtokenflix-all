@@ -24,7 +24,7 @@ class UpdateProfileModel extends FlutterFlowModel {
   // State field(s) for sponsorID widget.
   TextEditingController? sponsorIDController;
   String? Function(BuildContext, String?)? sponsorIDControllerValidator;
-  var sponsorID = '';
+  var qrcode = '';
   // State field(s) for Phone widget.
   TextEditingController? phoneController;
   String? Function(BuildContext, String?)? phoneControllerValidator;

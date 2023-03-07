@@ -33,8 +33,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
     super.initState();
     _model = createModel(context, () => UpdateProfileModel());
 
-    _model.sponsorIDController ??= TextEditingController(
-        text: valueOrDefault(currentUserDocument?.sponsorID, ''));
+    _model.sponsorIDController ??= TextEditingController(text: _model.qrcode);
     _model.phoneController ??= TextEditingController(text: '+63');
     _model.cityController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -194,6 +193,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             if (responsiveVisibility(
                               context: context,
@@ -204,95 +204,94 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 30.0, 20.0, 10.0),
-                                  child: AuthUserStreamWidget(
-                                    builder: (context) => TextFormField(
-                                      controller: _model.sponsorIDController,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        labelText: 'Sponsor ID # (optional)',
-                                        labelStyle: FlutterFlowTheme.of(context)
-                                            .bodyText2,
-                                        hintText: '6 Digit Number',
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .bodyText2,
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
+                                  child: TextFormField(
+                                    controller: _model.sponsorIDController,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelText: 'Sponsor ID # (optional)',
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .bodyText2,
+                                      hintText: '6 Digit Number',
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .bodyText2,
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          width: 2.0,
                                         ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        errorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        focusedErrorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            width: 2.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        filled: true,
-                                        fillColor: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        contentPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                20.0, 24.0, 0.0, 24.0),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
-                                      keyboardType: TextInputType.number,
-                                      validator: _model
-                                          .sponsorIDControllerValidator
-                                          .asValidator(context),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0x00000000),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      filled: true,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      contentPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              20.0, 24.0, 0.0, 24.0),
                                     ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                    keyboardType: TextInputType.number,
+                                    validator: _model
+                                        .sponsorIDControllerValidator
+                                        .asValidator(context),
                                   ),
                                 ),
                               ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 4.0, 0.0),
+                                  0.0, 12.0, 0.0, 0.0),
                               child: InkWell(
                                 onTap: () async {
-                                  _model.sponsorID =
+                                  _model.qrcode =
                                       await FlutterBarcodeScanner.scanBarcode(
                                     '#C62828', // scanning line color
                                     'Cancel', // cancel button text
                                     true, // whether to show the flash icon
-                                    ScanMode.BARCODE,
+                                    ScanMode.QR,
                                   );
-
-                                  final usersUpdateData = createUsersRecordData(
-                                    sponsorID: _model.sponsorID,
-                                  );
-                                  await currentUserReference!
-                                      .update(usersUpdateData);
 
                                   setState(() {});
                                 },
-                                child: Icon(
-                                  Icons.qr_code,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  size: 35.0,
+                                child: Container(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: Image.asset(
+                                        'assets/images/iconmonstr-qr-code-2.png',
+                                      ).image,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
                                 ),
                               ),
                             ),
