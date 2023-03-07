@@ -1,49 +1,65 @@
 {
   "project_info": {
-    "project_number": "907083805319",
-    "firebase_url": "https://macximus-a8464-default-rtdb.firebaseio.com",
-    "project_id": "macximus-a8464",
-    "storage_bucket": "macximus-a8464.appspot.com"
+    "project_number": "417238843117",
+    "firebase_url": "https://macxtoken22-default-rtdb.firebaseio.com",
+    "project_id": "macxtoken22",
+    "storage_bucket": "macxtoken22.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:907083805319:android:a5433e9c064ccb07e17e22",
+        "mobilesdk_app_id": "1:417238843117:android:432973e8af3a65f8ae56e4",
         "android_client_info": {
-          "package_name": "com.McxtMovieFlixio"
+          "package_name": "com.McxtMovieFlix"
         }
       },
       "oauth_client": [
         {
-          "client_id": "907083805319-39gcnv2v91k66h6k023f15qnbsvl3pc9.apps.googleusercontent.com",
+          "client_id": "417238843117-ckvkrbmsn74rc6fovjujmn7cgliaq7ms.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.McxtMovieFlixio",
+            "package_name": "com.McxtMovieFlix",
+            "certificate_hash": "3b345baef5037f997bd9a31b48238b2ad043d239"
+          }
+        },
+        {
+          "client_id": "417238843117-hjq0s1fmerkptv7ukdd64eqact4ctbqe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.McxtMovieFlix",
             "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
           }
         },
         {
-          "client_id": "907083805319-mq12h5li0aoikpsmh8ncv5o6j77bbidd.apps.googleusercontent.com",
+          "client_id": "417238843117-tcvlmjb93ph3r24khvnuqi3afp4qg8ut.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.McxtMovieFlix",
+            "certificate_hash": "be6fa0afa1c7103831425dc2c100b4bfab8a9601"
+          }
+        },
+        {
+          "client_id": "100551681575438004610",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAOc4ftBaaN2J8dj0XJILfcLh3tP-N8nIE"
+          "current_key": "AIzaSyBhEOSIBBjD8DHdGggGdNe2b0LmaslMK2k"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "907083805319-mq12h5li0aoikpsmh8ncv5o6j77bbidd.apps.googleusercontent.com",
+              "client_id": "100551681575438004610",
               "client_type": 3
             },
             {
-              "client_id": "907083805319-74lhqr7r9n1r4tb356i6e29d9h67u99e.apps.googleusercontent.com",
+              "client_id": "417238843117-6cpvcvr173vk0nchk95oe5nuvul95s6n.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.McxtMovieFlixio"
+                "bundle_id": "com.qrcodegenerator"
               }
             }
           ]
@@ -52,42 +68,138 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:907083805319:android:a98410dcb887130ee17e22",
+        "mobilesdk_app_id": "1:417238843117:android:db77834502a7e095ae56e4",
         "android_client_info": {
-          "package_name": "com.codexxxmacximustokenapp.io"
+          "package_name": "com.McxtMovieFlixio"
         }
       },
       "oauth_client": [
         {
-          "client_id": "907083805319-rfm6g25kg5r69qi6qjue4i3li577lva3.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.codexxxmacximustokenapp.io",
-            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
-          }
-        },
-        {
-          "client_id": "907083805319-mq12h5li0aoikpsmh8ncv5o6j77bbidd.apps.googleusercontent.com",
+          "client_id": "100551681575438004610",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAOc4ftBaaN2J8dj0XJILfcLh3tP-N8nIE"
+          "current_key": "AIzaSyBhEOSIBBjD8DHdGggGdNe2b0LmaslMK2k"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "907083805319-mq12h5li0aoikpsmh8ncv5o6j77bbidd.apps.googleusercontent.com",
+              "client_id": "100551681575438004610",
               "client_type": 3
             },
             {
-              "client_id": "907083805319-74lhqr7r9n1r4tb356i6e29d9h67u99e.apps.googleusercontent.com",
+              "client_id": "417238843117-6cpvcvr173vk0nchk95oe5nuvul95s6n.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.McxtMovieFlixio"
+                "bundle_id": "com.qrcodegenerator"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417238843117:android:b90a760b5cb0de33ae56e4",
+        "android_client_info": {
+          "package_name": "com.mcxtrealtateappuikit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417238843117-786maf7k26s7d6mpm7u6dob84ulfrt0b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mcxtrealtateappuikit",
+            "certificate_hash": "be6fa0afa1c7103831425dc2c100b4bfab8a9601"
+          }
+        },
+        {
+          "client_id": "417238843117-a61v00kcu89b42s9s9lqqunaj9fqu4r1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mcxtrealtateappuikit",
+            "certificate_hash": "3b345baef5037f997bd9a31b48238b2ad043d239"
+          }
+        },
+        {
+          "client_id": "417238843117-cbi4e1hgd80p3353il6k0a3aa4eijcpf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mcxtrealtateappuikit",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "100551681575438004610",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhEOSIBBjD8DHdGggGdNe2b0LmaslMK2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100551681575438004610",
+              "client_type": 3
+            },
+            {
+              "client_id": "417238843117-6cpvcvr173vk0nchk95oe5nuvul95s6n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.qrcodegenerator"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417238843117:android:104fef53519eda8dae56e4",
+        "android_client_info": {
+          "package_name": "com.qrcodegenerator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417238843117-g9ebqjqf1loh81mdtedtq89p5ri7jpqj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.qrcodegenerator",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "100551681575438004610",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhEOSIBBjD8DHdGggGdNe2b0LmaslMK2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100551681575438004610",
+              "client_type": 3
+            },
+            {
+              "client_id": "417238843117-6cpvcvr173vk0nchk95oe5nuvul95s6n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.qrcodegenerator"
               }
             }
           ]

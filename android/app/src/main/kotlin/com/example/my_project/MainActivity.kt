@@ -1,4 +1,4 @@
-package com.McxtMovieFlixio
+package com.McxtMovieFlix
 
 import io.flutter.embedding.android.FlutterActivity
 

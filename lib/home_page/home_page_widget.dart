@@ -731,7 +731,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 20.0, 0.0, 0.0),
+                                    16.0, 20.0, 16.0, 0.0),
                                 child: FutureBuilder<List<CryptoRow>>(
                                   future: CryptoTable().queryRows(
                                     queryFn: (q) => q,
@@ -828,18 +828,26 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                         10.0,
                                                                         0.0),
                                                                 child:
-                                                                    CachedNetworkImage(
-                                                                  imageUrl:
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                    listViewCryptoRow
-                                                                        .image,
-                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/xqf950uts413/USDT_icon.png',
+                                                                    ClipRRect(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              15.0),
+                                                                  child:
+                                                                      CachedNetworkImage(
+                                                                    imageUrl:
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                      listViewCryptoRow
+                                                                          .image,
+                                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/xqf950uts413/USDT_icon.png',
+                                                                    ),
+                                                                    width: 30.0,
+                                                                    height:
+                                                                        30.0,
+                                                                    fit: BoxFit
+                                                                        .contain,
                                                                   ),
-                                                                  width: 30.0,
-                                                                  height: 30.0,
-                                                                  fit: BoxFit
-                                                                      .cover,
                                                                 ),
                                                               ),
                                                               Container(

@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>907083805319-74lhqr7r9n1r4tb356i6e29d9h67u99e.apps.googleusercontent.com</string>
+	<string>417238843117-r2kfoaiv08aqa4p77sfk8om4tpos466g.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.907083805319-74lhqr7r9n1r4tb356i6e29d9h67u99e</string>
+	<string>com.googleusercontent.apps.417238843117-r2kfoaiv08aqa4p77sfk8om4tpos466g</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>907083805319-39gcnv2v91k66h6k023f15qnbsvl3pc9.apps.googleusercontent.com</string>
+	<string>417238843117-786maf7k26s7d6mpm7u6dob84ulfrt0b.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyD_USJmoZcE2KI1rRJZpuvy1kimKYEBeMc</string>
+	<string>AIzaSyDm4ao0WPfB0FaO-aX9qjat53VORbwhvC4</string>
 	<key>GCM_SENDER_ID</key>
-	<string>907083805319</string>
+	<string>417238843117</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.McxtMovieFlixio</string>
+	<string>com.McxtMovieFlix</string>
 	<key>PROJECT_ID</key>
-	<string>macximus-a8464</string>
+	<string>macxtoken22</string>
 	<key>STORAGE_BUCKET</key>
-	<string>macximus-a8464.appspot.com</string>
+	<string>macxtoken22.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,8 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:907083805319:ios:514a83999b302176e17e22</string>
+	<string>1:417238843117:ios:675820fc0d3f06daae56e4</string>
 	<key>DATABASE_URL</key>
-	<string>https://macximus-a8464-default-rtdb.firebaseio.com</string>
+	<string>https://macxtoken22-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>
