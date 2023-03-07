@@ -130,13 +130,6 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add('notifcount')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    value = object.setSponsor;
-    if (value != null) {
-      result
-        ..add('setSponsor')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -225,10 +218,6 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.notifcount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
-        case 'setSponsor':
-          result.setSponsor = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool?;
-          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -276,8 +265,6 @@ class _$UsersRecord extends UsersRecord {
   @override
   final int? notifcount;
   @override
-  final bool? setSponsor;
-  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -300,7 +287,6 @@ class _$UsersRecord extends UsersRecord {
       this.allrefferrals,
       this.isauthenticated,
       this.notifcount,
-      this.setSponsor,
       this.ffRef})
       : super._();
 
@@ -331,7 +317,6 @@ class _$UsersRecord extends UsersRecord {
         allrefferrals == other.allrefferrals &&
         isauthenticated == other.isauthenticated &&
         notifcount == other.notifcount &&
-        setSponsor == other.setSponsor &&
         ffRef == other.ffRef;
   }
 
@@ -354,29 +339,26 @@ class _$UsersRecord extends UsersRecord {
                                                             $jc(
                                                                 $jc(
                                                                     $jc(
-                                                                        $jc(
-                                                                            0,
-                                                                            email
-                                                                                .hashCode),
-                                                                        displayName
+                                                                        0,
+                                                                        email
                                                                             .hashCode),
-                                                                    photoUrl
+                                                                    displayName
                                                                         .hashCode),
-                                                                uid.hashCode),
-                                                            createdTime
-                                                                .hashCode),
-                                                        phoneNumber.hashCode),
-                                                    refferralID.hashCode),
-                                                sponsorID.hashCode),
-                                            walletBalance.hashCode),
-                                        mcxtaddress.hashCode),
-                                    city.hashCode),
-                                qrcode.hashCode),
-                            reflink.hashCode),
-                        allrefferrals.hashCode),
-                    isauthenticated.hashCode),
-                notifcount.hashCode),
-            setSponsor.hashCode),
+                                                                photoUrl
+                                                                    .hashCode),
+                                                            uid.hashCode),
+                                                        createdTime.hashCode),
+                                                    phoneNumber.hashCode),
+                                                refferralID.hashCode),
+                                            sponsorID.hashCode),
+                                        walletBalance.hashCode),
+                                    mcxtaddress.hashCode),
+                                city.hashCode),
+                            qrcode.hashCode),
+                        reflink.hashCode),
+                    allrefferrals.hashCode),
+                isauthenticated.hashCode),
+            notifcount.hashCode),
         ffRef.hashCode));
   }
 
@@ -399,7 +381,6 @@ class _$UsersRecord extends UsersRecord {
           ..add('allrefferrals', allrefferrals)
           ..add('isauthenticated', isauthenticated)
           ..add('notifcount', notifcount)
-          ..add('setSponsor', setSponsor)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -475,10 +456,6 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   int? get notifcount => _$this._notifcount;
   set notifcount(int? notifcount) => _$this._notifcount = notifcount;
 
-  bool? _setSponsor;
-  bool? get setSponsor => _$this._setSponsor;
-  set setSponsor(bool? setSponsor) => _$this._setSponsor = setSponsor;
-
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -506,7 +483,6 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _allrefferrals = $v.allrefferrals;
       _isauthenticated = $v.isauthenticated;
       _notifcount = $v.notifcount;
-      _setSponsor = $v.setSponsor;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -546,7 +522,6 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
             allrefferrals: allrefferrals,
             isauthenticated: isauthenticated,
             notifcount: notifcount,
-            setSponsor: setSponsor,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

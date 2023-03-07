@@ -24,7 +24,7 @@ class FFAppState extends ChangeNotifier {
 
   late SharedPreferences prefs;
 
-  String _sponsorID = '100100';
+  String _sponsorID = '';
   String get sponsorID => _sponsorID;
   set sponsorID(String _value) {
     _sponsorID = _value;

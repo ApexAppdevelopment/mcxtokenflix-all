@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -30,13 +29,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (!valueOrDefault<bool>(currentUserDocument?.setSponsor, false)) {
-        context.pushNamed('UpdateProfile');
-      }
-    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -81,14 +73,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 0.0, 0.0, 12.0, 0.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Container(
-                                width: 50.0,
-                                height: 50.0,
+                                width: 45.0,
+                                height: 45.0,
                                 clipBehavior: Clip.antiAlias,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                 ),
                                 child: CachedNetworkImage(
-                                  imageUrl: currentUserPhoto,
+                                  imageUrl: valueOrDefault<String>(
+                                    currentUserPhoto,
+                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/eq3c76vf9hik/Add-User-Profile-New-More-Plus-Contact-256.webp',
+                                  ),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -806,186 +801,184 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ],
                                 ),
                               ),
-                              SingleChildScrollView(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 1.0, 0.0, 0.0),
-                                      child: FutureBuilder<List<CryptoRow>>(
-                                        future: CryptoTable().queryRows(
-                                          queryFn: (q) => q,
-                                        ),
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                child: SpinKitWanderingCubes(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryColor,
-                                                  size: 50.0,
-                                                ),
-                                              ),
-                                            );
-                                          }
-                                          List<CryptoRow>
-                                              listViewCryptoRowList =
-                                              snapshot.data!;
-                                          return ListView.builder(
-                                            padding: EdgeInsets.zero,
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.vertical,
-                                            itemCount:
-                                                listViewCryptoRowList.length,
-                                            itemBuilder:
-                                                (context, listViewIndex) {
-                                              final listViewCryptoRow =
-                                                  listViewCryptoRowList[
-                                                      listViewIndex];
-                                              return Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 10.0, 0.0, 1.0),
-                                                child: Container(
-                                                  width: 100.0,
-                                                  height: 80.0,
-                                                  decoration: BoxDecoration(
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                child: SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 1.0, 0.0, 0.0),
+                                        child: FutureBuilder<List<CryptoRow>>(
+                                          future: CryptoTable().queryRows(
+                                            queryFn: (q) => q,
+                                          ),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  child: SpinKitWanderingCubes(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondaryBackground,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        blurRadius: 0.0,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .lineColor,
-                                                        offset:
-                                                            Offset(0.0, 1.0),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 0.0,
-                                                                16.0, 0.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Container(
-                                                          width: 44.0,
-                                                          height: 44.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryColor,
-                                                            shape:
-                                                                BoxShape.circle,
-                                                          ),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        2.0,
-                                                                        2.0,
-                                                                        2.0,
-                                                                        2.0),
-                                                            child: ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          44.0),
-                                                              child:
-                                                                  Image.network(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  listViewCryptoRow
-                                                                      .image,
-                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/xqf950uts413/USDT_icon.png',
-                                                                ),
-                                                                width: 34.0,
-                                                                height: 35.0,
-                                                                fit: BoxFit
-                                                                    .contain,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          4.0),
-                                                                  child: Text(
-                                                                    '${listViewCryptoRow.name}${listViewCryptoRow.symbol}',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .title3,
-                                                                  ),
-                                                                ),
-                                                                Text(
-                                                                  listViewCryptoRow
-                                                                      .noWrap2!,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText2,
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Icon(
-                                                          Icons
-                                                              .chevron_right_rounded,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          size: 24.0,
-                                                        ),
-                                                      ],
-                                                    ),
+                                                        .primaryColor,
+                                                    size: 50.0,
                                                   ),
                                                 ),
                                               );
-                                            },
-                                          );
-                                        },
+                                            }
+                                            List<CryptoRow>
+                                                listViewCryptoRowList =
+                                                snapshot.data!;
+                                            return ListView.builder(
+                                              padding: EdgeInsets.zero,
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.vertical,
+                                              itemCount:
+                                                  listViewCryptoRowList.length,
+                                              itemBuilder:
+                                                  (context, listViewIndex) {
+                                                final listViewCryptoRow =
+                                                    listViewCryptoRowList[
+                                                        listViewIndex];
+                                                return Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 10.0, 0.0, 1.0),
+                                                  child: Container(
+                                                    width: 100.0,
+                                                    height: 80.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          blurRadius: 0.0,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .lineColor,
+                                                          offset:
+                                                              Offset(0.0, 1.0),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  0.0,
+                                                                  16.0,
+                                                                  0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Container(
+                                                            width: 44.0,
+                                                            height: 44.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryColor,
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          2.0,
+                                                                          2.0,
+                                                                          2.0,
+                                                                          2.0),
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            44.0),
+                                                                child: Image
+                                                                    .network(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    listViewCryptoRow
+                                                                        .image,
+                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/xqf950uts413/USDT_icon.png',
+                                                                  ),
+                                                                  width: 34.0,
+                                                                  height: 35.0,
+                                                                  fit: BoxFit
+                                                                      .contain,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            4.0),
+                                                                    child: Text(
+                                                                      '${listViewCryptoRow.name}${listViewCryptoRow.symbol}',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .title3,
+                                                                    ),
+                                                                  ),
+                                                                  Text(
+                                                                    listViewCryptoRow
+                                                                        .noWrap2!,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText2,
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                          },
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
