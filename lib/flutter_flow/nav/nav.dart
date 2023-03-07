@@ -206,6 +206,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'testinglist',
               path: 'testinglist',
               builder: (context, params) => TestinglistWidget(),
+            ),
+            FFRoute(
+              name: 'Dashboard',
+              path: 'dashboard',
+              builder: (context, params) => DashboardWidget(),
+            ),
+            FFRoute(
+              name: 'Network',
+              path: 'network',
+              builder: (context, params) => NetworkWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

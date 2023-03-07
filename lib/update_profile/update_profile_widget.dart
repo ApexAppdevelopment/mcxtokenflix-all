@@ -1,6 +1,7 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/components/getqr_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -288,6 +289,21 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                     setState(() {
                                       FFAppState().sponsorID = _model.code!;
                                     });
+                                    if (_model.code == '') {
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        enableDrag: false,
+                                        context: context,
+                                        builder: (context) {
+                                          return Padding(
+                                            padding: MediaQuery.of(context)
+                                                .viewInsets,
+                                            child: GetqrWidget(),
+                                          );
+                                        },
+                                      ).then((value) => setState(() {}));
+                                    }
 
                                     setState(() {});
                                   },

@@ -59,137 +59,131 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 backgroundColor:
                     FlutterFlowTheme.of(context).secondaryBackground,
                 automaticallyImplyLeading: false,
-                title: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 12.0, 0.0),
-                            child: AuthUserStreamWidget(
-                              builder: (context) => Container(
-                                width: 45.0,
-                                height: 45.0,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
+                title: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 12.0, 0.0),
+                          child: AuthUserStreamWidget(
+                            builder: (context) => Container(
+                              width: 45.0,
+                              height: 45.0,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                              ),
+                              child: CachedNetworkImage(
+                                imageUrl: valueOrDefault<String>(
+                                  currentUserPhoto,
+                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/eq3c76vf9hik/Add-User-Profile-New-More-Plus-Contact-256.webp',
                                 ),
-                                child: CachedNetworkImage(
-                                  imageUrl: valueOrDefault<String>(
-                                    currentUserPhoto,
-                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/eq3c76vf9hik/Add-User-Profile-New-More-Plus-Contact-256.webp',
-                                  ),
-                                  fit: BoxFit.cover,
-                                ),
+                                fit: BoxFit.cover,
                               ),
                             ),
                           ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  AuthUserStreamWidget(
-                                    builder: (context) => Text(
-                                      'Welcome! ${valueOrDefault<String>(
-                                        currentUserDisplayName,
-                                        'Guest!',
-                                      )}!',
-                                      style: FlutterFlowTheme.of(context)
-                                          .title3
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .title3Family,
-                                            fontSize: 16.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .title3Family),
-                                          ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  AuthUserStreamWidget(
-                                    builder: (context) => Text(
-                                      'Refferral Code: ${valueOrDefault(currentUserDocument?.refferralID, '')}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          if (valueOrDefault(
-                                  currentUserDocument?.notifcount, 0) >
-                              0)
-                            AuthUserStreamWidget(
-                              builder: (context) => InkWell(
-                                onTap: () async {
-                                  context.pushNamed('Notifications');
-                                },
-                                child: badges.Badge(
-                                  badgeContent: Text(
-                                    '1',
-                                    textAlign: TextAlign.start,
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                AuthUserStreamWidget(
+                                  builder: (context) => Text(
+                                    'Welcome! ${valueOrDefault<String>(
+                                      currentUserDisplayName,
+                                      'Guest!',
+                                    )}!',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .title3
                                         .override(
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1Family,
-                                          color: Colors.white,
+                                                  .title3Family,
+                                          fontSize: 16.0,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1Family),
+                                                      .title3Family),
                                         ),
                                   ),
-                                  showBadge: true,
-                                  shape: badges.BadgeShape.circle,
-                                  badgeColor:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                  elevation: 4.0,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                AuthUserStreamWidget(
+                                  builder: (context) => Text(
+                                    'Refferral Code: ${valueOrDefault(currentUserDocument?.refferralID, '')}',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        if (valueOrDefault(currentUserDocument?.notifcount, 0) >
+                            0)
+                          AuthUserStreamWidget(
+                            builder: (context) => InkWell(
+                              onTap: () async {
+                                context.pushNamed('Notifications');
+                              },
+                              child: badges.Badge(
+                                badgeContent: Text(
+                                  '1',
+                                  textAlign: TextAlign.start,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyText1Family,
+                                        color: Colors.white,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyText1Family),
+                                      ),
+                                ),
+                                showBadge: true,
+                                shape: badges.BadgeShape.circle,
+                                badgeColor:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                elevation: 4.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 8.0, 8.0, 8.0),
+                                position: badges.BadgePosition.topStart(),
+                                animationType: badges.BadgeAnimationType.scale,
+                                toAnimate: true,
+                                child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 8.0, 8.0, 8.0),
-                                  position: badges.BadgePosition.topStart(),
-                                  animationType:
-                                      badges.BadgeAnimationType.scale,
-                                  toAnimate: true,
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 0.0, 0.0),
-                                    child: Icon(
-                                      Icons.notifications_sharp,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 24.0,
-                                    ),
+                                      8.0, 0.0, 0.0, 0.0),
+                                  child: Icon(
+                                    Icons.notifications_sharp,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 24.0,
                                   ),
                                 ),
                               ),
                             ),
-                        ],
-                      ),
-                    ],
-                  ),
+                          ),
+                      ],
+                    ),
+                  ],
                 ),
                 actions: [],
                 centerTitle: true,
@@ -942,23 +936,48 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                     CrossAxisAlignment
                                                                         .start,
                                                                 children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
+                                                                  Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
                                                                             4.0),
-                                                                    child: Text(
-                                                                      '${listViewCryptoRow.name}${listViewCryptoRow.symbol}',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .title3,
-                                                                    ),
+                                                                        child:
+                                                                            Text(
+                                                                          listViewCryptoRow
+                                                                              .name!,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .title3
+                                                                              .override(
+                                                                                fontFamily: FlutterFlowTheme.of(context).title3Family,
+                                                                                fontSize: 16.0,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).title3Family),
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Text(
+                                                                          listViewCryptoRow
+                                                                              .symbol!,
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).bodyText1,
+                                                                        ),
+                                                                      ),
+                                                                    ],
                                                                   ),
                                                                   Text(
-                                                                    listViewCryptoRow
-                                                                        .noWrap2!,
+                                                                    ' Price',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText2,

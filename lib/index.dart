@@ -26,3 +26,5 @@ export '/buytoken/buytoken_widget.dart' show BuytokenWidget;
 export '/qrcode/qrcode_widget.dart' show QrcodeWidget;
 export '/notifications/notifications_widget.dart' show NotificationsWidget;
 export '/testinglist/testinglist_widget.dart' show TestinglistWidget;
+export '/dashboard/dashboard_widget.dart' show DashboardWidget;
+export '/network/network_widget.dart' show NetworkWidget;
