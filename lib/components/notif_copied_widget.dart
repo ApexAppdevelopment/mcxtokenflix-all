@@ -59,6 +59,8 @@ class _NotifCopiedWidgetState extends State<NotifCopiedWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Material(
       color: Colors.transparent,
       elevation: 4.0,

@@ -43,6 +43,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(

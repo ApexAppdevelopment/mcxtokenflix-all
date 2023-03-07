@@ -55,6 +55,8 @@ class _AltNav2WidgetState extends State<AltNav2Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: 60.0,
       height: double.infinity,

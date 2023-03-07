@@ -47,6 +47,8 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(

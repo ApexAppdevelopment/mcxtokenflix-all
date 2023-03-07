@@ -201,6 +201,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Notifications',
               path: 'notifications',
               builder: (context, params) => NotificationsWidget(),
+            ),
+            FFRoute(
+              name: 'testinglist',
+              path: 'testinglist',
+              builder: (context, params) => TestinglistWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

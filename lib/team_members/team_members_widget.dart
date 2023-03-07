@@ -44,6 +44,8 @@ class _TeamMembersWidgetState extends State<TeamMembersWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(

@@ -70,6 +70,8 @@ class _MobileNavMovieWidgetState extends State<MobileNavMovieWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Stack(
       children: [
         Container(

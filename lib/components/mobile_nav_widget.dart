@@ -69,6 +69,8 @@ class _MobileNavWidgetState extends State<MobileNavWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Stack(
       children: [
         Container(

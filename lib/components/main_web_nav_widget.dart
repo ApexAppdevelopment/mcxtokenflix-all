@@ -55,6 +55,8 @@ class _MainWebNavWidgetState extends State<MainWebNavWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container();
   }
 }

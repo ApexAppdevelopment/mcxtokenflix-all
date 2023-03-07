@@ -33,7 +33,8 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
     super.initState();
     _model = createModel(context, () => UpdateProfileModel());
 
-    _model.sponsorIDController ??= TextEditingController(text: _model.qrcode);
+    _model.sponsorIDController ??=
+        TextEditingController(text: FFAppState().sponsorID);
     _model.phoneController ??= TextEditingController(text: '+63');
     _model.cityController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -49,6 +50,8 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -278,6 +281,16 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                     ScanMode.QR,
                                   );
 
+                                  setState(() {
+                                    FFAppState().sponsorID = _model.qrcode!;
+                                  });
+
+                                  final usersUpdateData = createUsersRecordData(
+                                    sponsorID: _model.qrcode,
+                                  );
+                                  await currentUserReference!
+                                      .update(usersUpdateData);
+
                                   setState(() {});
                                 },
                                 child: Container(
@@ -419,6 +432,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                       city: _model.cityController.text,
                                       sponsorID:
                                           _model.sponsorIDController.text,
+                                      setSponsor: true,
                                     );
                                     await currentUserReference!
                                         .update(usersUpdateData);

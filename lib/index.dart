@@ -25,3 +25,4 @@ export '/add_crypto_wallet/add_crypto_wallet_widget.dart'
 export '/buytoken/buytoken_widget.dart' show BuytokenWidget;
 export '/qrcode/qrcode_widget.dart' show QrcodeWidget;
 export '/notifications/notifications_widget.dart' show NotificationsWidget;
+export '/testinglist/testinglist_widget.dart' show TestinglistWidget;
