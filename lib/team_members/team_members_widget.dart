@@ -49,28 +49,36 @@ class _TeamMembersWidgetState extends State<TeamMembersWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-          automaticallyImplyLeading: false,
-          title: Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Text(
-                'Clients you Refferred',
-                style: FlutterFlowTheme.of(context).title2.override(
-                      fontFamily: FlutterFlowTheme.of(context).title2Family,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      fontSize: 22.0,
-                      useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).title2Family),
+        appBar: responsiveVisibility(
+          context: context,
+          tabletLandscape: false,
+          desktop: false,
+        )
+            ? AppBar(
+                backgroundColor:
+                    FlutterFlowTheme.of(context).secondaryBackground,
+                automaticallyImplyLeading: false,
+                title: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Text(
+                      'Clients you Refferred',
+                      style: FlutterFlowTheme.of(context).title2.override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).title2Family,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            fontSize: 22.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).title2Family),
+                          ),
                     ),
-              ),
-            ],
-          ),
-          actions: [],
-          centerTitle: false,
-          elevation: 2.0,
-        ),
+                  ],
+                ),
+                actions: [],
+                centerTitle: false,
+                elevation: 2.0,
+              )
+            : null,
         body: SafeArea(
           child: GestureDetector(
             onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
@@ -358,28 +366,7 @@ class _TeamMembersWidgetState extends State<TeamMembersWidget> {
                       wrapWithModel(
                         model: _model.mobileNavModel,
                         updateCallback: () => setState(() {}),
-                        child: MobileNavWidget(
-                          navOneIcon: Icon(
-                            Icons.home_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                          ),
-                          navTwoIcon: Icon(
-                            Icons.grain,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                          ),
-                          navThreeIcon: Icon(
-                            Icons.credit_card_rounded,
-                            color: FlutterFlowTheme.of(context).alternate,
-                          ),
-                          navFourIcon: Icon(
-                            Icons.group_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                          ),
-                          navFiveIcon: Icon(
-                            Icons.home_work_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                          ),
-                        ),
+                        child: MobileNavWidget(),
                       ),
                     ],
                   ),

@@ -78,67 +78,75 @@ class _HomeMoviesWidgetState extends State<HomeMoviesWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-          automaticallyImplyLeading: false,
-          title: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              InkWell(
-                onTap: () async {
-                  await Navigator.push(
-                    context,
-                    PageTransition(
-                      type: PageTransitionType.fade,
-                      child: FlutterFlowExpandedImageView(
-                        image: Image.asset(
+        appBar: responsiveVisibility(
+          context: context,
+          tabletLandscape: false,
+          desktop: false,
+        )
+            ? AppBar(
+                backgroundColor:
+                    FlutterFlowTheme.of(context).secondaryBackground,
+                automaticallyImplyLeading: false,
+                title: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                      onTap: () async {
+                        await Navigator.push(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            child: FlutterFlowExpandedImageView(
+                              image: Image.asset(
+                                'assets/images/MCXTFLIX.png',
+                                fit: BoxFit.contain,
+                              ),
+                              allowRotation: false,
+                              tag: 'imageTag',
+                              useHeroAnimation: true,
+                            ),
+                          ),
+                        );
+                      },
+                      child: Hero(
+                        tag: 'imageTag',
+                        transitionOnUserGestures: true,
+                        child: Image.asset(
                           'assets/images/MCXTFLIX.png',
+                          width: 231.1,
+                          height: 45.9,
                           fit: BoxFit.contain,
                         ),
-                        allowRotation: false,
-                        tag: 'imageTag',
-                        useHeroAnimation: true,
                       ),
+                    ).animateOnPageLoad(
+                        animationsMap['imageOnPageLoadAnimation']!),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Container(
+                          width: 40.0,
+                          height: 40.0,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
+                          child: Image.asset(
+                            'assets/images/986400000068-removebg-preview.png',
+                            fit: BoxFit.contain,
+                          ),
+                        ).animateOnPageLoad(
+                            animationsMap['circleImageOnPageLoadAnimation']!),
+                      ],
                     ),
-                  );
-                },
-                child: Hero(
-                  tag: 'imageTag',
-                  transitionOnUserGestures: true,
-                  child: Image.asset(
-                    'assets/images/MCXTFLIX.png',
-                    width: 231.1,
-                    height: 45.9,
-                    fit: BoxFit.contain,
-                  ),
+                  ],
                 ),
-              ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Container(
-                    width: 40.0,
-                    height: 40.0,
-                    clipBehavior: Clip.antiAlias,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                    ),
-                    child: Image.asset(
-                      'assets/images/986400000068-removebg-preview.png',
-                      fit: BoxFit.contain,
-                    ),
-                  ).animateOnPageLoad(
-                      animationsMap['circleImageOnPageLoadAnimation']!),
-                ],
-              ),
-            ],
-          ),
-          actions: [],
-          centerTitle: true,
-          toolbarHeight: 75.0,
-          elevation: 2.0,
-        ),
+                actions: [],
+                centerTitle: true,
+                toolbarHeight: 75.0,
+                elevation: 2.0,
+              )
+            : null,
         body: SafeArea(
           child: GestureDetector(
             onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),

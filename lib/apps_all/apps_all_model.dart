@@ -1,3 +1,4 @@
+import '/components/mobile_nav_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -8,11 +9,20 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class AppsAllModel extends FlutterFlowModel {
+  ///  State fields for stateful widgets in this page.
+
+  // Model for mobileNav component.
+  late MobileNavModel mobileNavModel;
+
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    mobileNavModel = createModel(context, () => MobileNavModel());
+  }
 
-  void dispose() {}
+  void dispose() {
+    mobileNavModel.dispose();
+  }
 
   /// Additional helper methods are added here.
 

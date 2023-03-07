@@ -46,32 +46,38 @@ class _AddCryptoWalletWidgetState extends State<AddCryptoWalletWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        automaticallyImplyLeading: false,
-        leading: FlutterFlowIconButton(
-          borderColor: Colors.transparent,
-          borderRadius: 30.0,
-          borderWidth: 1.0,
-          buttonSize: 54.0,
-          icon: Icon(
-            Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.of(context).secondaryText,
-            size: 24.0,
-          ),
-          onPressed: () {
-            print('IconButton pressed ...');
-          },
-        ),
-        title: Text(
-          'Add Wallet',
-          style: FlutterFlowTheme.of(context).title3,
-        ),
-        actions: [],
-        centerTitle: false,
-        toolbarHeight: 75.0,
-        elevation: 0.0,
-      ),
+      appBar: responsiveVisibility(
+        context: context,
+        tabletLandscape: false,
+        desktop: false,
+      )
+          ? AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+              automaticallyImplyLeading: false,
+              leading: FlutterFlowIconButton(
+                borderColor: Colors.transparent,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 54.0,
+                icon: Icon(
+                  Icons.arrow_back_rounded,
+                  color: FlutterFlowTheme.of(context).secondaryText,
+                  size: 24.0,
+                ),
+                onPressed: () {
+                  print('IconButton pressed ...');
+                },
+              ),
+              title: Text(
+                'Add Wallet',
+                style: FlutterFlowTheme.of(context).title3,
+              ),
+              actions: [],
+              centerTitle: false,
+              toolbarHeight: 75.0,
+              elevation: 0.0,
+            )
+          : null,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: SingleChildScrollView(

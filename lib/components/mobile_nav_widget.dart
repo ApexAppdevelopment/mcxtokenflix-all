@@ -13,20 +13,7 @@ import 'mobile_nav_model.dart';
 export 'mobile_nav_model.dart';
 
 class MobileNavWidget extends StatefulWidget {
-  const MobileNavWidget({
-    Key? key,
-    this.navOneIcon,
-    this.navTwoIcon,
-    this.navThreeIcon,
-    this.navFourIcon,
-    this.navFiveIcon,
-  }) : super(key: key);
-
-  final Widget? navOneIcon;
-  final Widget? navTwoIcon;
-  final Widget? navThreeIcon;
-  final Widget? navFourIcon;
-  final Widget? navFiveIcon;
+  const MobileNavWidget({Key? key}) : super(key: key);
 
   @override
   _MobileNavWidgetState createState() => _MobileNavWidgetState();

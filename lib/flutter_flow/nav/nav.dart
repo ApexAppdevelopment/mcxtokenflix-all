@@ -103,8 +103,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Register',
               path: 'register',
               builder: (context, params) => RegisterWidget(
-                refferralCode: params.getParam('refferralCode',
-                    ParamType.DocumentReference, false, ['Users']),
+                userRef: params.getParam(
+                    'userRef', ParamType.DocumentReference, false, ['Users']),
               ),
             ),
             FFRoute(
@@ -118,14 +118,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => EditprofileWidget(),
             ),
             FFRoute(
-              name: 'UpdateProfile',
-              path: 'updateProfile',
-              builder: (context, params) => UpdateProfileWidget(),
-            ),
-            FFRoute(
               name: 'ChangePassword',
               path: 'changePassword',
               builder: (context, params) => ChangePasswordWidget(),
+            ),
+            FFRoute(
+              name: 'UpdateProfile',
+              path: 'updateProfile',
+              builder: (context, params) => UpdateProfileWidget(),
             ),
             FFRoute(
               name: 'AppsAll',
@@ -168,11 +168,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => HomePageWidget(),
             ),
             FFRoute(
-              name: 'Notifications',
-              path: 'notifications',
-              builder: (context, params) => NotificationsWidget(),
-            ),
-            FFRoute(
               name: 'HomeMovies',
               path: 'HomeMovies',
               builder: (context, params) => HomeMoviesWidget(),
@@ -191,6 +186,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'AddCryptoWallet',
               path: 'addCryptoWallet',
               builder: (context, params) => AddCryptoWalletWidget(),
+            ),
+            FFRoute(
+              name: 'buytoken',
+              path: 'buytoken',
+              builder: (context, params) => BuytokenWidget(),
+            ),
+            FFRoute(
+              name: 'Qrcode',
+              path: 'qrcode',
+              builder: (context, params) => QrcodeWidget(),
+            ),
+            FFRoute(
+              name: 'Notifications',
+              path: 'notifications',
+              builder: (context, params) => NotificationsWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

@@ -63,35 +63,41 @@ class _BuyPackageWidgetState extends State<BuyPackageWidget>
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        automaticallyImplyLeading: false,
-        title: Text(
-          'Mcxt Token Packages',
-          style: FlutterFlowTheme.of(context).title1,
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
-            child: FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 44.0,
-              icon: Icon(
-                Icons.close_outlined,
-                color: FlutterFlowTheme.of(context).secondaryText,
-                size: 24.0,
+      appBar: responsiveVisibility(
+        context: context,
+        tabletLandscape: false,
+        desktop: false,
+      )
+          ? AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+              automaticallyImplyLeading: false,
+              title: Text(
+                'Mcxt Token Packages',
+                style: FlutterFlowTheme.of(context).title1,
               ),
-              onPressed: () async {
-                context.pop();
-              },
-            ),
-          ),
-        ],
-        centerTitle: false,
-        elevation: 2.0,
-      ),
+              actions: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                  child: FlutterFlowIconButton(
+                    borderColor: Colors.transparent,
+                    borderRadius: 30.0,
+                    borderWidth: 1.0,
+                    buttonSize: 44.0,
+                    icon: Icon(
+                      Icons.close_outlined,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 24.0,
+                    ),
+                    onPressed: () async {
+                      context.pop();
+                    },
+                  ),
+                ),
+              ],
+              centerTitle: false,
+              elevation: 2.0,
+            )
+          : null,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: SingleChildScrollView(

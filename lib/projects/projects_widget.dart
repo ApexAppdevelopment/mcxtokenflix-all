@@ -45,131 +45,147 @@ class _ProjectsWidgetState extends State<ProjectsWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80.0),
-        child: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-          automaticallyImplyLeading: false,
-          actions: [],
-          flexibleSpace: FlexibleSpaceBar(
-            title: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        flex: 12,
-                        child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 25.0, 20.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  flex: 87,
-                                  child: Align(
-                                    alignment: AlignmentDirectional(-1.0, 1.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 16.0, 0.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Install Our Apps',
-                                            style: FlutterFlowTheme.of(context)
-                                                .title1,
-                                          ),
-                                          Padding(
+      appBar: responsiveVisibility(
+        context: context,
+        tabletLandscape: false,
+        desktop: false,
+      )
+          ? PreferredSize(
+              preferredSize: Size.fromHeight(80.0),
+              child: AppBar(
+                backgroundColor:
+                    FlutterFlowTheme.of(context).secondaryBackground,
+                automaticallyImplyLeading: false,
+                actions: [],
+                flexibleSpace: FlexibleSpaceBar(
+                  title: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              flex: 12,
+                              child: Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 25.0, 20.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Expanded(
+                                        flex: 87,
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, 1.0),
+                                          child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 4.0, 0.0, 0.0),
-                                            child: AuthUserStreamWidget(
-                                              builder: (context) => Text(
-                                                'Hello ${currentUserDisplayName}! Welcome back.',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText2,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: AlignmentDirectional(1.0, -1.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Container(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              blurRadius: 4.0,
-                                              color: Color(0x33000000),
-                                              offset: Offset(0.0, 2.0),
-                                            )
-                                          ],
-                                          borderRadius:
-                                              BorderRadius.circular(16.0),
-                                        ),
-                                        child: AuthUserStreamWidget(
-                                          builder: (context) => InkWell(
-                                            onTap: () async {
-                                              context
-                                                  .pushNamed('Profilesettings');
-                                            },
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                              child: Image.network(
-                                                valueOrDefault<String>(
-                                                  currentUserPhoto,
-                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/te7wzgwv8p43/Male-user-add-icon.png',
+                                                    0.0, 0.0, 16.0, 0.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'Install Our Apps',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .title1,
                                                 ),
-                                                width: 100.0,
-                                                height: 100.0,
-                                                fit: BoxFit.cover,
-                                              ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 0.0),
+                                                  child: AuthUserStreamWidget(
+                                                    builder: (context) => Text(
+                                                      'Hello ${currentUserDisplayName}! Welcome back.',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText2,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(1.0, -1.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Container(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    blurRadius: 4.0,
+                                                    color: Color(0x33000000),
+                                                    offset: Offset(0.0, 2.0),
+                                                  )
+                                                ],
+                                                borderRadius:
+                                                    BorderRadius.circular(16.0),
+                                              ),
+                                              child: AuthUserStreamWidget(
+                                                builder: (context) => InkWell(
+                                                  onTap: () async {
+                                                    context.pushNamed(
+                                                        'Profilesettings');
+                                                  },
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
+                                                    child: Image.network(
+                                                      valueOrDefault<String>(
+                                                        currentUserPhoto,
+                                                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/te7wzgwv8p43/Male-user-add-icon.png',
+                                                      ),
+                                                      width: 100.0,
+                                                      height: 100.0,
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
-                              ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ],
+                  centerTitle: true,
+                  expandedTitleScale: 1.0,
+                ),
+                elevation: 0.0,
               ),
-            ),
-            centerTitle: true,
-            expandedTitleScale: 1.0,
-          ),
-          elevation: 0.0,
-        ),
-      ),
+            )
+          : null,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Row(
@@ -557,28 +573,7 @@ class _ProjectsWidgetState extends State<ProjectsWidget> {
                   wrapWithModel(
                     model: _model.mobileNavModel,
                     updateCallback: () => setState(() {}),
-                    child: MobileNavWidget(
-                      navOneIcon: Icon(
-                        Icons.home_rounded,
-                        color: FlutterFlowTheme.of(context).alternate,
-                      ),
-                      navTwoIcon: Icon(
-                        Icons.grain,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                      ),
-                      navThreeIcon: Icon(
-                        Icons.credit_card_rounded,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                      ),
-                      navFourIcon: Icon(
-                        Icons.group_rounded,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                      ),
-                      navFiveIcon: Icon(
-                        Icons.home_work_rounded,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                      ),
-                    ),
+                    child: MobileNavWidget(),
                   ),
                 ],
               ),

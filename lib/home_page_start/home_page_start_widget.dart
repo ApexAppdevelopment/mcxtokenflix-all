@@ -920,17 +920,8 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                             ),
                                                             child: InkWell(
                                                               onTap: () async {
-                                                                if (valueOrDefault<
-                                                                        bool>(
-                                                                    currentUserDocument
-                                                                        ?.isauthenticated,
-                                                                    false)) {
-                                                                  context.pushNamed(
-                                                                      'Metamask');
-                                                                } else {
-                                                                  context.pushNamed(
-                                                                      'Register');
-                                                                }
+                                                                context.pushNamed(
+                                                                    'Register');
                                                               },
                                                               child: ClipRRect(
                                                                 borderRadius:
@@ -939,7 +930,7 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                                             12.0),
                                                                 child:
                                                                     Image.asset(
-                                                                  'assets/images/metamask.gif',
+                                                                  'assets/images/Add_User-512.webp',
                                                                   width: 45.0,
                                                                   height: 45.0,
                                                                   fit: BoxFit
@@ -1771,7 +1762,14 @@ class _HomePageStartWidgetState extends State<HomePageStartWidget> {
                                                             .fromSTEB(0.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      'as of ${dateTimeFormat('MMMMEEEEd', getCurrentTimestamp)}',
+                                                      'as of ${dateTimeFormat(
+                                                        'MMMMEEEEd',
+                                                        getCurrentTimestamp,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      )}',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)

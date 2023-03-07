@@ -8,6 +8,7 @@ import '/flutter_flow/upload_media.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -32,7 +33,8 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
     super.initState();
     _model = createModel(context, () => UpdateProfileModel());
 
-    _model.sponsorIDController ??= TextEditingController();
+    _model.sponsorIDController ??= TextEditingController(
+        text: valueOrDefault(currentUserDocument?.sponsorID, ''));
     _model.phoneController ??= TextEditingController(text: '+63');
     _model.cityController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -51,30 +53,36 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Update Profile',
-              style: FlutterFlowTheme.of(context).title2.override(
-                    fontFamily: FlutterFlowTheme.of(context).title2Family,
-                    color: FlutterFlowTheme.of(context).primaryText,
-                    fontSize: 22.0,
-                    useGoogleFonts: GoogleFonts.asMap()
-                        .containsKey(FlutterFlowTheme.of(context).title2Family),
+      appBar: responsiveVisibility(
+        context: context,
+        tabletLandscape: false,
+        desktop: false,
+      )
+          ? AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+              automaticallyImplyLeading: false,
+              title: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Update Profile',
+                    style: FlutterFlowTheme.of(context).title2.override(
+                          fontFamily: FlutterFlowTheme.of(context).title2Family,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          fontSize: 22.0,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).title2Family),
+                        ),
                   ),
-            ),
-          ],
-        ),
-        actions: [],
-        centerTitle: true,
-        toolbarHeight: 75.0,
-        elevation: 2.0,
-      ),
+                ],
+              ),
+              actions: [],
+              centerTitle: true,
+              toolbarHeight: 75.0,
+              elevation: 2.0,
+            )
+          : null,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
@@ -183,60 +191,112 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 30.0, 0.0, 10.0),
-                          child: TextFormField(
-                            controller: _model.sponsorIDController,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              labelText: 'Sponsor ID # (optional)',
-                              labelStyle:
-                                  FlutterFlowTheme.of(context).bodyText2,
-                              hintText: '6 Digit Number',
-                              hintStyle: FlutterFlowTheme.of(context).bodyText2,
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                  width: 2.0,
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            if (responsiveVisibility(
+                              context: context,
+                              tabletLandscape: false,
+                              desktop: false,
+                            ))
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 30.0, 20.0, 10.0),
+                                  child: AuthUserStreamWidget(
+                                    builder: (context) => TextFormField(
+                                      controller: _model.sponsorIDController,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelText: 'Sponsor ID # (optional)',
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .bodyText2,
+                                        hintText: '6 Digit Number',
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .bodyText2,
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0x00000000),
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        filled: true,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        contentPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                20.0, 24.0, 0.0, 24.0),
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
+                                      keyboardType: TextInputType.number,
+                                      validator: _model
+                                          .sponsorIDControllerValidator
+                                          .asValidator(context),
+                                    ),
+                                  ),
                                 ),
-                                borderRadius: BorderRadius.circular(8.0),
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 2.0,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 4.0, 0.0),
+                              child: InkWell(
+                                onTap: () async {
+                                  _model.sponsorID =
+                                      await FlutterBarcodeScanner.scanBarcode(
+                                    '#C62828', // scanning line color
+                                    'Cancel', // cancel button text
+                                    true, // whether to show the flash icon
+                                    ScanMode.BARCODE,
+                                  );
+
+                                  final usersUpdateData = createUsersRecordData(
+                                    sponsorID: _model.sponsorID,
+                                  );
+                                  await currentUserReference!
+                                      .update(usersUpdateData);
+
+                                  setState(() {});
+                                },
+                                child: Icon(
+                                  Icons.qr_code,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 35.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8.0),
                               ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  width: 2.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  width: 2.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              filled: true,
-                              fillColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 24.0, 0.0, 24.0),
                             ),
-                            style: FlutterFlowTheme.of(context).bodyText1,
-                            keyboardType: TextInputType.number,
-                            validator: _model.sponsorIDControllerValidator
-                                .asValidator(context),
-                          ),
+                          ],
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -351,8 +411,8 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                               final usersUpdateData = createUsersRecordData(
                                 photoUrl: _model.uploadedFileUrl,
                                 phoneNumber: _model.phoneController.text,
-                                sponsorID: _model.sponsorIDController.text,
                                 city: _model.cityController.text,
+                                sponsorID: _model.sponsorIDController.text,
                               );
                               await currentUserReference!
                                   .update(usersUpdateData);

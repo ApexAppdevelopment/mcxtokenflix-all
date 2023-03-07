@@ -15,10 +15,10 @@ export 'register_model.dart';
 class RegisterWidget extends StatefulWidget {
   const RegisterWidget({
     Key? key,
-    this.refferralCode,
+    this.userRef,
   }) : super(key: key);
 
-  final DocumentReference? refferralCode;
+  final DocumentReference? userRef;
 
   @override
   _RegisterWidgetState createState() => _RegisterWidgetState();

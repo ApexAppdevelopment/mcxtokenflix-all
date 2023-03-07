@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -49,90 +48,103 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-          automaticallyImplyLeading: false,
-          title: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  AuthUserStreamWidget(
-                    builder: (context) => Container(
-                      width: 40.0,
-                      height: 40.0,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: Image.network(
-                        valueOrDefault<String>(
-                          currentUserPhoto,
-                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/te7wzgwv8p43/Male-user-add-icon.png',
-                        ),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                    child: AuthUserStreamWidget(
-                      builder: (context) => AutoSizeText(
-                        'Hello, ${currentUserDisplayName}!',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyText1Family,
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w500,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyText1Family),
+        appBar: responsiveVisibility(
+          context: context,
+          tabletLandscape: false,
+          desktop: false,
+        )
+            ? AppBar(
+                backgroundColor:
+                    FlutterFlowTheme.of(context).secondaryBackground,
+                automaticallyImplyLeading: false,
+                title: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        AuthUserStreamWidget(
+                          builder: (context) => Container(
+                            width: 40.0,
+                            height: 40.0,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
                             ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
-                child: InkWell(
-                  onTap: () async {
-                    context.pushNamed('Editprofile');
-                  },
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                        child: FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 20.0,
-                          borderWidth: 1.0,
-                          buttonSize: 40.0,
-                          icon: FaIcon(
-                            FontAwesomeIcons.solidEdit,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 20.0,
+                            child: Image.network(
+                              valueOrDefault<String>(
+                                currentUserPhoto,
+                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/responsive-e25eer/assets/te7wzgwv8p43/Male-user-add-icon.png',
+                              ),
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                          onPressed: () async {
-                            context.pushNamed('Editprofile');
-                          },
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              15.0, 0.0, 0.0, 0.0),
+                          child: AuthUserStreamWidget(
+                            builder: (context) => AutoSizeText(
+                              'Hello, ${currentUserDisplayName}!',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyText1Family,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyText1Family),
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+                      child: InkWell(
+                        onTap: () async {
+                          context.pushNamed('Editprofile');
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: FlutterFlowIconButton(
+                                borderColor: Colors.transparent,
+                                borderRadius: 20.0,
+                                borderWidth: 1.0,
+                                buttonSize: 40.0,
+                                icon: FaIcon(
+                                  FontAwesomeIcons.solidEdit,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 20.0,
+                                ),
+                                onPressed: () async {
+                                  context.pushNamed('Editprofile');
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
-          actions: [],
-          centerTitle: true,
-          toolbarHeight: 75.0,
-          elevation: 2.0,
-        ),
+                actions: [],
+                centerTitle: true,
+                toolbarHeight: 75.0,
+                elevation: 2.0,
+              )
+            : null,
         body: SafeArea(
           child: GestureDetector(
             onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
@@ -181,115 +193,91 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 15.0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 50.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            border: Border.all(
+                                        child: InkWell(
+                                          onTap: () async {
+                                            context.pushNamed('Qrcode');
+                                          },
+                                          child: Container(
+                                            width: double.infinity,
+                                            height: 50.0,
+                                            decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                              ),
                                             ),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Icon(
-                                                      Icons.insert_link_rounded,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 0.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Icon(
+                                                        Icons
+                                                            .insert_link_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        size: 24.0,
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child:
+                                                            AuthUserStreamWidget(
+                                                          builder: (context) =>
+                                                              Text(
+                                                            'Copy Refferral Code: ${valueOrDefault(currentUserDocument?.refferralID, '')}',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  FlutterFlowIconButton(
+                                                    borderColor:
+                                                        Colors.transparent,
+                                                    borderRadius: 30.0,
+                                                    borderWidth: 1.0,
+                                                    buttonSize: 60.0,
+                                                    icon: Icon(
+                                                      Icons
+                                                          .content_copy_rounded,
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .primaryText,
-                                                      size: 24.0,
+                                                      size: 30.0,
                                                     ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child:
-                                                          AuthUserStreamWidget(
-                                                        builder: (context) =>
-                                                            Text(
-                                                          'Copy Refferral Code: ${valueOrDefault(currentUserDocument?.refferralID, '')}',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                FlutterFlowIconButton(
-                                                  borderColor:
-                                                      Colors.transparent,
-                                                  borderRadius: 30.0,
-                                                  borderWidth: 1.0,
-                                                  buttonSize: 60.0,
-                                                  icon: Icon(
-                                                    Icons.content_copy_rounded,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    size: 30.0,
+                                                    onPressed: () async {
+                                                      context
+                                                          .pushNamed('Qrcode');
+                                                    },
                                                   ),
-                                                  onPressed: () async {
-                                                    await Clipboard.setData(
-                                                        ClipboardData(
-                                                            text:
-                                                                'https://responsive-e25eer.flutterflow.app/register${valueOrDefault(currentUserDocument?.refferralID, '')}'));
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(
-                                                      SnackBar(
-                                                        content: Text(
-                                                          'Copied',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .title3
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .title3Family,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .title3Family),
-                                                              ),
-                                                        ),
-                                                        duration: Duration(
-                                                            milliseconds: 4000),
-                                                        backgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryBackground,
-                                                      ),
-                                                    );
-                                                  },
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -909,28 +897,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                         wrapWithModel(
                           model: _model.mobileNavModel,
                           updateCallback: () => setState(() {}),
-                          child: MobileNavWidget(
-                            navOneIcon: Icon(
-                              Icons.home_rounded,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                            ),
-                            navTwoIcon: Icon(
-                              Icons.grain,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                            ),
-                            navThreeIcon: Icon(
-                              Icons.credit_card_rounded,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                            ),
-                            navFourIcon: Icon(
-                              Icons.group_rounded,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                            ),
-                            navFiveIcon: Icon(
-                              Icons.home_work_rounded,
-                              color: FlutterFlowTheme.of(context).alternate,
-                            ),
-                          ),
+                          child: MobileNavWidget(),
                         ),
                     ],
                   ),

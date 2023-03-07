@@ -25,63 +25,55 @@ class _$NotificationsRecordSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
-    value = object.postPhoto;
+    value = object.title;
     if (value != null) {
       result
-        ..add('post_photo')
+        ..add('title')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.postTitle;
+    value = object.message;
     if (value != null) {
       result
-        ..add('post_title')
+        ..add('message')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.postDescription;
+    value = object.photo;
     if (value != null) {
       result
-        ..add('post_description')
+        ..add('photo')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.postUser;
+    value = object.user;
     if (value != null) {
       result
-        ..add('post_user')
+        ..add('user')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(
                 DocumentReference, const [const FullType.nullable(Object)])));
     }
-    value = object.timePosted;
+    value = object.sponsorid;
     if (value != null) {
       result
-        ..add('time_posted')
+        ..add('sponsorid')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.time;
+    if (value != null) {
+      result
+        ..add('time')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
     }
-    value = object.likes;
+    value = object.read;
     if (value != null) {
       result
-        ..add('likes')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType(
-                  DocumentReference, const [const FullType.nullable(Object)])
-            ])));
-    }
-    value = object.numComments;
-    if (value != null) {
-      result
-        ..add('num_comments')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.numVotes;
-    if (value != null) {
-      result
-        ..add('num_votes')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add('read')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     value = object.ffRef;
     if (value != null) {
@@ -106,42 +98,35 @@ class _$NotificationsRecordSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'post_photo':
-          result.postPhoto = serializers.deserialize(value,
+        case 'title':
+          result.title = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'post_title':
-          result.postTitle = serializers.deserialize(value,
+        case 'message':
+          result.message = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'post_description':
-          result.postDescription = serializers.deserialize(value,
+        case 'photo':
+          result.photo = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'post_user':
-          result.postUser = serializers.deserialize(value,
+        case 'user':
+          result.user = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
                 const FullType.nullable(Object)
               ])) as DocumentReference<Object?>?;
           break;
-        case 'time_posted':
-          result.timePosted = serializers.deserialize(value,
+        case 'sponsorid':
+          result.sponsorid = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'time':
+          result.time = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
           break;
-        case 'likes':
-          result.likes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(
-                    DocumentReference, const [const FullType.nullable(Object)])
-              ]))! as BuiltList<Object?>);
-          break;
-        case 'num_comments':
-          result.numComments = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
-        case 'num_votes':
-          result.numVotes = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+        case 'read':
+          result.read = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -158,21 +143,19 @@ class _$NotificationsRecordSerializer
 
 class _$NotificationsRecord extends NotificationsRecord {
   @override
-  final String? postPhoto;
+  final String? title;
   @override
-  final String? postTitle;
+  final String? message;
   @override
-  final String? postDescription;
+  final String? photo;
   @override
-  final DocumentReference<Object?>? postUser;
+  final DocumentReference<Object?>? user;
   @override
-  final DateTime? timePosted;
+  final String? sponsorid;
   @override
-  final BuiltList<DocumentReference<Object?>>? likes;
+  final DateTime? time;
   @override
-  final int? numComments;
-  @override
-  final int? numVotes;
+  final bool? read;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -181,14 +164,13 @@ class _$NotificationsRecord extends NotificationsRecord {
       (new NotificationsRecordBuilder()..update(updates))._build();
 
   _$NotificationsRecord._(
-      {this.postPhoto,
-      this.postTitle,
-      this.postDescription,
-      this.postUser,
-      this.timePosted,
-      this.likes,
-      this.numComments,
-      this.numVotes,
+      {this.title,
+      this.message,
+      this.photo,
+      this.user,
+      this.sponsorid,
+      this.time,
+      this.read,
       this.ffRef})
       : super._();
 
@@ -205,14 +187,13 @@ class _$NotificationsRecord extends NotificationsRecord {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is NotificationsRecord &&
-        postPhoto == other.postPhoto &&
-        postTitle == other.postTitle &&
-        postDescription == other.postDescription &&
-        postUser == other.postUser &&
-        timePosted == other.timePosted &&
-        likes == other.likes &&
-        numComments == other.numComments &&
-        numVotes == other.numVotes &&
+        title == other.title &&
+        message == other.message &&
+        photo == other.photo &&
+        user == other.user &&
+        sponsorid == other.sponsorid &&
+        time == other.time &&
+        read == other.read &&
         ffRef == other.ffRef;
   }
 
@@ -223,30 +204,25 @@ class _$NotificationsRecord extends NotificationsRecord {
             $jc(
                 $jc(
                     $jc(
-                        $jc(
-                            $jc(
-                                $jc($jc(0, postPhoto.hashCode),
-                                    postTitle.hashCode),
-                                postDescription.hashCode),
-                            postUser.hashCode),
-                        timePosted.hashCode),
-                    likes.hashCode),
-                numComments.hashCode),
-            numVotes.hashCode),
+                        $jc($jc($jc(0, title.hashCode), message.hashCode),
+                            photo.hashCode),
+                        user.hashCode),
+                    sponsorid.hashCode),
+                time.hashCode),
+            read.hashCode),
         ffRef.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'NotificationsRecord')
-          ..add('postPhoto', postPhoto)
-          ..add('postTitle', postTitle)
-          ..add('postDescription', postDescription)
-          ..add('postUser', postUser)
-          ..add('timePosted', timePosted)
-          ..add('likes', likes)
-          ..add('numComments', numComments)
-          ..add('numVotes', numVotes)
+          ..add('title', title)
+          ..add('message', message)
+          ..add('photo', photo)
+          ..add('user', user)
+          ..add('sponsorid', sponsorid)
+          ..add('time', time)
+          ..add('read', read)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -256,41 +232,33 @@ class NotificationsRecordBuilder
     implements Builder<NotificationsRecord, NotificationsRecordBuilder> {
   _$NotificationsRecord? _$v;
 
-  String? _postPhoto;
-  String? get postPhoto => _$this._postPhoto;
-  set postPhoto(String? postPhoto) => _$this._postPhoto = postPhoto;
+  String? _title;
+  String? get title => _$this._title;
+  set title(String? title) => _$this._title = title;
 
-  String? _postTitle;
-  String? get postTitle => _$this._postTitle;
-  set postTitle(String? postTitle) => _$this._postTitle = postTitle;
+  String? _message;
+  String? get message => _$this._message;
+  set message(String? message) => _$this._message = message;
 
-  String? _postDescription;
-  String? get postDescription => _$this._postDescription;
-  set postDescription(String? postDescription) =>
-      _$this._postDescription = postDescription;
+  String? _photo;
+  String? get photo => _$this._photo;
+  set photo(String? photo) => _$this._photo = photo;
 
-  DocumentReference<Object?>? _postUser;
-  DocumentReference<Object?>? get postUser => _$this._postUser;
-  set postUser(DocumentReference<Object?>? postUser) =>
-      _$this._postUser = postUser;
+  DocumentReference<Object?>? _user;
+  DocumentReference<Object?>? get user => _$this._user;
+  set user(DocumentReference<Object?>? user) => _$this._user = user;
 
-  DateTime? _timePosted;
-  DateTime? get timePosted => _$this._timePosted;
-  set timePosted(DateTime? timePosted) => _$this._timePosted = timePosted;
+  String? _sponsorid;
+  String? get sponsorid => _$this._sponsorid;
+  set sponsorid(String? sponsorid) => _$this._sponsorid = sponsorid;
 
-  ListBuilder<DocumentReference<Object?>>? _likes;
-  ListBuilder<DocumentReference<Object?>> get likes =>
-      _$this._likes ??= new ListBuilder<DocumentReference<Object?>>();
-  set likes(ListBuilder<DocumentReference<Object?>>? likes) =>
-      _$this._likes = likes;
+  DateTime? _time;
+  DateTime? get time => _$this._time;
+  set time(DateTime? time) => _$this._time = time;
 
-  int? _numComments;
-  int? get numComments => _$this._numComments;
-  set numComments(int? numComments) => _$this._numComments = numComments;
-
-  int? _numVotes;
-  int? get numVotes => _$this._numVotes;
-  set numVotes(int? numVotes) => _$this._numVotes = numVotes;
+  bool? _read;
+  bool? get read => _$this._read;
+  set read(bool? read) => _$this._read = read;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -303,14 +271,13 @@ class NotificationsRecordBuilder
   NotificationsRecordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _postPhoto = $v.postPhoto;
-      _postTitle = $v.postTitle;
-      _postDescription = $v.postDescription;
-      _postUser = $v.postUser;
-      _timePosted = $v.timePosted;
-      _likes = $v.likes?.toBuilder();
-      _numComments = $v.numComments;
-      _numVotes = $v.numVotes;
+      _title = $v.title;
+      _message = $v.message;
+      _photo = $v.photo;
+      _user = $v.user;
+      _sponsorid = $v.sponsorid;
+      _time = $v.time;
+      _read = $v.read;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -332,30 +299,16 @@ class NotificationsRecordBuilder
   NotificationsRecord build() => _build();
 
   _$NotificationsRecord _build() {
-    _$NotificationsRecord _$result;
-    try {
-      _$result = _$v ??
-          new _$NotificationsRecord._(
-              postPhoto: postPhoto,
-              postTitle: postTitle,
-              postDescription: postDescription,
-              postUser: postUser,
-              timePosted: timePosted,
-              likes: _likes?.build(),
-              numComments: numComments,
-              numVotes: numVotes,
-              ffRef: ffRef);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'likes';
-        _likes?.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'NotificationsRecord', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ??
+        new _$NotificationsRecord._(
+            title: title,
+            message: message,
+            photo: photo,
+            user: user,
+            sponsorid: sponsorid,
+            time: time,
+            read: read,
+            ffRef: ffRef);
     replace(_$result);
     return _$result;
   }

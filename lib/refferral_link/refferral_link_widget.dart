@@ -39,28 +39,34 @@ class _RefferralLinkWidgetState extends State<RefferralLinkWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        automaticallyImplyLeading: false,
-        leading: InkWell(
-          onTap: () async {
-            context.pop();
-          },
-          child: Icon(
-            Icons.chevron_left_rounded,
-            color: FlutterFlowTheme.of(context).primaryText,
-            size: 40.0,
-          ),
-        ),
-        title: Text(
-          'Share your QR/Refferral Link',
-          style: FlutterFlowTheme.of(context).title2,
-        ),
-        actions: [],
-        centerTitle: false,
-        toolbarHeight: 75.0,
-        elevation: 0.0,
-      ),
+      appBar: responsiveVisibility(
+        context: context,
+        tabletLandscape: false,
+        desktop: false,
+      )
+          ? AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+              automaticallyImplyLeading: false,
+              leading: InkWell(
+                onTap: () async {
+                  context.pop();
+                },
+                child: Icon(
+                  Icons.chevron_left_rounded,
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  size: 40.0,
+                ),
+              ),
+              title: Text(
+                'Share your QR/Refferral Link',
+                style: FlutterFlowTheme.of(context).title2,
+              ),
+              actions: [],
+              centerTitle: false,
+              toolbarHeight: 75.0,
+              elevation: 0.0,
+            )
+          : null,
     );
   }
 }

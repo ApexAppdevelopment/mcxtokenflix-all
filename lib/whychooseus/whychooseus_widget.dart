@@ -77,27 +77,33 @@ class _WhychooseusWidgetState extends State<WhychooseusWidget>
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        automaticallyImplyLeading: false,
-        leading: InkWell(
-          onTap: () async {
-            context.pop();
-          },
-          child: Icon(
-            Icons.chevron_left_rounded,
-            color: FlutterFlowTheme.of(context).primaryText,
-            size: 32.0,
-          ),
-        ),
-        title: Text(
-          '${widget.why!.number?.toString()} Reason is...',
-          style: FlutterFlowTheme.of(context).subtitle1,
-        ),
-        actions: [],
-        centerTitle: false,
-        elevation: 0.0,
-      ),
+      appBar: responsiveVisibility(
+        context: context,
+        tabletLandscape: false,
+        desktop: false,
+      )
+          ? AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+              automaticallyImplyLeading: false,
+              leading: InkWell(
+                onTap: () async {
+                  context.pop();
+                },
+                child: Icon(
+                  Icons.chevron_left_rounded,
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  size: 32.0,
+                ),
+              ),
+              title: Text(
+                '${widget.why!.number?.toString()} Reason is...',
+                style: FlutterFlowTheme.of(context).subtitle1,
+              ),
+              actions: [],
+              centerTitle: false,
+              elevation: 0.0,
+            )
+          : null,
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.max,

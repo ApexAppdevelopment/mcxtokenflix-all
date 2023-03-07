@@ -11,40 +11,30 @@ abstract class NotificationsRecord
   static Serializer<NotificationsRecord> get serializer =>
       _$notificationsRecordSerializer;
 
-  @BuiltValueField(wireName: 'post_photo')
-  String? get postPhoto;
+  String? get title;
 
-  @BuiltValueField(wireName: 'post_title')
-  String? get postTitle;
+  String? get message;
 
-  @BuiltValueField(wireName: 'post_description')
-  String? get postDescription;
+  String? get photo;
 
-  @BuiltValueField(wireName: 'post_user')
-  DocumentReference? get postUser;
+  DocumentReference? get user;
 
-  @BuiltValueField(wireName: 'time_posted')
-  DateTime? get timePosted;
+  String? get sponsorid;
 
-  BuiltList<DocumentReference>? get likes;
+  DateTime? get time;
 
-  @BuiltValueField(wireName: 'num_comments')
-  int? get numComments;
-
-  @BuiltValueField(wireName: 'num_votes')
-  int? get numVotes;
+  bool? get read;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(NotificationsRecordBuilder builder) => builder
-    ..postPhoto = ''
-    ..postTitle = ''
-    ..postDescription = ''
-    ..likes = ListBuilder()
-    ..numComments = 0
-    ..numVotes = 0;
+    ..title = ''
+    ..message = ''
+    ..photo = ''
+    ..sponsorid = ''
+    ..read = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('notifications');
@@ -69,26 +59,25 @@ abstract class NotificationsRecord
 }
 
 Map<String, dynamic> createNotificationsRecordData({
-  String? postPhoto,
-  String? postTitle,
-  String? postDescription,
-  DocumentReference? postUser,
-  DateTime? timePosted,
-  int? numComments,
-  int? numVotes,
+  String? title,
+  String? message,
+  String? photo,
+  DocumentReference? user,
+  String? sponsorid,
+  DateTime? time,
+  bool? read,
 }) {
   final firestoreData = serializers.toFirestore(
     NotificationsRecord.serializer,
     NotificationsRecord(
       (n) => n
-        ..postPhoto = postPhoto
-        ..postTitle = postTitle
-        ..postDescription = postDescription
-        ..postUser = postUser
-        ..timePosted = timePosted
-        ..likes = null
-        ..numComments = numComments
-        ..numVotes = numVotes,
+        ..title = title
+        ..message = message
+        ..photo = photo
+        ..user = user
+        ..sponsorid = sponsorid
+        ..time = time
+        ..read = read,
     ),
   );
 
