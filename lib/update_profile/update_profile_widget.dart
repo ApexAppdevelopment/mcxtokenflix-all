@@ -402,59 +402,70 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                 .asValidator(context),
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 24.0, 0.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              final usersUpdateData = createUsersRecordData(
-                                photoUrl: _model.uploadedFileUrl,
-                                phoneNumber: _model.phoneController.text,
-                                city: _model.cityController.text,
-                                sponsorID: _model.sponsorIDController.text,
-                              );
-                              await currentUserReference!
-                                  .update(usersUpdateData);
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 24.0, 0.0, 0.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    final usersUpdateData =
+                                        createUsersRecordData(
+                                      photoUrl: _model.uploadedFileUrl,
+                                      phoneNumber: _model.phoneController.text,
+                                      city: _model.cityController.text,
+                                      sponsorID:
+                                          _model.sponsorIDController.text,
+                                    );
+                                    await currentUserReference!
+                                        .update(usersUpdateData);
 
-                              context.pushNamed(
-                                'HomePage',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType:
-                                        PageTransitionType.bottomToTop,
+                                    context.pushNamed(
+                                      'HomePage',
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.bottomToTop,
+                                        ),
+                                      },
+                                    );
+                                  },
+                                  text: 'Save Changes',
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height: 50.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .subtitle2
+                                        .override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.normal,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle2Family),
+                                        ),
+                                    elevation: 2.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
                                   ),
-                                },
-                              );
-                            },
-                            text: 'Save Changes',
-                            options: FFButtonOptions(
-                              width: 369.4,
-                              height: 60.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryColor,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
-                                  .override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Colors.white,
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.normal,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .subtitle2Family),
-                                  ),
-                              elevation: 2.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
+                                ),
                               ),
                             ),
-                          ),
+                          ],
                         ),
                       ],
                     ),
