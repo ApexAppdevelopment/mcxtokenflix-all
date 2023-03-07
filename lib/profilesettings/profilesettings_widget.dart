@@ -197,7 +197,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                             0.0, 0.0, 0.0, 15.0),
                                         child: InkWell(
                                           onTap: () async {
-                                            context.pushNamed('Qrcode');
+                                            await launchURL(
+                                                'https://mcxttoken-6551.affiliatery.staqlab.com/partner/');
                                           },
                                           child: Container(
                                             width: double.infinity,
@@ -407,7 +408,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          'MCXT Token Wallet',
+                                                          'MCXT Token ',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText1,
@@ -468,7 +469,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                             0.0, 0.0, 0.0, 10.0),
                                         child: InkWell(
                                           onTap: () async {
-                                            context.pushNamed('MLMdashboard');
+                                            await launchURL(
+                                                'https://mcxttoken-6551.affiliatery.staqlab.com/partner/signIn');
                                           },
                                           child: Container(
                                             width: double.infinity,

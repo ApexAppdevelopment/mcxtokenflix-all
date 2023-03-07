@@ -47,6 +47,10 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
   int? get notifcount;
 
+  String? get paymentwallet;
+
+  String? get walletaddressadded;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -65,7 +69,9 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..qrcode = ''
     ..reflink = ''
     ..isauthenticated = false
-    ..notifcount = 0;
+    ..notifcount = 0
+    ..paymentwallet = ''
+    ..walletaddressadded = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Users');
@@ -105,6 +111,8 @@ Map<String, dynamic> createUsersRecordData({
   DocumentReference? allrefferrals,
   bool? isauthenticated,
   int? notifcount,
+  String? paymentwallet,
+  String? walletaddressadded,
 }) {
   final firestoreData = serializers.toFirestore(
     UsersRecord.serializer,
@@ -125,7 +133,9 @@ Map<String, dynamic> createUsersRecordData({
         ..reflink = reflink
         ..allrefferrals = allrefferrals
         ..isauthenticated = isauthenticated
-        ..notifcount = notifcount,
+        ..notifcount = notifcount
+        ..paymentwallet = paymentwallet
+        ..walletaddressadded = walletaddressadded,
     ),
   );
 

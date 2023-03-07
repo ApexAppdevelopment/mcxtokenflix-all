@@ -1,7 +1,6 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/components/getqr_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -9,7 +8,6 @@ import '/flutter_flow/upload_media.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +32,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
     super.initState();
     _model = createModel(context, () => UpdateProfileModel());
 
-    _model.sponsorIDController ??= TextEditingController(text: _model.code);
+    _model.sponsorIDController ??= TextEditingController();
     _model.phoneController ??= TextEditingController(text: '+63');
     _model.cityController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -211,7 +209,7 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 30.0, 20.0, 10.0),
+                                        0.0, 30.0, 0.0, 10.0),
                                     child: TextFormField(
                                       controller: _model.sponsorIDController,
                                       obscureText: false,
@@ -273,55 +271,6 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                     ),
                                   ),
                                 ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 12.0, 0.0, 0.0),
-                                child: InkWell(
-                                  onTap: () async {
-                                    _model.code =
-                                        await FlutterBarcodeScanner.scanBarcode(
-                                      '#C62828', // scanning line color
-                                      'Cancel', // cancel button text
-                                      true, // whether to show the flash icon
-                                      ScanMode.QR,
-                                    );
-
-                                    setState(() {
-                                      FFAppState().sponsorID = _model.code!;
-                                    });
-                                    if (_model.code == '') {
-                                      await showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        enableDrag: false,
-                                        context: context,
-                                        builder: (context) {
-                                          return Padding(
-                                            padding: MediaQuery.of(context)
-                                                .viewInsets,
-                                            child: GetqrWidget(),
-                                          );
-                                        },
-                                      ).then((value) => setState(() {}));
-                                    }
-
-                                    setState(() {});
-                                  },
-                                  child: Container(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: Image.asset(
-                                          'assets/images/iconmonstr-qr-code-2.png',
-                                        ).image,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                  ),
-                                ),
-                              ),
                             ],
                           ),
                           Padding(
@@ -384,10 +333,10 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                               controller: _model.cityController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Address',
+                                labelText: 'City',
                                 labelStyle:
                                     FlutterFlowTheme.of(context).bodyText2,
-                                hintText: 'Enter Address',
+                                hintText: 'Home Address',
                                 hintStyle:
                                     FlutterFlowTheme.of(context).bodyText2,
                                 enabledBorder: OutlineInputBorder(
@@ -447,14 +396,16 @@ class _UpdateProfileWidgetState extends State<UpdateProfileWidget> {
                                         phoneNumber:
                                             _model.phoneController.text,
                                         city: _model.cityController.text,
-                                        sponsorID:
-                                            _model.sponsorIDController.text,
+                                        sponsorID: valueOrDefault<String>(
+                                          _model.sponsorIDController.text,
+                                          '000000',
+                                        ),
                                       );
                                       await currentUserReference!
                                           .update(usersUpdateData);
 
                                       context.pushNamed(
-                                        'HomePage',
+                                        'ConnectWallet',
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,

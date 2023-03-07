@@ -216,6 +216,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Network',
               path: 'network',
               builder: (context, params) => NetworkWidget(),
+            ),
+            FFRoute(
+              name: 'ConnectWallet',
+              path: 'connectWallet',
+              builder: (context, params) => ConnectWalletWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

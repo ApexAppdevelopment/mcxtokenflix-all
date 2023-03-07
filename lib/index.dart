@@ -28,3 +28,4 @@ export '/notifications/notifications_widget.dart' show NotificationsWidget;
 export '/testinglist/testinglist_widget.dart' show TestinglistWidget;
 export '/dashboard/dashboard_widget.dart' show DashboardWidget;
 export '/network/network_widget.dart' show NetworkWidget;
+export '/connect_wallet/connect_wallet_widget.dart' show ConnectWalletWidget;

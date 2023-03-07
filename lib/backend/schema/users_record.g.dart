@@ -130,6 +130,20 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add('notifcount')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.paymentwallet;
+    if (value != null) {
+      result
+        ..add('paymentwallet')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.walletaddressadded;
+    if (value != null) {
+      result
+        ..add('walletaddressadded')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -218,6 +232,14 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.notifcount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'paymentwallet':
+          result.paymentwallet = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'walletaddressadded':
+          result.walletaddressadded = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -265,6 +287,10 @@ class _$UsersRecord extends UsersRecord {
   @override
   final int? notifcount;
   @override
+  final String? paymentwallet;
+  @override
+  final String? walletaddressadded;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -287,6 +313,8 @@ class _$UsersRecord extends UsersRecord {
       this.allrefferrals,
       this.isauthenticated,
       this.notifcount,
+      this.paymentwallet,
+      this.walletaddressadded,
       this.ffRef})
       : super._();
 
@@ -317,6 +345,8 @@ class _$UsersRecord extends UsersRecord {
         allrefferrals == other.allrefferrals &&
         isauthenticated == other.isauthenticated &&
         notifcount == other.notifcount &&
+        paymentwallet == other.paymentwallet &&
+        walletaddressadded == other.walletaddressadded &&
         ffRef == other.ffRef;
   }
 
@@ -339,26 +369,33 @@ class _$UsersRecord extends UsersRecord {
                                                             $jc(
                                                                 $jc(
                                                                     $jc(
-                                                                        0,
-                                                                        email
+                                                                        $jc(
+                                                                            $jc(
+                                                                                0,
+                                                                                email
+                                                                                    .hashCode),
+                                                                            displayName
+                                                                                .hashCode),
+                                                                        photoUrl
                                                                             .hashCode),
-                                                                    displayName
+                                                                    uid
                                                                         .hashCode),
-                                                                photoUrl
+                                                                createdTime
                                                                     .hashCode),
-                                                            uid.hashCode),
-                                                        createdTime.hashCode),
-                                                    phoneNumber.hashCode),
-                                                refferralID.hashCode),
-                                            sponsorID.hashCode),
-                                        walletBalance.hashCode),
-                                    mcxtaddress.hashCode),
-                                city.hashCode),
-                            qrcode.hashCode),
-                        reflink.hashCode),
-                    allrefferrals.hashCode),
-                isauthenticated.hashCode),
-            notifcount.hashCode),
+                                                            phoneNumber
+                                                                .hashCode),
+                                                        refferralID.hashCode),
+                                                    sponsorID.hashCode),
+                                                walletBalance.hashCode),
+                                            mcxtaddress.hashCode),
+                                        city.hashCode),
+                                    qrcode.hashCode),
+                                reflink.hashCode),
+                            allrefferrals.hashCode),
+                        isauthenticated.hashCode),
+                    notifcount.hashCode),
+                paymentwallet.hashCode),
+            walletaddressadded.hashCode),
         ffRef.hashCode));
   }
 
@@ -381,6 +418,8 @@ class _$UsersRecord extends UsersRecord {
           ..add('allrefferrals', allrefferrals)
           ..add('isauthenticated', isauthenticated)
           ..add('notifcount', notifcount)
+          ..add('paymentwallet', paymentwallet)
+          ..add('walletaddressadded', walletaddressadded)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -456,6 +495,16 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   int? get notifcount => _$this._notifcount;
   set notifcount(int? notifcount) => _$this._notifcount = notifcount;
 
+  String? _paymentwallet;
+  String? get paymentwallet => _$this._paymentwallet;
+  set paymentwallet(String? paymentwallet) =>
+      _$this._paymentwallet = paymentwallet;
+
+  String? _walletaddressadded;
+  String? get walletaddressadded => _$this._walletaddressadded;
+  set walletaddressadded(String? walletaddressadded) =>
+      _$this._walletaddressadded = walletaddressadded;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -483,6 +532,8 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _allrefferrals = $v.allrefferrals;
       _isauthenticated = $v.isauthenticated;
       _notifcount = $v.notifcount;
+      _paymentwallet = $v.paymentwallet;
+      _walletaddressadded = $v.walletaddressadded;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -522,6 +573,8 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
             allrefferrals: allrefferrals,
             isauthenticated: isauthenticated,
             notifcount: notifcount,
+            paymentwallet: paymentwallet,
+            walletaddressadded: walletaddressadded,
             ffRef: ffRef);
     replace(_$result);
     return _$result;
