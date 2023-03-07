@@ -30,7 +30,7 @@ class _ConnectWalletWidgetState extends State<ConnectWalletWidget> {
     super.initState();
     _model = createModel(context, () => ConnectWalletModel());
 
-    _model.textController ??= TextEditingController();
+    _model.walletaddressController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -145,10 +145,10 @@ class _ConnectWalletWidgetState extends State<ConnectWalletWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(20.0, 15.0, 20.0, 25.0),
                 child: FlutterFlowDropDown<String>(
-                  initialOption: _model.dropDownValue ??= 'USDT',
+                  initialOption: _model.currencyValue ??= 'USDT',
                   options: ['USDT', 'BNB', 'BTC', 'ETHERIUM'],
                   onChanged: (val) =>
-                      setState(() => _model.dropDownValue = val),
+                      setState(() => _model.currencyValue = val),
                   width: double.infinity,
                   height: 50.0,
                   textStyle: FlutterFlowTheme.of(context).bodyText1.override(
@@ -168,71 +168,69 @@ class _ConnectWalletWidgetState extends State<ConnectWalletWidget> {
                   hidesUnderline: true,
                 ),
               ),
-              if (_model.dropDownValue == '')
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 15.0, 20.0, 0.0),
-                  child: TextFormField(
-                    controller: _model.textController,
-                    onChanged: (_) => EasyDebounce.debounce(
-                      '_model.textController',
-                      Duration(milliseconds: 2000),
-                      () => setState(() {}),
-                    ),
-                    autofocus: true,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Wallet Address',
-                      hintText: 'Wallet Address',
-                      hintStyle: FlutterFlowTheme.of(context).bodyText2,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      suffixIcon: _model.textController!.text.isNotEmpty
-                          ? InkWell(
-                              onTap: () async {
-                                _model.textController?.clear();
-                                setState(() {});
-                              },
-                              child: Icon(
-                                Icons.clear,
-                                color: Color(0xFF757575),
-                                size: 22.0,
-                              ),
-                            )
-                          : null,
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyText1,
-                    validator:
-                        _model.textControllerValidator.asValidator(context),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 15.0, 20.0, 0.0),
+                child: TextFormField(
+                  controller: _model.walletaddressController,
+                  onChanged: (_) => EasyDebounce.debounce(
+                    '_model.walletaddressController',
+                    Duration(milliseconds: 2000),
+                    () => setState(() {}),
                   ),
+                  autofocus: true,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    labelText: 'Wallet Address',
+                    hintText: 'Paste Wallet Address',
+                    hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0x00000000),
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0x00000000),
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0x00000000),
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    suffixIcon: _model.walletaddressController!.text.isNotEmpty
+                        ? InkWell(
+                            onTap: () async {
+                              _model.walletaddressController?.clear();
+                              setState(() {});
+                            },
+                            child: Icon(
+                              Icons.clear,
+                              color: Color(0xFF757575),
+                              size: 22.0,
+                            ),
+                          )
+                        : null,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1,
+                  validator: _model.walletaddressControllerValidator
+                      .asValidator(context),
                 ),
-              if (_model.textController.text == '')
+              ),
+              if (_model.walletaddressController.text == '')
                 Align(
                   alignment: AlignmentDirectional(0.0, 0.05),
                   child: Padding(
@@ -241,8 +239,9 @@ class _ConnectWalletWidgetState extends State<ConnectWalletWidget> {
                     child: FFButtonWidget(
                       onPressed: () async {
                         final usersUpdateData = createUsersRecordData(
-                          displayName: _model.dropDownValue,
-                          walletaddressadded: _model.textController.text,
+                          walletaddressadded:
+                              _model.walletaddressController.text,
+                          paymentwallet: _model.currencyValue,
                         );
                         await currentUserReference!.update(usersUpdateData);
 

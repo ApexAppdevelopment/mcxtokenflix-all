@@ -14,18 +14,18 @@ import 'package:provider/provider.dart';
 class ConnectWalletModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  // State field(s) for TextField widget.
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
+  // State field(s) for currency widget.
+  String? currencyValue;
+  // State field(s) for walletaddress widget.
+  TextEditingController? walletaddressController;
+  String? Function(BuildContext, String?)? walletaddressControllerValidator;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
 
   void dispose() {
-    textController?.dispose();
+    walletaddressController?.dispose();
   }
 
   /// Additional helper methods are added here.
