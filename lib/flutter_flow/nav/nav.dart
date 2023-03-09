@@ -138,16 +138,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => BuyPackageWidget(),
             ),
             FFRoute(
-              name: 'RefferralLink',
-              path: 'refferralLink',
-              builder: (context, params) => RefferralLinkWidget(),
-            ),
-            FFRoute(
-              name: 'projects',
-              path: 'projects',
-              builder: (context, params) => ProjectsWidget(),
-            ),
-            FFRoute(
               name: 'whychooseus',
               path: 'whychooseus',
               asyncParams: {
@@ -183,11 +173,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => DevelopmentModeWidget(),
             ),
             FFRoute(
-              name: 'AddCryptoWallet',
-              path: 'addCryptoWallet',
-              builder: (context, params) => AddCryptoWalletWidget(),
-            ),
-            FFRoute(
               name: 'buytoken',
               path: 'buytoken',
               builder: (context, params) => BuytokenWidget(),
@@ -203,24 +188,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => NotificationsWidget(),
             ),
             FFRoute(
-              name: 'testinglist',
-              path: 'testinglist',
-              builder: (context, params) => TestinglistWidget(),
-            ),
-            FFRoute(
-              name: 'Dashboard',
-              path: 'dashboard',
-              builder: (context, params) => DashboardWidget(),
-            ),
-            FFRoute(
-              name: 'Network',
-              path: 'network',
-              builder: (context, params) => NetworkWidget(),
-            ),
-            FFRoute(
               name: 'ConnectWallet',
               path: 'connectWallet',
               builder: (context, params) => ConnectWalletWidget(),
+            ),
+            FFRoute(
+              name: 'chainlist',
+              path: 'Chainlist',
+              builder: (context, params) => ChainlistWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

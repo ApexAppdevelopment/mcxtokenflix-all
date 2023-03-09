@@ -198,7 +198,8 @@ class _BuytokenWidgetState extends State<BuytokenWidget>
                             List<PackagesRecord> budgetPackagesRecordList =
                                 snapshot.data!;
                             return FlutterFlowDropDown<String>(
-                              options: ['USDT', 'BTC', 'BNB'],
+                              initialOption: _model.budgetValue2 ??= 'USDT',
+                              options: ['USDT', 'BTC', 'BNB', 'Etherium'],
                               onChanged: (val) =>
                                   setState(() => _model.budgetValue2 = val),
                               width: MediaQuery.of(context).size.width * 0.9,
@@ -271,7 +272,16 @@ class _BuytokenWidgetState extends State<BuytokenWidget>
                             contentPadding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 40.0, 24.0, 0.0),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyText1Family,
+                                fontWeight: FontWeight.normal,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyText1Family),
+                              ),
                           textAlign: TextAlign.start,
                           validator: _model.reasonControllerValidator
                               .asValidator(context),
@@ -303,13 +313,14 @@ class _BuytokenWidgetState extends State<BuytokenWidget>
                               0.0, 0.0, 0.0, 0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primaryColor,
+                          color: Color(0x0081812D),
                           textStyle: FlutterFlowTheme.of(context)
                               .title2
                               .override(
                                 fontFamily:
                                     FlutterFlowTheme.of(context).title2Family,
-                                color: Colors.white,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context).title2Family),
                               ),

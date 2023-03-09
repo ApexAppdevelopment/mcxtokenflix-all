@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -83,11 +84,28 @@ class _MetamaskWidgetState extends State<MetamaskWidget> {
           : null,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [],
-          ),
+        child: Stack(
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 800.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: FlutterFlowWebView(
+                    url: 'https://flutter.dev',
+                    bypass: false,
+                    height: 800.0,
+                    verticalScroll: false,
+                    horizontalScroll: false,
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

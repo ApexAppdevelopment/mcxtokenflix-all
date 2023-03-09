@@ -359,7 +359,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                                                         ),
                                                                                         InkWell(
                                                                                           onTap: () async {
-                                                                                            await launchURL('https://metamask.io/');
+                                                                                            context.pushNamed('chainlist');
                                                                                           },
                                                                                           child: ClipRRect(
                                                                                             borderRadius: BorderRadius.circular(8.0),
@@ -790,7 +790,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       Icons.list,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
-                                      size: 18.0,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),

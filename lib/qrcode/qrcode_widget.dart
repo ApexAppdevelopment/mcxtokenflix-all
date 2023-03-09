@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -184,49 +185,73 @@ class _QrcodeWidgetState extends State<QrcodeWidget>
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 16.0, 0.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        4.0, 12.0, 10.0, 0.0),
-                                    child: AuthUserStreamWidget(
-                                      builder: (context) => Text(
-                                        'REF ID: ${valueOrDefault(currentUserDocument?.refferralID, '')}',
-                                        style: FlutterFlowTheme.of(context)
-                                            .title3
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .title3Family,
-                                              fontSize: 24.0,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .title3Family),
-                                            ),
+                              child: InkWell(
+                                onTap: () async {
+                                  await Clipboard.setData(ClipboardData(
+                                      text: valueOrDefault(
+                                          currentUserDocument?.refferralID,
+                                          '')));
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Copied',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                    ),
+                                  );
+                                },
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          4.0, 12.0, 10.0, 0.0),
+                                      child: AuthUserStreamWidget(
+                                        builder: (context) => Text(
+                                          'REF ID: ${valueOrDefault(currentUserDocument?.refferralID, '')}',
+                                          style: FlutterFlowTheme.of(context)
+                                              .title3
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .title3Family,
+                                                fontSize: 24.0,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .title3Family),
+                                              ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 20.0,
-                                    borderWidth: 1.0,
-                                    buttonSize: 40.0,
-                                    icon: Icon(
-                                      Icons.file_copy,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 20.0,
+                                    FlutterFlowIconButton(
+                                      borderColor: Colors.transparent,
+                                      borderRadius: 20.0,
+                                      borderWidth: 1.0,
+                                      buttonSize: 40.0,
+                                      icon: Icon(
+                                        Icons.file_copy,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        size: 20.0,
+                                      ),
+                                      onPressed: () {
+                                        print('IconButton pressed ...');
+                                      },
                                     ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ],

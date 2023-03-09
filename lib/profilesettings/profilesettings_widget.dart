@@ -195,92 +195,81 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 15.0),
-                                        child: InkWell(
-                                          onTap: () async {
-                                            await launchURL(
-                                                'https://mcxttoken-6551.affiliatery.staqlab.com/partner/');
-                                          },
-                                          child: Container(
-                                            width: double.infinity,
-                                            height: 50.0,
-                                            decoration: BoxDecoration(
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: 50.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                              ),
+                                                      .secondaryText,
                                             ),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 0.0, 0.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Icon(
-                                                        Icons
-                                                            .insert_link_rounded,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        size: 24.0,
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child:
-                                                            AuthUserStreamWidget(
-                                                          builder: (context) =>
-                                                              Text(
-                                                            'Copy Refferral Code: ${valueOrDefault(currentUserDocument?.refferralID, '')}',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyText1,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  FlutterFlowIconButton(
-                                                    borderColor:
-                                                        Colors.transparent,
-                                                    borderRadius: 30.0,
-                                                    borderWidth: 1.0,
-                                                    buttonSize: 60.0,
-                                                    icon: Icon(
-                                                      Icons
-                                                          .content_copy_rounded,
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.insert_link_rounded,
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .primaryText,
-                                                      size: 30.0,
+                                                      size: 24.0,
                                                     ),
-                                                    onPressed: () async {
-                                                      context
-                                                          .pushNamed('Qrcode');
-                                                    },
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child:
+                                                          AuthUserStreamWidget(
+                                                        builder: (context) =>
+                                                            Text(
+                                                          'Copy Refferral Code: ${valueOrDefault(currentUserDocument?.refferralID, '')}',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                FlutterFlowIconButton(
+                                                  borderColor:
+                                                      Colors.transparent,
+                                                  borderRadius: 30.0,
+                                                  borderWidth: 1.0,
+                                                  buttonSize: 60.0,
+                                                  icon: Icon(
+                                                    Icons.content_copy_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    size: 30.0,
                                                   ),
-                                                ],
-                                              ),
+                                                  onPressed: () async {
+                                                    context.pushNamed('Qrcode');
+                                                  },
+                                                ),
+                                              ],
                                             ),
                                           ),
                                         ),
@@ -467,68 +456,61 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
-                                        child: InkWell(
-                                          onTap: () async {
-                                            await launchURL(
-                                                'https://mcxttoken-6551.affiliatery.staqlab.com/partner/signIn');
-                                          },
-                                          child: Container(
-                                            width: double.infinity,
-                                            height: 50.0,
-                                            decoration: BoxDecoration(
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: 50.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                              ),
+                                                      .secondaryText,
                                             ),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 0.0, 0.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Icon(
-                                                        Icons
-                                                            .laptop_mac_outlined,
-                                                        color:
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.laptop_mac_outlined,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        'Go to Dashboard',
+                                                        style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryText,
-                                                        size: 24.0,
+                                                                .bodyText1,
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          'Go to Dashboard',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
                                             ),
                                           ),
                                         ),

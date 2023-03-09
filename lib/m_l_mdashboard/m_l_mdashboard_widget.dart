@@ -376,99 +376,85 @@ class _MLMdashboardWidgetState extends State<MLMdashboardWidget> {
                                   ),
                                 ),
                               ),
-                              InkWell(
-                                onTap: () async {
-                                  context.pushNamed('Network');
-                                },
-                                child: Container(
-                                  width: 70.0,
-                                  height: 70.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 5.0,
-                                        color: Color(0x3A000000),
-                                        offset: Offset(0.0, 2.0),
-                                      )
+                              Container(
+                                width: 70.0,
+                                height: 70.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 5.0,
+                                      color: Color(0x3A000000),
+                                      offset: Offset(0.0, 2.0),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      4.0, 4.0, 4.0, 4.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.stacked_line_chart_rounded,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 30.0,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 8.0, 0.0, 0.0),
+                                        child: Text(
+                                          'Unilevel',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                        ),
+                                      ),
                                     ],
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        4.0, 4.0, 4.0, 4.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.stacked_line_chart_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 30.0,
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 8.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Unilevel',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
                                   ),
                                 ),
                               ),
-                              InkWell(
-                                onTap: () async {
-                                  context.pushNamed('Dashboard');
-                                },
-                                child: Container(
-                                  width: 70.0,
-                                  height: 70.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 5.0,
-                                        color: Color(0x39000000),
-                                        offset: Offset(0.0, 2.0),
-                                      )
+                              Container(
+                                width: 70.0,
+                                height: 70.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 5.0,
+                                      color: Color(0x39000000),
+                                      offset: Offset(0.0, 2.0),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      4.0, 4.0, 4.0, 4.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                        Icons.account_balance_outlined,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 30.0,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 8.0, 0.0, 0.0),
+                                        child: Text(
+                                          'Rewards',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                        ),
+                                      ),
                                     ],
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        4.0, 4.0, 4.0, 4.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.account_balance_outlined,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 30.0,
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 8.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Rewards',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
                                   ),
                                 ),
                               ),
